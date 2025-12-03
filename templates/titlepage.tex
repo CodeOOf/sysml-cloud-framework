@@ -59,6 +59,15 @@
 \maketitle
 \thispagestyle{empty}
 \clearpage
+% Allow Pandoc to inject needed header includes (packages, styles)
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(toc)$
+	ableofcontents
+\clearpage
+$endif$
 
 $body$
 \end{document}
