@@ -42,6 +42,33 @@ def run_pandoc(md_files, out_pdf, pub_dir):
         return False
 
 
+def prefix_name(filename, phase=None):
+    """Return a filename prefixed with the numeric ordering based on V-Model phase.
+
+    phase: optional V-Model phase key (e.g., 'ProjectManagement', 'SystemRequirements')
+    If phase is None, no prefix is added.
+    """
+    order_map = {
+        "ProjectManagement": "01",
+        "StakeholderNeeds": "02",
+        "SystemRequirements": "03",
+        "SystemArchitectureAndDesign": "04",
+        "SubsystemRequirements": "05",
+        "SubsystemDetailedDesign": "06",
+        "Implementation": "07",
+        "Integration": "08",
+        "Verification": "09",
+        "Validation": "10",
+        "DeploymentAndOM": "11",
+    }
+    if not phase:
+        return filename
+    num = order_map.get(phase)
+    if not num:
+        return filename
+    return f"{num}_{filename}"
+
+
 def main(pub_dir):
     pub = Path(pub_dir)
     if not pub.exists():
@@ -58,7 +85,8 @@ def main(pub_dir):
     if semp_src.exists():
         semp_dst = pub / "SEMP.md"
         semp_dst.write_bytes(semp_src.read_bytes())
-        run_pandoc([semp_dst.name], str(pub / "SEMP.pdf"), str(pub))
+        out = prefix_name("SEMP.pdf", "ProjectManagement")
+        run_pandoc([semp_dst.name], str(pub / out), str(pub))
     else:
         print("ℹ️  No SEMP.md found at repo root; skipping SEMP PDF")
 
@@ -68,7 +96,8 @@ def main(pub_dir):
         # sort by title
         system_pages = sorted(system_pages, key=lambda x: x.get("title",""))
         md_list = [p["rel"] for p in system_pages]
-        run_pandoc(md_list, str(pub / "SystemDesign_SysMLCloudPlatform.pdf"), str(pub))
+        out = prefix_name("SystemDesign_SysMLCloudPlatform.pdf", "SystemArchitectureAndDesign")
+        run_pandoc(md_list, str(pub / out), str(pub))
     else:
         print("ℹ️  No overall-design pages found for System Design PDF")
 
@@ -77,7 +106,8 @@ def main(pub_dir):
     fabrication_pages = [p for p in manifest if p.get("domain") == "datacenter"]
     if fabrication_pages:
         fabrication_pages = sorted(fabrication_pages, key=lambda x: x.get("title",""))
-        run_pandoc([p["rel"] for p in fabrication_pages], str(pub / "SubSystemDesign_Fabrication.pdf"), str(pub))
+        out = prefix_name("SubSystemDesign_Fabrication.pdf", "SystemArchitectureAndDesign")
+        run_pandoc([p["rel"] for p in fabrication_pages], str(pub / out), str(pub))
     else:
         print("ℹ️  No datacenter (Fabrication) pages found for Fabrication Sub-System PDF")
 
@@ -85,7 +115,8 @@ def main(pub_dir):
     infrastructure_pages = [p for p in manifest if p.get("domain") == "infrastructure"]
     if infrastructure_pages:
         infrastructure_pages = sorted(infrastructure_pages, key=lambda x: x.get("title",""))
-        run_pandoc([p["rel"] for p in infrastructure_pages], str(pub / "SubSystemDesign_Infrastructure.pdf"), str(pub))
+        out = prefix_name("SubSystemDesign_Infrastructure.pdf", "SystemArchitectureAndDesign")
+        run_pandoc([p["rel"] for p in infrastructure_pages], str(pub / out), str(pub))
     else:
         print("ℹ️  No infrastructure pages found for Infrastructure Sub-System PDF")
 
@@ -106,10 +137,11 @@ def main(pub_dir):
             pages = sorted(pages, key=lambda x: x.get('title',''))
             md_list = [p['rel'] for p in pages]
             if domain == 'overall-design':
-                out_pdf = pub / 'Requirements_SysMLCloudPlatform.pdf'
+                filename = 'Requirements_SysMLCloudPlatform.pdf'
             else:
-                out_pdf = pub / f"Requirements_{domain.capitalize()}.pdf"
-            run_pandoc(md_list, str(out_pdf), str(pub))
+                filename = f"Requirements_{domain.capitalize()}.pdf"
+            out_pdf = prefix_name(filename, "SystemRequirements")
+            run_pandoc(md_list, str(pub / out_pdf), str(pub))
     else:
         print("ℹ️  No requirements pages found to build Requirements PDFs")
 
@@ -130,8 +162,9 @@ def main(pub_dir):
         folder_name = parts[-1] if len(parts) > 1 else key
         # Convert to title case: fabrication-datacenter-a -> FabricationDatacenterA
         title_name = ''.join(word.capitalize() for word in folder_name.replace('-', ' ').split())
-        out_pdf = pub / f"DetailedDesign_{title_name}.pdf"
-        run_pandoc(sorted(files), str(out_pdf), str(pub))
+        filename = f"DetailedDesign_{title_name}.pdf"
+        out_pdf = prefix_name(filename, "SubsystemDetailedDesign")
+        run_pandoc(sorted(files), str(pub / out_pdf), str(pub))
 
     # 4) V-Model grouping: produce one PDF per V-Model phase by keyword mapping
     # Mapping based on typical documents supplied by the user.
@@ -168,8 +201,8 @@ def main(pub_dir):
         if matched:
             matched = sorted(matched, key=lambda x: x.get('title',''))
             md_list = [p['rel'] for p in matched]
-            out_pdf = pub / f"{phase_name}.pdf"
-            run_pandoc(md_list, str(out_pdf), str(pub))
+            out_pdf_name = prefix_name(f"{phase_name}.pdf", phase_name)
+            run_pandoc(md_list, str(pub / out_pdf_name), str(pub))
         else:
             print(f"ℹ️  No documents found for V-Model phase: {phase_name}")
 

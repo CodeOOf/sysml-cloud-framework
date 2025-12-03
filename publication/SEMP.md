@@ -89,6 +89,22 @@ Requirements → Architecture → Design → Implementation → Validation → O
 
 **Tools:** SysML text/graphical editors, Git version control
 
+### Publication naming & V-Model mapping
+
+This project publishes formal documents as ordered PDFs aligned with the V-Model lifecycle. Filenames are prefixed with a numeric ordering so documents can be read in the intended sequence (example: `01_` = Project Management, `03_` = System Requirements, `04_` = System Architecture & Design, etc.).
+
+Guidelines:
+- Place SysML requirement models under `sysml/*/` — `build-docs.py` converts these to markdown and the PDF generator groups them by keywords into V-Model phases.
+- For non-model documents (PMP, ConOps, Integration Plan), add Markdown files at the repo root (or under `publication/`) and use descriptive filenames. The generator looks for keywords to map files into phases; if you need exact control, we can add a small YAML mapping file that explicitly assigns documents to V-Model phases.
+- To regenerate publications locally:
+
+```bash
+make docs
+make pdf
+```
+
+This will create prefixed PDFs in `publication/` such as `01_SEMP.pdf`, `03_Requirements_SysMLCloudPlatform.pdf`, `04_SystemDesign_SysMLCloudPlatform.pdf`, etc.
+
 ### 3.3 Architecture and Design
 
 **Definition:** Develop high-level system architecture using SysML block definition diagrams (BDD) and internal block diagrams (IBD).

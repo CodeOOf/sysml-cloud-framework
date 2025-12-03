@@ -105,6 +105,25 @@ make pdf
 * Runs Pandoc with XeLaTeX
 * Produces publication/sysml-cloud-platform.pdf
 
+### Publication naming & V-Model ordering
+
+The build pipeline now produces ordered PDF publications aligned to the V-Model. Filenames are prefixed with a numeric ordering to make the lifecycle ordering explicit. Example outputs:
+
+- `01_SEMP.pdf` (Project Management)
+- `02_StakeholderNeeds.pdf` (Stakeholder needs and Scenarios)
+- `03_Requirements_SysMLCloudPlatform.pdf` (System requirements)
+- `04_SystemDesign_SysMLCloudPlatform.pdf` (System architecture & design)
+- `04_SubSystemDesign_Fabrication.pdf` (Subsystem architecture — Fabrication)
+- `06_DetailedDesign_FabricationDatacenterA.pdf` (Detailed designs)
+- `03_Requirements_Datacenter.pdf` (Domain requirements)
+
+How to make your document appear in the correct publication:
+- Put SysML files under `sysml/<domain>/` (e.g. `sysml/datacenter/`) — `build-docs.py` converts these to markdown.
+- Add standalone Markdown documents to the repo root or `publication/` and name them with meaningful terms (e.g. `PMP.md`, `ConOps.md`, `IntegrationPlan.md`). The PDF generator uses simple keyword matching to group documents into V-Model phases (you can customize keywords in `scripts/generate-pdfs.py`).
+- Run `make docs` then `make pdf` to rebuild the publications.
+
+If you want different behavior (for example, stricter grouping rules or custom prefixes), I can add a small configuration file to control phase mappings.
+
 ## 📂 Project Structure
 ```bash
 architecture/
