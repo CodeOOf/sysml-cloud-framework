@@ -1,23 +1,39 @@
 # SysML Cloud Platform
 A Model-Driven Framework for Designing and Building Cloud Solutions
+
+**Source of Truth**: [OMG SysML v2 Specification](https://www.omg.org/sysml/sysmlv2/) and [SysML v2 Release Repository](https://github.com/Systems-Modeling/SysML-v2-Release)
+
 ---
 ## Overview
 
-The SysML Cloud Platform is an open-source, model-driven engineering framework that connects SysML v2 system architecture with cloud infrastructure, technicians, and developers through a Git-native CI/CD workflow.
+The SysML Cloud Platform is an open-source, model-driven engineering framework that connects OMG SysML v2 system architecture with cloud infrastructure, technicians, and developers through a Git-native CI/CD workflow.
 
-Its goal is to transform system models into actionable implementation artifacts, enabling organizations to design, build, and evolve their own cloud platforms directly from SysML.
+Its goal is to transform system models into actionable implementation artifacts, enabling organizations to design, build, and evolve their own cloud platforms directly from SysML v2 (formally adopted by OMG on June 30, 2025).
+
+### Key Deployment Architecture
+
+This project demonstrates the complete system using:
+
+- **Cluster A**: Lab-scale development cluster (1 master, 2-3 workers) → Fabrication Datacenter A
+- **Cluster B**: Production EKS-like cluster (3 HA masters, 5-100+ workers) → Fabrication Datacenters A + B
+- **Shared Library**: Reusable SysML models, Terraform modules, and Ansible roles
+- **Template Structure**: Required folder and configuration patterns for all deployments
+
+For detailed architecture documentation, see **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)**.
 
 This project provides:
-* A structured Git repository optimized for SysML v2 projects
-* Tooling and conventions for synchronizing models with code
+* A structured Git repository optimized for OMG SysML v2 projects
+* Textual SysML models (OMG-compliant syntax) defining infrastructure architecture
+* Tooling and conventions for synchronizing models with infrastructure code
 * Automated pipelines that keep system architecture, software, and infrastructure aligned
 * A modular approach adaptable to any organization designing cloud solutions
 
 ### Key Features
-🔷 SysML-Driven Cloud Design
-* Organize full lifecycle architecture in SysML v2
-* Support for structural, behavioral, and deployment modeling
-* Clear mapping from SysML elements to cloud components
+🔷 SysML v2-Driven Cloud Design (OMG-Compliant)
+* Organize full lifecycle architecture using OMG SysML v2 textual syntax
+* Package-based organization: `sysml/overall-design/`, `sysml/infrastructure/`, `sysml/datacenter/`
+* Support for structural modeling (classes, attributes, composition)
+* Clear mapping from SysML elements to cloud components (Cluster A, Cluster B, datacenters)
 
 🔷 Git-Native Repository Structure
 * A standardized folder layout for model, code, and infrastructure alignment
@@ -25,32 +41,33 @@ This project provides:
 * Compatible with GitHub, GitLab, Azure DevOps, and any Git provider
 
 🔷 Model-to-Implementation Synchronization
-* Automated generation of implementation stubs, documentation, or infrastructure definitions
-* Optional round-trip update patterns via model annotations and metadata
+* Automated generation of documentation from SysML models
+* Terraform modules and Ansible roles derived from and traceable to SysML definitions
+* Template-based consistency across clusters and datacenters
 * Traceability of architectural decisions and design elements
 
 🔷 CI/CD Integration
 * Pipelines for validating SysML models
 * Build + deploy workflows derived from system elements
 * Hooks for generating artifacts such as:
-* Deployment templates (Terraform, Ansible, Helm)
-* Interface definitions (OpenAPI, AsyncAPI)
-* System documentation
+  - Deployment templates (Terraform, Ansible, Helm)
+  - Infrastructure as Code (IaC) configurations
+  - System documentation (PDFs with V-Model phases)
 
 🔷 Open-Source and Extensible
 * Fully modular design
-* Extensible plugin concept for new cloud providers or modeling tools
+* Shared library for reusable SysML, Terraform, and Ansible components
 * Community-friendly contribution model
 
 ### Vision
 
-The SysML Cloud Platform aims to close the gap between systems engineering and cloud software delivery, making SysML a central source of truth for:
-* Architecture
-* Operations
-* Implementation
-* Governance
+The SysML Cloud Platform aims to close the gap between systems engineering and cloud software delivery, making OMG SysML v2 a central source of truth for:
+* Architecture (Kubernetes clusters, datacenters, networks)
+* Operations (monitoring, logging, security policies)
+* Implementation (Terraform, Ansible automation)
+* Governance (requirements traceability, V-Model alignment)
 
-By aligning engineers, developers, and operators through shared models and automated pipelines, the platform supports building reliable and scalable cloud systems from a rigorous architectural foundation.
+By aligning engineers, developers, and operators through shared SysML models and automated pipelines, the platform supports building reliable and scalable cloud systems from a rigorous, formal architectural foundation.
 
 ---
 
@@ -146,16 +163,50 @@ The build pipeline produces ordered PDF publications aligned to the SE V-Model w
 
 The generator applies phase mapping based on keywords in document filenames and metadata (see `scripts/generate-pdfs.py` for the keyword list). For deterministic mapping, you can customize phase assignments in the script.
 
+---
+
+## 🏗️ SysML Architecture Guide
+
+For a detailed walkthrough of how this project uses OMG SysML v2, including:
+- Cluster A (lab-scale) and Cluster B (production EKS-like) definitions
+- Multi-datacenter deployment topology
+- Shared library patterns for reusability
+- Traceability from SysML to Terraform to Ansible
+- Template structures for consistency
+
+See: **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)**
+
+---
+
 ## 📂 Project Structure
 ```bash
 architecture/
-├── sysml/              # SysML source files
-├── publication/        # Generated Markdown + diagrams + PDF
-├── fabrications/       # Datacenter & rack models (can be a submodule)
-├── configs/            # Infrastructure cluster specs (can be a submodule)
-├── library/            # Shared roles, sysml library, terraform modules (can be a submodule)
+├── SYSML_ARCHITECTURE_GUIDE.md      # Complete SysML v2 architecture guide
+├── sysml/                           # OMG SysML v2 source files
+│   ├── overall-design/              # System-level architecture
+│   ├── infrastructure/              # Kubernetes cluster definitions
+│   └── datacenter/                  # Datacenter topology
+├── publication/                     # Generated Markdown + diagrams + PDFs
+├── fabrications/                    # Datacenter models and IaC
+│   ├── fabrication-datacenter-a/   # Primary datacenter
+│   └── fabrication-datacenter-b/   # Secondary datacenter
+├── configs/                         # Cluster configurations and IaC
+│   ├── infrastructure-cluster-a/   # Lab cluster
+│   └── infrastructure-cluster-b/   # Production cluster
+├── library/                         # Shared reusable components
+│   ├── sysml-library/              # Shared SysML definitions
+│   ├── terraform-modules/          # Shared Terraform modules
+│   └── ansible-roles/              # Shared Ansible roles
+├── templates/                       # Configuration templates and guidelines
+│   ├── TERRAFORM_STRUCTURE.md      # Terraform folder structure
+│   ├── ANSIBLE_STRUCTURE.md        # Ansible folder structure
+│   └── common_variables.tf         # Common Terraform variables
 ├── scripts/
-│   ├── build-docs.py   # SysML → Markdown + diagrams
+│   ├── build-docs.py               # SysML → Markdown + diagrams
+│   ├── generate-pdfs.py            # Generate V-Model-ordered PDFs
+│   └── check-encoding.py           # UTF-8 validation
+├── Makefile                        # Build orchestration (cross-platform)
+└── README.md                       # This file
 │   ├── check-encoding.py
 │   └── setup-submodules.py # Manage optional submodules from .submodules.config
 ├── templates/
