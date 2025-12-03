@@ -19,7 +19,11 @@ This project demonstrates the complete system using:
 - **Shared Library**: Reusable SysML models, Terraform modules, and Ansible roles
 - **Template Structure**: Required folder and configuration patterns for all deployments
 
-For detailed architecture documentation, see **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)**.
+For detailed architecture documentation, see:
+- **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** — Complete architecture reference
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** — Quick lookup card for common tasks
+- **[INDEX.md](publication/index.md)** — Entry point to all generated documentation
+- **[NAVIGATION_GUIDE.md](publication/NAVIGATION_GUIDE.md)** — Guide to publication structure and PDF organization
 
 This project provides:
 * A structured Git repository optimized for OMG SysML v2 projects
@@ -162,6 +166,108 @@ The build pipeline produces ordered PDF publications aligned to the SE V-Model w
 - Run `make docs` then `make pdf` to rebuild the publications.
 
 The generator applies phase mapping based on keywords in document filenames and metadata (see `scripts/generate-pdfs.py` for the keyword list). For deterministic mapping, you can customize phase assignments in the script.
+
+---
+
+## 📚 Documentation Navigation
+
+### Where to Start
+
+**First Time?** → Start here: [INDEX.md](publication/index.md)
+
+**Need Quick Answers?** → [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
+
+**Want Full Details?** → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)
+
+### Documentation by Purpose
+
+#### For Understanding Requirements
+- **[publication/NAVIGATION_GUIDE.md](publication/NAVIGATION_GUIDE.md)** — How requirements are organized and traced through the system
+- **[sysml/overall-design/SystemRequirementsDefinition.sysml](sysml/overall-design/SystemRequirementsDefinition.sysml)** — System-level requirements (SYSTEM_REQ_001-010)
+- **[sysml/infrastructure/InfrastructureSubSystemRequirements.sysml](sysml/infrastructure/InfrastructureSubSystemRequirements.sysml)** — Infrastructure requirements (INFRA_REQ_001-010)
+- **[sysml/datacenter/FabricationSubSystemRequirements.sysml](sysml/datacenter/FabricationSubSystemRequirements.sysml)** — Fabrication/datacenter requirements (FAB_REQ_001-010)
+- **[input/README.md](input/README.md)** — External requirement documents structure
+- **PDFs**: `03_SRD_*.pdf` — System requirements documents (organized by domain)
+
+#### For Understanding Architecture
+- **[sysml/infrastructure/KubernetesClusterArchitecture.sysml](sysml/infrastructure/KubernetesClusterArchitecture.sysml)** — Cluster A and B architecture
+- **[sysml/datacenter/DeploymentArchitecture.sysml](sysml/datacenter/DeploymentArchitecture.sysml)** — Multi-datacenter deployment
+- **[sysml/library/SharedInfrastructureLibrary.sysml](sysml/library/SharedInfrastructureLibrary.sysml)** — Reusable components
+- **[publication/cluster-architecture-model.md](publication/cluster-architecture-model.md)** — Kubernetes cluster design
+- **[publication/datacenter-architecture-model.md](publication/datacenter-architecture-model.md)** — Datacenter topology
+- **PDFs**: `04_SAD_*.pdf` — System architecture & design documents
+
+#### For Understanding Testing & Deployment
+- **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Complete testing and deployment procedures
+- **[sysml/overall-design/TestingAndDeploymentPlanning.sysml](sysml/overall-design/TestingAndDeploymentPlanning.sysml)** — Test plans and deployment definitions
+- **[PROJECT_INTEGRATION_GUIDE.md](PROJECT_INTEGRATION_GUIDE.md)** — Jira/GitLab integration and workflow
+- **PDFs**: `08_ITP_*.pdf`, `09_STP_*.pdf`, `11_DPL_*.pdf` — Testing and deployment documents
+
+#### For Project Managers & Stakeholders
+- **[publication/index.md](publication/index.md)** — Entry point with overview
+- **[01_PMP_SEMP.pdf](publication/01_PMP_SEMP.pdf)** — System Engineering Management Plan
+- **[PROJECT_INTEGRATION_GUIDE.md](PROJECT_INTEGRATION_GUIDE.md)** — Jira/issue tracking setup
+
+#### For Infrastructure/DevOps Teams
+- **[templates/TERRAFORM_STRUCTURE.md](templates/TERRAFORM_STRUCTURE.md)** — Terraform module organization
+- **[templates/ANSIBLE_STRUCTURE.md](templates/ANSIBLE_STRUCTURE.md)** — Ansible playbook organization
+- **[configs/infrastructure-cluster-a/](configs/infrastructure-cluster-a/)** — Cluster A IaC
+- **[configs/infrastructure-cluster-b/](configs/infrastructure-cluster-b/)** — Cluster B IaC
+- **[library/terraform-modules/](library/terraform-modules/)** — Shared Terraform modules
+- **[library/ansible-roles/](library/ansible-roles/)** — Shared Ansible roles
+
+#### For Facilities/Operations Teams
+- **[fabrications/fabrication-datacenter-a/](fabrications/fabrication-datacenter-a/)** — Datacenter A specifications
+- **[fabrications/fabrication-datacenter-b/](fabrications/fabrication-datacenter-b/)** — Datacenter B specifications
+- **[publication/floorplan.md](publication/floorplan.md)** — Physical layout
+- **[publication/rack-model.md](publication/rack-model.md)** — Rack specifications
+- **PDFs**: `06_SDD_FabricationDatacenter*.pdf` — Detailed datacenter design
+
+#### For Vendor Information
+- **[vendor-docs/README.md](vendor-docs/README.md)** — Vendor documentation repository structure
+- **[vendor-docs/kubernetes/README.md](vendor-docs/kubernetes/README.md)** — Kubernetes references
+- **[vendor-docs/terraform/README.md](vendor-docs/terraform/README.md)** — Terraform references
+- **[vendor-docs/ansible/README.md](vendor-docs/ansible/README.md)** — Ansible references
+
+### Generated PDF Publications
+
+All PDFs are generated automatically with `make pdf` and follow the V-Model phase naming convention.
+
+| PDF | Phase | Purpose |
+|---|---|---|
+| `01_PMP_SEMP.pdf` | Project Management | Project management plan and processes |
+| `03_SRD_SysMLCloudPlatform.pdf` | System Requirements | Overall system requirements |
+| `03_SRD_Infrastructure.pdf` | System Requirements | Infrastructure cluster requirements |
+| `03_SRD_Datacenter.pdf` | System Requirements | Datacenter/fabrication requirements |
+| `03_SRD_SystemRequirements.pdf` | System Requirements | All requirements consolidated |
+| `04_SAD_SysMLCloudPlatform.pdf` | System Architecture & Design | Overall system architecture |
+| `04_SAD_Infrastructure.pdf` | System Architecture & Design | Cluster architecture design |
+| `04_SAD_Fabrication.pdf` | System Architecture & Design | Datacenter architecture design |
+| `04_SAD_SystemArchitectureAndDesign.pdf` | System Architecture & Design | Complete architecture |
+| `06_SDD_FabricationDatacenterA.pdf` | Detailed Design | Datacenter A detailed specifications |
+| `06_SDD_FabricationDatacenterB.pdf` | Detailed Design | Datacenter B detailed specifications |
+| `11_DPL_DeploymentAndOM.pdf` | Deployment & O&M | Deployment procedures and operations |
+
+**View generated PDFs**: Open any PDF in `publication/` folder
+
+### Quick Commands
+
+```bash
+# Initialize development environment
+make init
+
+# Build documentation from SysML models
+make docs
+
+# Generate PDF publications (V-Model-ordered)
+make pdf
+
+# Clean generated artifacts
+make clean
+
+# Full rebuild (clean + docs + pdf)
+make all
+```
 
 ---
 
