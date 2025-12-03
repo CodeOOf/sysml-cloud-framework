@@ -423,6 +423,32 @@ make clean         # Clean artifacts
 
 ---
 
+## 11.3 Documentation & Publication Structure
+
+The project organizes documentation into a three-tier publication structure that aligns with systems engineering disciplines and traceability expectations.
+
+- **System Design (system-level):** a PDF assembled from `overall-design` domain pages. This document describes the high-level architecture that connects all subsystems and provides the principal system-level decisions and interfaces. It is published as `publication/system-design.pdf`.
+
+- **Sub-System Design (subsystem-level):** separate PDF publications for each major subsystem. In this project the primary subsystems are:
+    - **Fabrication Subsystem** (datacenter domain) — published as `publication/fabrication-design.pdf` and assembled from `datacenter` domain pages (e.g., `sysml/datacenter/*`).
+    - **Infrastructure Subsystem** (infrastructure domain) — published as `publication/infrastructure-design.pdf` and assembled from `infrastructure` domain pages (e.g., `sysml/infrastructure/*`).
+
+    Sub-System Design documents contain the architectural and design rules for their domain and are referenced by technical publications for specific deployments.
+
+- **Technical Publications (deployment-level):** per-site or per-cluster technical publications (for example `fabrications/fabrication-datacenter-a`, `fabrications/fabrication-datacenter-b`, `configs/infrastructure-cluster-a`, `configs/infrastructure-cluster-b`). Each technical publication:
+    - Is generated as a distinct PDF (e.g., `publication/fabrications-fabrication-datacenter-a.pdf`).
+    - References its parent Sub-System Design document (e.g., Fabrication Subsystem) and the System Design where applicable.
+    - Contains detailed rack/datacenter or cluster-level models, configuration specs, and deployment instructions.
+
+This organization ensures a clean separation of concerns:
+- System Design connects the dots and defines global interfaces and constraints.
+- Sub-System Designs capture domain-specific architecture, constraints, and design patterns.
+- Technical Publications provide concrete, deployable specifications and instructions tied back to the above designs with full traceability to requirements.
+
+When generating publications via the repository automation (`make docs` and `make pdf`), the pipeline produces one PDF per publication type as described above and writes a `manifest.json` to `publication/` containing the mapping from generated markdown pages to their publication group. This manifest supports downstream processing such as assembling PDFs and generating cross-reference tables.
+
+---
+
 ## 12. Approval and Sign-Off
 
 | Role | Responsibility | Signature | Date |

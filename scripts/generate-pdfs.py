@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """
-Generate separate PDFs:
- - SEMP.pdf (from SEMP.md)
- - System Design PDF (from overall-design pages)
- - Sub-system PDFs (one per subfolder under fabrications/ and configs/)
+Generate structured PDFs for the repository.
+
+Produces:
+ - `SEMP.pdf` (from `SEMP.md`) — standalone System Engineering Management Plan
+ - `system-design.pdf` — assembled from `overall-design` domain pages (system-level architecture)
+ - Sub-System Design PDFs:
+     - `fabrication-design.pdf` — assembled from `datacenter` domain pages (Fabrication subsystem design)
+     - `infrastructure-design.pdf` — assembled from `infrastructure` domain pages (Infrastructure subsystem design)
+ - Technical Publications (one PDF per technical publication folder under `fabrications/` and `configs/`, e.g. `fabrications-fabrication-datacenter-a.pdf`)
 
 Usage: scripts/generate-pdfs.py <publication_dir>
 """
@@ -65,6 +70,21 @@ def main(pub_dir):
         run_pandoc(md_list, str(pub / "system-design.pdf"), str(pub))
     else:
         print("ℹ️  No overall-design pages found for System Design PDF")
+
+    # 2a) Sub-System Design PDFs (datacenter -> fabrication-design, infrastructure -> infrastructure-design)
+    fabrication_pages = [p for p in manifest if p.get("domain") == "datacenter"]
+    if fabrication_pages:
+        fabrication_pages = sorted(fabrication_pages, key=lambda x: x.get("title",""))
+        run_pandoc([p["rel"] for p in fabrication_pages], str(pub / "fabrication-design.pdf"), str(pub))
+    else:
+        print("ℹ️  No datacenter (Fabrication) pages found for Fabrication Sub-System PDF")
+
+    infrastructure_pages = [p for p in manifest if p.get("domain") == "infrastructure"]
+    if infrastructure_pages:
+        infrastructure_pages = sorted(infrastructure_pages, key=lambda x: x.get("title",""))
+        run_pandoc([p["rel"] for p in infrastructure_pages], str(pub / "infrastructure-design.pdf"), str(pub))
+    else:
+        print("ℹ️  No infrastructure pages found for Infrastructure Sub-System PDF")
 
     # 3) Sub-systems: fabrications and configs
     # group by top-level subfolder under fabrications/ or configs/
