@@ -133,6 +133,46 @@ def main(pub_dir):
         out_pdf = pub / f"DetailedDesign_{title_name}.pdf"
         run_pandoc(sorted(files), str(out_pdf), str(pub))
 
+    # 4) V-Model grouping: produce one PDF per V-Model phase by keyword mapping
+    # Mapping based on typical documents supplied by the user.
+    vmodel_phases = [
+        ("ProjectManagement", ["semp", "pmp", "risk", "config"]),
+        ("StakeholderNeeds", ["conops", "strs", "scenarios", "stakeholder"]),
+        ("SystemRequirements", ["syrs", "system requirements", "syrs", "requirements", "rtm", "srvm"]),
+        ("SystemArchitectureAndDesign", ["sad", "sdd", "icd", "sysml", "architecture", "design", "views"]),
+        ("SubsystemRequirements", ["ssrs", "derived requirements", "derived"]),
+        ("SubsystemDetailedDesign", ["ssdd", "ddd", "dds", "cds", "detailed design"]),
+        ("Implementation", ["code", "build", "implementation", "build records"]),
+        ("Integration", ["integration plan", "integration"]),
+        ("Verification", ["verification plan", "verification", "test report", "test procedure"]),
+        ("Validation", ["validation", "validation plan", "scenario", "validation report"]),
+        ("DeploymentAndOM", ["deployment", "manual", "maintenance", "ops", "o&m", "o&m"]),
+    ]
+
+    # helper: check if any keyword matches a manifest entry
+    def matches_keywords(entry, keywords):
+        hay = " ".join([
+            (entry.get("rel") or ""),
+            (entry.get("title") or ""),
+            (entry.get("source") or ""),
+            (entry.get("domain") or ""),
+            (entry.get("section") or ""),
+        ]).lower()
+        for kw in keywords:
+            if kw in hay:
+                return True
+        return False
+
+    for phase_name, keywords in vmodel_phases:
+        matched = [p for p in manifest if matches_keywords(p, keywords)]
+        if matched:
+            matched = sorted(matched, key=lambda x: x.get('title',''))
+            md_list = [p['rel'] for p in matched]
+            out_pdf = pub / f"{phase_name}.pdf"
+            run_pandoc(md_list, str(out_pdf), str(pub))
+        else:
+            print(f"ℹ️  No documents found for V-Model phase: {phase_name}")
+
     print("✅ All PDFs processed.")
 
 if __name__ == "__main__":
