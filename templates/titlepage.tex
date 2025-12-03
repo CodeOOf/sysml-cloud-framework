@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage{titling}
+\usepackage{background}
+
+\setkeys{Gin}{width=\textwidth, height=\textheight, keepaspectratio}
+
+% Fix for Pandoc-generated lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Pandoc image macro: identity wrapper for generated \includegraphics
+\newcommand{\pandocbounded}[1]{#1}
+
+% Page setup
+\geometry{margin=1in}
+\setstretch{1.2}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{SysML Cloud Platform}
+
+% Fonts
+\setmainfont{Arial}
+\setsansfont{Arial}
+
+% Title formatting
+\pretitle{\vspace*{6cm}\begin{center}\Huge\bfseries\color{white}}
+\posttitle{\end{center}\vspace{1cm}}
+\preauthor{\begin{center}\Large\color{white}}
+\postauthor{\end{center}\vspace{0.5cm}}
+\predate{\begin{center}\large\color{white}}
+\postdate{\end{center}\vspace{2cm}}
+
+% Background image
+\backgroundsetup{
+  scale=1,
+  angle=0,
+  opacity=1,
+  contents={%
+    \includegraphics[width=\paperwidth,height=\paperheight]{../templates/title-accent.png}
+  }
+}
+
+% Titlepage content
+\title{SysML Cloud Platform}
+\author{Version: v1.0}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+$body$
+\end{document}

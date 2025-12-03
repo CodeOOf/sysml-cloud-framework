@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "generated": "2025-12-01",
+  "models": [
+    "domain-controller",
+    "web-tier"
+  ],
+  "requirements": {
+    "infra.json": {
+      "availability": "99.9%",
+      "scalability": "horizontal",
+      "backup": "daily snapshots"
+    },
+    "security.json": {
+      "nist": [
+        "AC-2",
+        "IA-5"
+      ],
+      "gdpr": [
+        "Art.32"
+      ],
+      "iso27001": [
+        "A.9.2.1",
+        "A.12.4.1"
+      ]
+    }
+  }
+}

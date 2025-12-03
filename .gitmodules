@@ -1,0 +1,13 @@
+
+[submodule "templates/fabrication-template"]
+    path = templates/fabrication-template
+    url = ../fabrication-template
+
+[submodule "templates/infrastructure-template"]
+    path = templates/infrastructure-template
+    url = ../infrastructure-template
+
+[submodule "templates/library-template"]
+    path = templates/library-template
+    url = ../library-template
+

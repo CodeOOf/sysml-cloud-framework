@@ -1,0 +1,206 @@
+{
+  "name": "fabrication-datacenter-a",
+  "generated": "2025-12-01",
+  "floorplan": {
+    "rooms": [
+      {
+        "name": "Hall-1",
+        "racks": [
+          {
+            "id": "rackA1",
+            "model": "RackModel24U",
+            "order": 1,
+            "partNumber": "RACK-24U-001",
+            "notes": "First rack in Hall-1",
+            "view": {
+              "slots": [
+                {
+                  "unit": 1,
+                  "device": "Dell R640"
+                },
+                {
+                  "unit": 2,
+                  "device": "Cisco Nexus"
+                },
+                {
+                  "unit": 3,
+                  "device": null
+                },
+                {
+                  "unit": 4,
+                  "device": null
+                },
+                {
+                  "unit": 5,
+                  "device": null
+                },
+                {
+                  "unit": 6,
+                  "device": null
+                },
+                {
+                  "unit": 7,
+                  "device": null
+                },
+                {
+                  "unit": 8,
+                  "device": null
+                },
+                {
+                  "unit": 9,
+                  "device": null
+                },
+                {
+                  "unit": 10,
+                  "device": null
+                },
+                {
+                  "unit": 11,
+                  "device": null
+                },
+                {
+                  "unit": 12,
+                  "device": null
+                },
+                {
+                  "unit": 13,
+                  "device": null
+                },
+                {
+                  "unit": 14,
+                  "device": null
+                },
+                {
+                  "unit": 15,
+                  "device": null
+                },
+                {
+                  "unit": 16,
+                  "device": null
+                },
+                {
+                  "unit": 17,
+                  "device": null
+                },
+                {
+                  "unit": 18,
+                  "device": null
+                },
+                {
+                  "unit": 19,
+                  "device": null
+                },
+                {
+                  "unit": 20,
+                  "device": null
+                },
+                {
+                  "unit": 21,
+                  "device": null
+                },
+                {
+                  "unit": 22,
+                  "device": null
+                },
+                {
+                  "unit": 23,
+                  "device": null
+                },
+                {
+                  "unit": 24,
+                  "device": null
+                },
+                {
+                  "unit": 25,
+                  "device": null
+                },
+                {
+                  "unit": 26,
+                  "device": null
+                },
+                {
+                  "unit": 27,
+                  "device": null
+                },
+                {
+                  "unit": 28,
+                  "device": null
+                },
+                {
+                  "unit": 29,
+                  "device": null
+                },
+                {
+                  "unit": 30,
+                  "device": null
+                },
+                {
+                  "unit": 31,
+                  "device": null
+                },
+                {
+                  "unit": 32,
+                  "device": null
+                },
+                {
+                  "unit": 33,
+                  "device": null
+                },
+                {
+                  "unit": 34,
+                  "device": null
+                },
+                {
+                  "unit": 35,
+                  "device": null
+                },
+                {
+                  "unit": 36,
+                  "device": null
+                },
+                {
+                  "unit": 37,
+                  "device": null
+                },
+                {
+                  "unit": 38,
+                  "device": null
+                },
+                {
+                  "unit": 39,
+                  "device": null
+                },
+                {
+                  "unit": 40,
+                  "device": null
+                },
+                {
+                  "unit": 41,
+                  "device": null
+                },
+                {
+                  "unit": 42,
+                  "device": null
+                }
+              ]
+            }
+          },
+          {
+            "id": "rackA2",
+            "model": "RackModel24U",
+            "order": 2,
+            "partNumber": "RACK-24U-002",
+            "notes": "Second rack in Hall-1",
+            "view": {
+              "slots": []
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hall-2",
+        "racks": []
+      }
+    ]
+  }
+}

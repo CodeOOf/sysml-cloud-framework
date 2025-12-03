@@ -1,0 +1,20 @@
+# Directories to ignore during encoding check
+# Patterns are matched against path components
+
+# Virtual environments & package managers
+.venv
+node_modules
+
+# Build & distribution artifacts
+publication
+dist
+build
+
+# Python cache & compiled files
+__pycache__
+
+# Version control
+.git
+
+# Custom excludes
+templates
