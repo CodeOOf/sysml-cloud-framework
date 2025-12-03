@@ -91,7 +91,6 @@ check-encoding:
 pdf:
 	$(call INFO, "Generating PDF publication (requires pandoc + xelatex)")
 	cd $(PUB_DIR) && pandoc $(PUB_MD) \
-		   --template="../templates/titlepage.tex" \
 		   -o sysml-cloud-platform.pdf \
 		   --from markdown --toc --pdf-engine=xelatex \
 		   --metadata title="SysML Cloud Platform" \

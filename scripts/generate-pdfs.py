@@ -28,7 +28,6 @@ def run_pandoc(md_files, out_pdf, pub_dir):
     cmd = [
         "pandoc",
         *md_files,
-        "--template=../templates/titlepage.tex",
         "-o", out_name,
         "--from", "markdown",
         "--toc",
