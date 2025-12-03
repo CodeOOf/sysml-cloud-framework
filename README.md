@@ -107,22 +107,44 @@ make pdf
 
 ### Publication naming & V-Model ordering
 
-The build pipeline now produces ordered PDF publications aligned to the V-Model. Filenames are prefixed with a numeric ordering to make the lifecycle ordering explicit. Example outputs:
+The build pipeline produces ordered PDF publications aligned to the SE V-Model with abbreviated phase prefixes. Filenames follow the pattern `<NN>_<PHASE>_<Description>.pdf` where:
 
-- `01_SEMP.pdf` (Project Management)
-- `02_StakeholderNeeds.pdf` (Stakeholder needs and Scenarios)
-- `03_Requirements_SysMLCloudPlatform.pdf` (System requirements)
-- `04_SystemDesign_SysMLCloudPlatform.pdf` (System architecture & design)
-- `04_SubSystemDesign_Fabrication.pdf` (Subsystem architecture — Fabrication)
-- `06_DetailedDesign_FabricationDatacenterA.pdf` (Detailed designs)
-- `03_Requirements_Datacenter.pdf` (Domain requirements)
+- `<NN>` is the numeric V-Model ordering (01–11)
+- `<PHASE>` is the abbreviated phase name (PMP, SNS, SRD, SAD, SSR, SDD, SCI, ITP, STP, SV, DPL)
+- `<Description>` is a domain or document name
 
-How to make your document appear in the correct publication:
+**Example outputs:**
+
+- `01_PMP_SEMP.pdf` — Project Management Plan (System Engineering Management Plan)
+- `03_SRD_SysMLCloudPlatform.pdf` — System Requirements Document (overall design)
+- `03_SRD_Datacenter.pdf` — System Requirements Document (datacenter domain)
+- `04_SAD_SysMLCloudPlatform.pdf` — System Architecture & Design (overall design)
+- `04_SAD_Fabrication.pdf` — System Architecture & Design (fabrication subsystem)
+- `06_SDD_FabricationDatacenterA.pdf` — Detailed Design Document (fabrication folder)
+
+**V-Model Phase Abbreviations:**
+
+| Order | Phase | Abbr | Example |
+|-------|-------|------|---------|
+| 01 | Project Management | PMP | Project Management Plan |
+| 02 | Stakeholder Needs | SNS | Stakeholder Needs Statement |
+| 03 | System Requirements | SRD | System Requirements Document |
+| 04 | System Architecture & Design | SAD | System Architecture & Design |
+| 05 | Subsystem Requirements | SSR | Subsystem Requirements |
+| 06 | Subsystem Detailed Design | SDD | Detailed Design Document |
+| 07 | Implementation | SCI | Software/Code Implementation |
+| 08 | Integration | ITP | Integration Test Plan |
+| 09 | Verification | STP | System Test Plan |
+| 10 | Validation | SV | System Validation |
+| 11 | Deployment & O&M | DPL | Deployment Plan |
+
+**How to make your document appear in the correct publication:**
+
 - Put SysML files under `sysml/<domain>/` (e.g. `sysml/datacenter/`) — `build-docs.py` converts these to markdown.
-- Add standalone Markdown documents to the repo root or `publication/` and name them with meaningful terms (e.g. `PMP.md`, `ConOps.md`, `IntegrationPlan.md`). The PDF generator uses simple keyword matching to group documents into V-Model phases (you can customize keywords in `scripts/generate-pdfs.py`).
+- Add standalone Markdown documents to the repo root or `publication/` and name them with meaningful terms (e.g. `PMP.md`, `ConOps.md`, `IntegrationPlan.md`). The PDF generator uses keyword matching to group documents into V-Model phases.
 - Run `make docs` then `make pdf` to rebuild the publications.
 
-If you want different behavior (for example, stricter grouping rules or custom prefixes), I can add a small configuration file to control phase mappings.
+The generator applies phase mapping based on keywords in document filenames and metadata (see `scripts/generate-pdfs.py` for the keyword list). For deterministic mapping, you can customize phase assignments in the script.
 
 ## 📂 Project Structure
 ```bash
