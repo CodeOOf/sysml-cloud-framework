@@ -73,8 +73,16 @@ clean:
 	$(RM_PUB)
 
 docs: check-encoding
-	$(call INFO, "Building publication from SysML")
-	$(PY) scripts/build-docs.py $(SYSML_DIR) $(PUB_DIR) $(SYSML_DIR)
+	$(call INFO, "Building publication from SysML and domain folders")
+	$(PY) scripts/build-docs.py $(SYSML_DIR) $(PUB_DIR) $(SYSML_DIR) fabrications configs library
+
+.PHONY: pdfs
+pdfs:
+	$(call INFO, "Generating structured PDFs: SEMP, System Design, Subsystems")
+	$(PY) scripts/generate-pdfs.py $(PUB_DIR)
+
+pdf: docs pdfs
+	$(call INFO, "PDF generation complete")
 
 check-encoding:
 	$(call INFO, "Scanning files for UTF-8 compliance")

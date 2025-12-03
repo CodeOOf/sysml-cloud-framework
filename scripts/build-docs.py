@@ -6,6 +6,7 @@ import datetime
 from pathlib import Path
 import graphviz
 import shutil
+import json
 
 # ----------------------------------------------------------------------
 # Naming and path helpers
@@ -298,6 +299,8 @@ def process_sysml_files(sysml_files, publication_dir, repo_root=None):
             {
                 "title": title if domain != "overall-design" else "Introduction",
                 "rel": md_filename,
+                "source": path,
+                "domain": domain,
             }
         )
 
@@ -333,6 +336,24 @@ def process_sysml_files(sysml_files, publication_dir, repo_root=None):
             idx.append(f"- [{p['title']}]({p['rel']})")
 
     write_markdown(publication_dir, "index.md", "\n".join(idx))
+
+    # Write manifest for downstream PDF generation and grouping
+    manifest = []
+    for bucket in pages_by_domain:
+        for p in pages_by_domain[bucket]:
+            manifest.append({
+                "title": p.get("title"),
+                "rel": p.get("rel"),
+                "source": p.get("source"),
+                "domain": p.get("domain", ""),
+                "section": bucket,
+            })
+    try:
+        with open(os.path.join(publication_dir, "manifest.json"), "w", encoding="utf-8") as mf:
+            json.dump(manifest, mf, indent=2)
+        print(f"✅ Manifest written: {os.path.join(publication_dir, 'manifest.json')}")
+    except Exception as e:
+        print(f"⚠️  Failed to write manifest.json: {e}")
 
 # ----------------------------------------------------------------------
 # Main
