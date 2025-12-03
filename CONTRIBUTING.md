@@ -11,13 +11,20 @@ Thank you for your interest in contributing! This document outlines the process 
    ```
    This creates a `.venv` and installs Python dependencies.
 
-3. **Check submodule configuration** (optional):
+3. **Understand the project's Systems Engineering approach:**
+   Read [SEMP.md](SEMP.md) (System Engineering Management Plan) to understand:
+   - How SysML models map to infrastructure and operations
+   - SE processes, roles, and responsibilities
+   - Requirements traceability and validation strategy
+   - Configuration management and change control
+
+4. **Check submodule configuration** (optional):
    ```bash
    make setup-submodules-status
    ```
    This shows which folders are committed vs. submodules. See [Submodule Workflows](#submodule-workflows) below.
 
-4. **Familiarize yourself** with the project structure:
+5. **Familiarize yourself** with the project structure:
    - `sysml/` — SysML model files organized by domain
    - `publication/` — Generated documentation (Markdown, diagrams, PDF)
    - `fabrications/` — Datacenter and rack designs

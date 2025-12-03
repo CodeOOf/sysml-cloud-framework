@@ -129,6 +129,16 @@ Configure `.submodules.config` with the exact relative paths of the subfolders y
 
 ---
 
+## Documentation
+
+Key documents for understanding and contributing to this project:
+
+- **[SEMP.md](SEMP.md)** — System Engineering Management Plan (INCOSE-aligned) outlining SE processes, roles, traceability, and metrics
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — Development guidelines, coding conventions, and workflow instructions
+- **`publication/`** — Generated architecture documentation, requirements, and design models (auto-built from SysML)
+
+---
+
 ## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to get started, coding conventions, testing, and the development workflow.
