@@ -23,14 +23,14 @@
   {
     "title": "floorplan",
     "rel": "floorplan.md",
-    "source": "fabrications\\fabrication-datacenter-a\\models\\floorplan.sysml",
+    "source": "fabrications\\fabrication-datacenter-b\\models\\floorplan.sysml",
     "domain": "introduction",
     "section": "introduction"
   },
   {
     "title": "floorplan",
     "rel": "floorplan.md",
-    "source": "fabrications\\fabrication-datacenter-b\\models\\floorplan.sysml",
+    "source": "fabrications\\fabrication-datacenter-a\\models\\floorplan.sysml",
     "domain": "introduction",
     "section": "introduction"
   },

@@ -89,6 +89,30 @@ def main(pub_dir):
     else:
         print("ℹ️  No infrastructure pages found for Infrastructure Sub-System PDF")
 
+    # Requirements PDFs: collect pages that are requirements (rel/title/source contains 'requirement')
+    req_pages = [p for p in manifest if (
+        'requirement' in (p.get('rel') or '').lower()
+        or 'requirement' in (p.get('title') or '').lower()
+        or 'requirement' in (p.get('source') or '').lower()
+    )]
+    if req_pages:
+        # group requirement pages by domain
+        req_groups = {}
+        for p in req_pages:
+            domain = p.get('domain') or 'other'
+            req_groups.setdefault(domain, []).append(p)
+
+        for domain, pages in req_groups.items():
+            pages = sorted(pages, key=lambda x: x.get('title',''))
+            md_list = [p['rel'] for p in pages]
+            if domain == 'overall-design':
+                out_pdf = pub / 'Requirements_SysMLCloudPlatform.pdf'
+            else:
+                out_pdf = pub / f"Requirements_{domain.capitalize()}.pdf"
+            run_pandoc(md_list, str(out_pdf), str(pub))
+    else:
+        print("ℹ️  No requirements pages found to build Requirements PDFs")
+
     # 3) Detailed Design: one PDF per technical publication folder under fabrications/ and configs/
     # group by top-level subfolder under fabrications/ or configs/
     groups = {}
