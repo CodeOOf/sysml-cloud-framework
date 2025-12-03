@@ -5,6 +5,7 @@ import re
 import datetime
 from pathlib import Path
 import graphviz
+import shutil
 
 # ----------------------------------------------------------------------
 # Naming and path helpers
@@ -223,7 +224,7 @@ def render_markdown_page(title, diagrams):
 # Orchestration
 # ----------------------------------------------------------------------
 
-def process_sysml_files(sysml_files, publication_dir):
+def process_sysml_files(sysml_files, publication_dir, repo_root=None):
     pages_by_domain = {"introduction": [], "datacenter": [], "infrastructure": []}
 
     # We render one page per SysML file; Markdown files go in publication_dir, images in publication_dir/images
@@ -310,6 +311,18 @@ def process_sysml_files(sysml_files, publication_dir):
         idx.append("## Introduction")
         for p in pages_by_domain["introduction"]:
             idx.append(f"- [{p['title']}]({p['rel']})")
+    # If an SEMP.md exists in the repository root, include it under Introduction
+    if repo_root:
+        semp_src = Path(repo_root) / "SEMP.md"
+        if semp_src.exists():
+            semp_dst = Path(publication_dir) / "SEMP.md"
+            try:
+                shutil.copy2(semp_src, semp_dst)
+                # avoid duplicate entries
+                if not any(p.get('rel') == 'SEMP.md' for p in pages_by_domain['introduction']):
+                    idx.append(f"- [System Engineering Management Plan]({semp_dst.name})")
+            except Exception as e:
+                print(f"⚠️  Failed to copy SEMP.md into publication: {e}")
     if pages_by_domain["datacenter"]:
         idx.append("\n## Datacenter")
         for p in pages_by_domain["datacenter"]:
@@ -352,5 +365,6 @@ if __name__ == "__main__":
     all_files = sorted(set(all_files), key=sort_key)
 
     print(f"-> Rendering {len(all_files)} SysML files from {sysml_root}")
-    process_sysml_files(all_files, publication_dir)
+    repo_root = Path(sysml_root).parent
+    process_sysml_files(all_files, publication_dir, repo_root=repo_root)
     print("✅ Documentation build complete.")
