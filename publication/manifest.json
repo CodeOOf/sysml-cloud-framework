@@ -21,59 +21,17 @@
     "section": "introduction"
   },
   {
-    "title": "floorplan",
-    "rel": "floorplan.md",
-    "source": "fabrications\\fabrication-datacenter-b\\models\\floorplan.sysml",
-    "domain": "introduction",
+    "title": "Introduction",
+    "rel": "system-requirements-definition.md",
+    "source": "sysml\\overall-design\\SystemRequirementsDefinition.sysml",
+    "domain": "overall-design",
     "section": "introduction"
   },
   {
-    "title": "floorplan",
-    "rel": "floorplan.md",
-    "source": "fabrications\\fabrication-datacenter-a\\models\\floorplan.sysml",
-    "domain": "introduction",
-    "section": "introduction"
-  },
-  {
-    "title": "rack-models",
-    "rel": "rack-models.md",
-    "source": "library\\sysml-library\\models\\rack-models.sysml",
-    "domain": "introduction",
-    "section": "introduction"
-  },
-  {
-    "title": "rackA1",
-    "rel": "rack-a1.md",
-    "source": "fabrications\\fabrication-datacenter-a\\models\\rackA1.sysml",
-    "domain": "introduction",
-    "section": "introduction"
-  },
-  {
-    "title": "rackA1-view",
-    "rel": "rack-a1-view.md",
-    "source": "fabrications\\fabrication-datacenter-a\\views\\rackA1-view.sysml",
-    "domain": "introduction",
-    "section": "introduction"
-  },
-  {
-    "title": "rackA2",
-    "rel": "rack-a2.md",
-    "source": "fabrications\\fabrication-datacenter-a\\models\\rackA2.sysml",
-    "domain": "introduction",
-    "section": "introduction"
-  },
-  {
-    "title": "rackB1",
-    "rel": "rack-b1.md",
-    "source": "fabrications\\fabrication-datacenter-b\\models\\rackB1.sysml",
-    "domain": "introduction",
-    "section": "introduction"
-  },
-  {
-    "title": "rackB1-view",
-    "rel": "rack-b1-view.md",
-    "source": "fabrications\\fabrication-datacenter-b\\views\\rackB1-view.sysml",
-    "domain": "introduction",
+    "title": "Introduction",
+    "rel": "testing-and-deployment-planning.md",
+    "source": "sysml\\overall-design\\TestingAndDeploymentPlanning.sysml",
+    "domain": "overall-design",
     "section": "introduction"
   },
   {
@@ -87,6 +45,20 @@
     "title": "DatacenterRequirements",
     "rel": "datacenter-requirements.md",
     "source": "sysml\\datacenter\\DatacenterRequirements.sysml",
+    "domain": "datacenter",
+    "section": "datacenter"
+  },
+  {
+    "title": "DeploymentArchitecture",
+    "rel": "deployment-architecture.md",
+    "source": "sysml\\datacenter\\DeploymentArchitecture.sysml",
+    "domain": "datacenter",
+    "section": "datacenter"
+  },
+  {
+    "title": "FabricationSubSystemRequirements",
+    "rel": "fabrication-sub-system-requirements.md",
+    "source": "sysml\\datacenter\\FabricationSubSystemRequirements.sysml",
     "domain": "datacenter",
     "section": "datacenter"
   },
@@ -122,6 +94,20 @@
     "title": "InfrastructureRequirements",
     "rel": "infrastructure-requirements.md",
     "source": "sysml\\infrastructure\\InfrastructureRequirements.sysml",
+    "domain": "infrastructure",
+    "section": "infrastructure"
+  },
+  {
+    "title": "InfrastructureSubSystemRequirements",
+    "rel": "infrastructure-sub-system-requirements.md",
+    "source": "sysml\\infrastructure\\InfrastructureSubSystemRequirements.sysml",
+    "domain": "infrastructure",
+    "section": "infrastructure"
+  },
+  {
+    "title": "KubernetesClusterArchitecture",
+    "rel": "kubernetes-cluster-architecture.md",
+    "source": "sysml\\infrastructure\\KubernetesClusterArchitecture.sysml",
     "domain": "infrastructure",
     "section": "infrastructure"
   },
