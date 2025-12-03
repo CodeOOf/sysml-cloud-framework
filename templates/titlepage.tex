@@ -10,6 +10,11 @@
 \usepackage{fontspec}
 \usepackage{titling}
 \usepackage{background}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{fancyvrb}
+\usepackage{float}
 
 \setkeys{Gin}{width=\textwidth, height=\textheight, keepaspectratio}
 
@@ -64,10 +69,8 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-$if(toc)$
-	ableofcontents
+\tableofcontents
 \clearpage
-$endif$
 
 $body$
 \end{document}
