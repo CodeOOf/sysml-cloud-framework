@@ -22,11 +22,14 @@ def run_pandoc(md_files, out_pdf, pub_dir):
     if not md_files:
         print(f"⚠️  No source files for {out_pdf}")
         return False
+    # If we're running pandoc with cwd=pub_dir then write output filename only
+    out_path = Path(out_pdf)
+    out_name = out_path.name if pub_dir and str(out_path).startswith(str(Path(pub_dir))) else str(out_path)
     cmd = [
         "pandoc",
         *md_files,
         "--template=../templates/titlepage.tex",
-        "-o", out_pdf,
+        "-o", out_name,
         "--from", "markdown",
         "--toc",
         "--pdf-engine=xelatex",

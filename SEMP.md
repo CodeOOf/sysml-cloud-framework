@@ -250,7 +250,7 @@ publication/                 # Generated traceability reports
 ### 6.1 SE-Specific Risks
 
 | Risk | Likelihood | Impact | Mitigation |
-|------|-----------|--------|-----------|
+|------|-----------:|-------:|-----------|
 | Model complexity grows unmanageable | Medium | High | Regular architecture reviews, modular design, tool support |
 | SysML tooling changes or becomes obsolete | Low | High | Choose open standards, maintain text-based `.sysml` format, community support |
 | Requirements traceability breaks | Medium | High | Automated traceability checks, Git pre-commit hooks, CI pipeline validation |
@@ -311,7 +311,7 @@ architecture/
 ### 8.1 SE Metrics
 
 | Metric | Target | Measurement | Frequency |
-|--------|--------|-------------|-----------|
+|--------|:------:|-------------|-----------|
 | Requirements Traceability (↓→test) | 100% | Automated check | Per build |
 | Model Consistency | 100% | SysML validation, syntax check | Per commit |
 | Documentation Currency | 100% | Auto-generated from models | Per release |
@@ -451,12 +451,12 @@ When generating publications via the repository automation (`make docs` and `mak
 
 ## 12. Approval and Sign-Off
 
-| Role | Responsibility | Signature | Date |
-|------|---------------|-----------|----|
-| Systems Engineering Manager | Plan approval & oversight | ___________________ | ____ |
-| Project Manager | Resource & schedule alignment | ___________________ | ____ |
-| Architecture Lead | Technical feasibility | ___________________ | ____ |
-| Stakeholder Representative | Needs alignment | ___________________ | ____ |
+Approvals and signatures:
+
+- **Systems Engineering Manager** — Plan approval & oversight. Signature: ___________________  Date: ____
+- **Project Manager** — Resource & schedule alignment. Signature: ___________________  Date: ____
+- **Architecture Lead** — Technical feasibility. Signature: ___________________  Date: ____
+- **Stakeholder Representative** — Needs alignment. Signature: ___________________  Date: ____
 
 ---
 
@@ -495,9 +495,7 @@ When generating publications via the repository automation (`make docs` and `mak
 
 ### D. Revision History
 
-| Version | Date | Changes | Author |
-|---------|------|---------|--------|
-| 1.0 | 2025-12-03 | Initial SEMP for SysML Cloud Platform | SE Team |
+- **1.0** — 2025-12-03 — Initial SEMP for SysML Cloud Platform — SE Team
 
 ---
 
