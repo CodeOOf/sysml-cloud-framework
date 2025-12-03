@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
 """
-Generate structured PDFs for the repository with clear naming standards.
+Generate structured PDFs for the repository with V-Model phase prefixes.
 
 Naming Convention:
- - SEMP.pdf (from `SEMP.md`) — System Engineering Management Plan
- - SystemDesign_SysMLCloudPlatform.pdf — System-level design from overall-design domain
- - SubSystemDesign_Fabrication.pdf — Datacenter domain (Fabrication subsystem)
- - SubSystemDesign_Infrastructure.pdf — Infrastructure domain (Infrastructure subsystem)
- - DetailedDesign_<FolderName>.pdf — Technical publications (one per folder under fabrications/ and configs/)
+  Filenames follow the SE V-Model ordering with numeric and abbreviation prefixes:
+  - 01_PMP_SEMP.pdf — Project Management Plan (System Engineering Management Plan)
+  - 04_SAD_SysMLCloudPlatform.pdf — System Architecture & Design (overall-design domain)
+  - 04_SAD_Fabrication.pdf — System Architecture & Design (datacenter subsystem)
+  - 04_SAD_Infrastructure.pdf — System Architecture & Design (infrastructure subsystem)
+  - 06_SDD_FabricationDatacenterA.pdf — Detailed Design Document (fabrication folder)
+  - 03_SRD_SysMLCloudPlatform.pdf — System Requirements Document (by domain)
+  
+  V-Model phases (01-11):
+    01_PMP - Project Management Plan
+    02_SNS - Stakeholder Needs Statement
+    03_SRD - System Requirements Document
+    04_SAD - System Architecture & Design
+    05_SSR - System/Subsystem Requirements
+    06_SDD - Subsystem/Detailed Design Document
+    07_SCI - Software/System Code Implementation
+    08_ITP - Integration Test Plan
+    09_STP - System Test Plan (Verification)
+    10_SV  - System Validation
+    11_DPL - Deployment Plan / Operations & Maintenance
 
 Usage: scripts/generate-pdfs.py <publication_dir>
 """
@@ -19,7 +34,7 @@ from pathlib import Path
 
 def run_pandoc(md_files, out_pdf, pub_dir):
     if not md_files:
-        print(f"⚠️  No source files for {out_pdf}")
+        print(f"[WARN] No source files for {out_pdf}")
         return False
     # If we're running pandoc with cwd=pub_dir then write output filename only
     out_path = Path(out_pdf)
@@ -35,38 +50,54 @@ def run_pandoc(md_files, out_pdf, pub_dir):
     print(f"-> Running: {' '.join(cmd)} (cwd={pub_dir})")
     try:
         subprocess.check_call(cmd, cwd=pub_dir)
-        print(f"✅ PDF generated: {out_pdf}")
+        print(f"[OK] PDF generated: {out_pdf}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ pandoc failed: {e}")
+        print(f"[ERROR] pandoc failed: {e}")
         return False
 
 
 def prefix_name(filename, phase=None):
-    """Return a filename prefixed with the numeric ordering based on V-Model phase.
+    """Return a filename prefixed with the numeric ordering and abbreviated phase name based on V-Model phase.
 
     phase: optional V-Model phase key (e.g., 'ProjectManagement', 'SystemRequirements')
     If phase is None, no prefix is added.
+    
+    Abbreviations follow SE V-Model conventions:
+      01_PMP - Project Management Plan
+      02_SNS - Stakeholder Needs Statement
+      03_SRD - System Requirements Document
+      04_SAD - System Architecture & Design
+      05_SSR - System/Subsystem Requirements
+      06_SDD - Subsystem Detailed Design / Detailed Design Document
+      07_SCI - Software/System Code Implementation
+      08_ITP - Integration Test Plan / Integration
+      09_STP - System Test Plan / Verification
+      10_SV  - System Validation
+      11_DPL - Deployment Plan / Operations & Maintenance
     """
     order_map = {
-        "ProjectManagement": "01",
-        "StakeholderNeeds": "02",
-        "SystemRequirements": "03",
-        "SystemArchitectureAndDesign": "04",
-        "SubsystemRequirements": "05",
-        "SubsystemDetailedDesign": "06",
-        "Implementation": "07",
-        "Integration": "08",
-        "Verification": "09",
-        "Validation": "10",
-        "DeploymentAndOM": "11",
+        "ProjectManagement": ("01", "PMP"),
+        "StakeholderNeeds": ("02", "SNS"),
+        "SystemRequirements": ("03", "SRD"),
+        "SystemArchitectureAndDesign": ("04", "SAD"),
+        "SubsystemRequirements": ("05", "SSR"),
+        "SubsystemDetailedDesign": ("06", "SDD"),
+        "Implementation": ("07", "SCI"),
+        "Integration": ("08", "ITP"),
+        "Verification": ("09", "STP"),
+        "Validation": ("10", "SV"),
+        "DeploymentAndOM": ("11", "DPL"),
     }
     if not phase:
         return filename
-    num = order_map.get(phase)
-    if not num:
+    mapping = order_map.get(phase)
+    if not mapping:
         return filename
-    return f"{num}_{filename}"
+    num, abbr = mapping
+    # Insert prefix before file extension, e.g., "01_PMP_SEMP.pdf"
+    base, ext = os.path.splitext(filename)
+    return f"{num}_{abbr}_{base}{ext}"
 
 
 def main(pub_dir):
@@ -88,37 +119,37 @@ def main(pub_dir):
         out = prefix_name("SEMP.pdf", "ProjectManagement")
         run_pandoc([semp_dst.name], str(pub / out), str(pub))
     else:
-        print("ℹ️  No SEMP.md found at repo root; skipping SEMP PDF")
+        print("[INFO] No SEMP.md found at repo root; skipping SEMP PDF")
 
-    # 2) System Design (overall-design domain) -> SystemDesign_SysMLCloudPlatform.pdf
+    # 2) System Design (overall-design domain) -> SAD_SysMLCloudPlatform.pdf
     system_pages = [p for p in manifest if p.get("domain") == "overall-design"]
     if system_pages:
         # sort by title
         system_pages = sorted(system_pages, key=lambda x: x.get("title",""))
         md_list = [p["rel"] for p in system_pages]
-        out = prefix_name("SystemDesign_SysMLCloudPlatform.pdf", "SystemArchitectureAndDesign")
+        out = prefix_name("SysMLCloudPlatform.pdf", "SystemArchitectureAndDesign")
         run_pandoc(md_list, str(pub / out), str(pub))
     else:
         print("ℹ️  No overall-design pages found for System Design PDF")
 
     # 2a) Sub-System Design PDFs
-    # Fabrication (datacenter domain) -> SubSystemDesign_Fabrication.pdf
+    # Fabrication (datacenter domain) -> SAD_Fabrication.pdf
     fabrication_pages = [p for p in manifest if p.get("domain") == "datacenter"]
     if fabrication_pages:
         fabrication_pages = sorted(fabrication_pages, key=lambda x: x.get("title",""))
-        out = prefix_name("SubSystemDesign_Fabrication.pdf", "SystemArchitectureAndDesign")
+        out = prefix_name("Fabrication.pdf", "SystemArchitectureAndDesign")
         run_pandoc([p["rel"] for p in fabrication_pages], str(pub / out), str(pub))
     else:
-        print("ℹ️  No datacenter (Fabrication) pages found for Fabrication Sub-System PDF")
+        print("[INFO] No datacenter (Fabrication) pages found for Fabrication Sub-System PDF")
 
-    # Infrastructure (infrastructure domain) -> SubSystemDesign_Infrastructure.pdf
+    # Infrastructure (infrastructure domain) -> SAD_Infrastructure.pdf
     infrastructure_pages = [p for p in manifest if p.get("domain") == "infrastructure"]
     if infrastructure_pages:
         infrastructure_pages = sorted(infrastructure_pages, key=lambda x: x.get("title",""))
-        out = prefix_name("SubSystemDesign_Infrastructure.pdf", "SystemArchitectureAndDesign")
+        out = prefix_name("Infrastructure.pdf", "SystemArchitectureAndDesign")
         run_pandoc([p["rel"] for p in infrastructure_pages], str(pub / out), str(pub))
     else:
-        print("ℹ️  No infrastructure pages found for Infrastructure Sub-System PDF")
+        print("[INFO] No infrastructure pages found for Infrastructure Sub-System PDF")
 
     # Requirements PDFs: collect pages that are requirements (rel/title/source contains 'requirement')
     req_pages = [p for p in manifest if (
@@ -137,13 +168,13 @@ def main(pub_dir):
             pages = sorted(pages, key=lambda x: x.get('title',''))
             md_list = [p['rel'] for p in pages]
             if domain == 'overall-design':
-                filename = 'Requirements_SysMLCloudPlatform.pdf'
+                filename = 'SysMLCloudPlatform.pdf'
             else:
-                filename = f"Requirements_{domain.capitalize()}.pdf"
+                filename = f"{domain.capitalize()}.pdf"
             out_pdf = prefix_name(filename, "SystemRequirements")
             run_pandoc(md_list, str(pub / out_pdf), str(pub))
     else:
-        print("ℹ️  No requirements pages found to build Requirements PDFs")
+        print("[INFO] No requirements pages found to build Requirements PDFs")
 
     # 3) Detailed Design: one PDF per technical publication folder under fabrications/ and configs/
     # group by top-level subfolder under fabrications/ or configs/
@@ -162,7 +193,7 @@ def main(pub_dir):
         folder_name = parts[-1] if len(parts) > 1 else key
         # Convert to title case: fabrication-datacenter-a -> FabricationDatacenterA
         title_name = ''.join(word.capitalize() for word in folder_name.replace('-', ' ').split())
-        filename = f"DetailedDesign_{title_name}.pdf"
+        filename = f"{title_name}.pdf"
         out_pdf = prefix_name(filename, "SubsystemDetailedDesign")
         run_pandoc(sorted(files), str(pub / out_pdf), str(pub))
 
@@ -204,9 +235,9 @@ def main(pub_dir):
             out_pdf_name = prefix_name(f"{phase_name}.pdf", phase_name)
             run_pandoc(md_list, str(pub / out_pdf_name), str(pub))
         else:
-            print(f"ℹ️  No documents found for V-Model phase: {phase_name}")
+            print(f"[INFO] No documents found for V-Model phase: {phase_name}")
 
-    print("✅ All PDFs processed.")
+    print("[OK] All PDFs processed.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
