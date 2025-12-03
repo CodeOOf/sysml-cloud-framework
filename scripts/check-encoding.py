@@ -49,7 +49,7 @@ def main(root):
         print(f"\nSummary: {len(bad)} files are not UTF-8.")
         sys.exit(1)
     else:
-        print("\n✅ All scanned files are UTF-8 encoded.")
+        print("\n[OK] All scanned files are UTF-8 encoded.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
