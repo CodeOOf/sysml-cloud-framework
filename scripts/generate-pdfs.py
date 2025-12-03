@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
-Generate structured PDFs for the repository.
+Generate structured PDFs for the repository with clear naming standards.
 
-Produces:
- - `SEMP.pdf` (from `SEMP.md`) — standalone System Engineering Management Plan
- - `system-design.pdf` — assembled from `overall-design` domain pages (system-level architecture)
- - Sub-System Design PDFs:
-     - `fabrication-design.pdf` — assembled from `datacenter` domain pages (Fabrication subsystem design)
-     - `infrastructure-design.pdf` — assembled from `infrastructure` domain pages (Infrastructure subsystem design)
- - Technical Publications (one PDF per technical publication folder under `fabrications/` and `configs/`, e.g. `fabrications-fabrication-datacenter-a.pdf`)
+Naming Convention:
+ - SEMP.pdf (from `SEMP.md`) — System Engineering Management Plan
+ - SystemDesign_SysMLCloudPlatform.pdf — System-level design from overall-design domain
+ - SubSystemDesign_Fabrication.pdf — Datacenter domain (Fabrication subsystem)
+ - SubSystemDesign_Infrastructure.pdf — Infrastructure domain (Infrastructure subsystem)
+ - DetailedDesign_<FolderName>.pdf — Technical publications (one per folder under fabrications/ and configs/)
 
 Usage: scripts/generate-pdfs.py <publication_dir>
 """
@@ -63,32 +62,34 @@ def main(pub_dir):
     else:
         print("ℹ️  No SEMP.md found at repo root; skipping SEMP PDF")
 
-    # 2) System Design (overall-design domain)
+    # 2) System Design (overall-design domain) -> SystemDesign_SysMLCloudPlatform.pdf
     system_pages = [p for p in manifest if p.get("domain") == "overall-design"]
     if system_pages:
         # sort by title
         system_pages = sorted(system_pages, key=lambda x: x.get("title",""))
         md_list = [p["rel"] for p in system_pages]
-        run_pandoc(md_list, str(pub / "system-design.pdf"), str(pub))
+        run_pandoc(md_list, str(pub / "SystemDesign_SysMLCloudPlatform.pdf"), str(pub))
     else:
         print("ℹ️  No overall-design pages found for System Design PDF")
 
-    # 2a) Sub-System Design PDFs (datacenter -> fabrication-design, infrastructure -> infrastructure-design)
+    # 2a) Sub-System Design PDFs
+    # Fabrication (datacenter domain) -> SubSystemDesign_Fabrication.pdf
     fabrication_pages = [p for p in manifest if p.get("domain") == "datacenter"]
     if fabrication_pages:
         fabrication_pages = sorted(fabrication_pages, key=lambda x: x.get("title",""))
-        run_pandoc([p["rel"] for p in fabrication_pages], str(pub / "fabrication-design.pdf"), str(pub))
+        run_pandoc([p["rel"] for p in fabrication_pages], str(pub / "SubSystemDesign_Fabrication.pdf"), str(pub))
     else:
         print("ℹ️  No datacenter (Fabrication) pages found for Fabrication Sub-System PDF")
 
+    # Infrastructure (infrastructure domain) -> SubSystemDesign_Infrastructure.pdf
     infrastructure_pages = [p for p in manifest if p.get("domain") == "infrastructure"]
     if infrastructure_pages:
         infrastructure_pages = sorted(infrastructure_pages, key=lambda x: x.get("title",""))
-        run_pandoc([p["rel"] for p in infrastructure_pages], str(pub / "infrastructure-design.pdf"), str(pub))
+        run_pandoc([p["rel"] for p in infrastructure_pages], str(pub / "SubSystemDesign_Infrastructure.pdf"), str(pub))
     else:
         print("ℹ️  No infrastructure pages found for Infrastructure Sub-System PDF")
 
-    # 3) Sub-systems: fabrications and configs
+    # 3) Detailed Design: one PDF per technical publication folder under fabrications/ and configs/
     # group by top-level subfolder under fabrications/ or configs/
     groups = {}
     for p in manifest:
@@ -100,8 +101,12 @@ def main(pub_dir):
                 groups.setdefault(key, []).append(p["rel"])
 
     for key, files in groups.items():
-        name = key.replace(os.sep, "-")
-        out_pdf = pub / f"{name}.pdf"
+        # Extract folder name (e.g., "fabrication-datacenter-a" from "fabrications/fabrication-datacenter-a")
+        parts = key.split(os.sep)
+        folder_name = parts[-1] if len(parts) > 1 else key
+        # Convert to title case: fabrication-datacenter-a -> FabricationDatacenterA
+        title_name = ''.join(word.capitalize() for word in folder_name.replace('-', ' ').split())
+        out_pdf = pub / f"DetailedDesign_{title_name}.pdf"
         run_pandoc(sorted(files), str(out_pdf), str(pub))
 
     print("✅ All PDFs processed.")

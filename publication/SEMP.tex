@@ -1,0 +1,869 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage{titling}
+\usepackage{background}
+
+\setkeys{Gin}{width=\textwidth, height=\textheight, keepaspectratio}
+
+% Fix for Pandoc-generated lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Pandoc image macro: identity wrapper for generated \includegraphics
+\newcommand{\pandocbounded}[1]{#1}
+
+% Page setup
+\geometry{margin=1in}
+\setstretch{1.2}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{SysML Cloud Platform}
+
+% Fonts
+\setmainfont{Arial}
+\setsansfont{Arial}
+
+% Title formatting
+\pretitle{\vspace*{6cm}\begin{center}\Huge\bfseries\color{white}}
+\posttitle{\end{center}\vspace{1cm}}
+\preauthor{\begin{center}\Large\color{white}}
+\postauthor{\end{center}\vspace{0.5cm}}
+\predate{\begin{center}\large\color{white}}
+\postdate{\end{center}\vspace{2cm}}
+
+% Background image
+\backgroundsetup{
+  scale=1,
+  angle=0,
+  opacity=1,
+  contents={%
+    \includegraphics[width=\paperwidth,height=\paperheight]{../templates/title-accent.png}
+  }
+}
+
+% Titlepage content
+\title{SysML Cloud Platform}
+\author{Version: v1.0}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+% Allow Pandoc to inject needed header includes (packages, styles)
+
+	ableofcontents
+\clearpage
+
+\section{System Engineering Management Plan
+(SEMP)}\label{system-engineering-management-plan-semp}
+
+\subsection{SysML Cloud Platform}\label{sysml-cloud-platform}
+
+\textbf{Document Version:} 1.0\\
+\textbf{Last Updated:} 2025-12-03\\
+\textbf{Prepared by:} Systems Engineering Team\\
+\textbf{Status:} Active
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1. Purpose and Scope}\label{purpose-and-scope}
+
+The \textbf{System Engineering Management Plan (SEMP)} defines how
+systems engineering will be planned, organized, conducted, and
+controlled for the \textbf{SysML Cloud Platform} project. This plan
+ensures that all systems engineering activities align with project
+objectives and organizational standards.
+
+\subsubsection{1.1 Project Vision}\label{project-vision}
+
+Transform system models into actionable implementation artifacts through
+a Git-native, model-driven engineering framework that connects SysML v2
+system architecture with cloud infrastructure, technicians, and
+developers.
+
+\subsubsection{1.2 Scope}\label{scope}
+
+\begin{itemize}
+\tightlist
+\item
+  Model-driven design of datacenter and cloud infrastructure
+\item
+  Integration of SysML requirements, architecture, and deployment models
+\item
+  Automated generation of documentation, diagrams, and deployment
+  artifacts
+\item
+  Bidirectional traceability from requirements through implementation
+  and operations
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2. Organizational Structure}\label{organizational-structure}
+
+\subsubsection{2.1 SE Organization}\label{se-organization}
+
+\begin{verbatim}
+Systems Engineering Manager
+├── Architecture Lead (SysML Modeling)
+├── Infrastructure Engineer (Deployment & Validation)
+├── Integration Engineer (CI/CD & Tooling)
+└── Documentation & Quality Lead
+\end{verbatim}
+
+\subsubsection{2.2 Roles and
+Responsibilities}\label{roles-and-responsibilities}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Role
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Responsibilities
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{SE Manager} & Oversees SE processes, stakeholder coordination,
+risk management, and metrics \\
+\textbf{Architecture Lead} & Develops and maintains SysML models;
+defines system structure and behavior \\
+\textbf{Infrastructure Engineer} & Translates SysML models into
+deployment infrastructure; performs validation \\
+\textbf{Integration Engineer} & Maintains CI/CD pipelines; ensures
+traceability between models, code, and infrastructure \\
+\textbf{Documentation \& QA Lead} & Ensures documentation quality,
+accessibility, and compliance with SE standards \\
+\end{longtable}
+}
+
+\subsubsection{2.3 Interface Management}\label{interface-management}
+
+\textbf{Internal Interfaces:} - Architecture ↔ Infrastructure: SysML
+models → Terraform/Ansible templates - Infrastructure ↔ Integration:
+Validated deployments → CI/CD artifacts - All ↔ Documentation: Model
+artifacts → Published markdown, diagrams, PDF
+
+\textbf{External Interfaces:} - Stakeholders (executives, operators,
+developers) - Git repositories (GitHub, GitLab, Azure DevOps) - Cloud
+platforms (AWS, Azure, GCP, on-premises) - SysML tooling (e.g., Cameo
+Systems Modeler, Papyrus, open-source alternatives)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3. Systems Engineering
+Processes}\label{systems-engineering-processes}
+
+\subsubsection{3.1 Integrated SE Process
+Model}\label{integrated-se-process-model}
+
+The project follows a \textbf{model-driven, iterative SE cycle}:
+
+\begin{verbatim}
+Requirements → Architecture → Design → Implementation → Validation → Operations
+     ↑                                                                    ↓
+     └────────────────────── Feedback & Refinement ──────────────────────
+\end{verbatim}
+
+\subsubsection{3.2 Requirements
+Management}\label{requirements-management}
+
+\textbf{Definition:} Capture stakeholder needs and system requirements
+in SysML requirement blocks.
+
+\textbf{Key Activities:} - Elicit requirements from stakeholders
+(operators, developers, security, compliance) - Document requirements in
+SysML format under \texttt{sysml/*/} - Establish requirement IDs and
+traceability links - Manage requirement changes through Git commits with
+clear commit messages
+
+\textbf{Artifacts:} -
+\texttt{sysml/datacenter/DatacenterRequirements.sysml} -
+\texttt{sysml/infrastructure/InfrastructureRequirements.sysml} -
+\texttt{sysml/overall-design/SysMLCloudPlatformRequirements.sysml}
+
+\textbf{Tools:} SysML text/graphical editors, Git version control
+
+\subsubsection{3.3 Architecture and
+Design}\label{architecture-and-design}
+
+\textbf{Definition:} Develop high-level system architecture using SysML
+block definition diagrams (BDD) and internal block diagrams (IBD).
+
+\textbf{Key Activities:} - Define major system blocks (components,
+subsystems) - Specify interfaces and connections - Decompose
+requirements into design elements - Document deployment views and
+physical architecture
+
+\textbf{Artifacts:} -
+\texttt{sysml/datacenter/DatacenterArchitectureModel.sysml} -
+\texttt{sysml/infrastructure/ClusterArchitectureModel.sysml} -
+\texttt{sysml/overall-design/SysMLCloudPlatformModel.sysml} -
+\texttt{fabrications/*/} --- Specific datacenter/rack designs -
+\texttt{configs/*/} --- Cluster and infrastructure specifications
+
+\textbf{Tools:} SysML modelers, Graphviz for diagram rendering
+
+\subsubsection{3.4 Implementation}\label{implementation}
+
+\textbf{Definition:} Transform SysML models into executable code,
+infrastructure definitions, and deployment configurations.
+
+\textbf{Key Activities:} - Generate Terraform modules and Ansible
+playbooks from SysML deployment views - Create Python/scripting stubs
+for system components - Define network models, service catalogs, and
+virtualization configs - Commit implementation artifacts to Git with
+full traceability
+
+\textbf{Artifacts:} - \texttt{library/terraform-modules/} --- IaC
+templates - \texttt{library/ansible-roles/} --- Deployment automation -
+Generated scripts and configuration files - Infrastructure-as-Code (IaC)
+documentation
+
+\textbf{Tools:} Terraform, Ansible, Python, \texttt{build-docs.py}
+script
+
+\subsubsection{3.5 Verification and
+Validation}\label{verification-and-validation}
+
+\textbf{Definition:} Ensure SysML models, requirements, and
+implementations are correct and complete.
+
+\textbf{Verification Activities:} - Review SysML models for completeness
+and consistency - Validate model syntax with
+\texttt{scripts/check-encoding.py} - Trace requirements to design
+elements - Peer review of architecture and design documents
+
+\textbf{Validation Activities:} - Deploy infrastructure using generated
+Terraform/Ansible - Test system against original requirements - Collect
+feedback from operators and stakeholders - Validate deployment in
+staging/production environments
+
+\textbf{Artifacts:} - Test plans and reports - Validation matrices
+(requirement ↔ test case) - Deployment logs and metrics
+
+\textbf{Tools:} Git, SysML tooling, deployment platforms (AWS, Azure,
+etc.), monitoring tools
+
+\subsubsection{3.6 Operations and
+Maintenance}\label{operations-and-maintenance}
+
+\textbf{Definition:} Manage the operational system and apply
+updates/improvements.
+
+\textbf{Key Activities:} - Monitor deployed systems; collect operational
+metrics - Document design decisions and operational procedures - Process
+change requests and improvements - Update SysML models to reflect
+operational feedback
+
+\textbf{Artifacts:} - Operational procedures and runbooks -
+Incident/change logs - Updated SysML models and deployment
+configurations
+
+\textbf{Tools:} Monitoring solutions (Prometheus, OpenTelemetry), Git,
+SysML tooling
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{4. Traceability}\label{traceability}
+
+\subsubsection{4.1 Traceability Links}\label{traceability-links}
+
+All SE artifacts maintain bidirectional traceability:
+
+\begin{verbatim}
+Stakeholder Need
+    ↓
+SysML Requirement (e.g., REQ-001)
+    ↓
+SysML Design Element (e.g., Block, Interface)
+    ↓
+Implementation (Terraform, Ansible, Code)
+    ↓
+Deployment & Operations
+    ↓
+Feedback (Operational Metrics, Issues)
+\end{verbatim}
+
+\subsubsection{4.2 Traceability
+Management}\label{traceability-management}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Requirements}: Stored as SysML \texttt{requirement} blocks
+  with \texttt{Text}, \texttt{Id}, and relationship attributes
+\item
+  \textbf{Design ↔ Requirements}: SysML \texttt{refines},
+  \texttt{derives}, \texttt{satisfies} relationships
+\item
+  \textbf{Implementation ↔ Design}: Code comments and configuration
+  metadata reference SysML elements
+\item
+  \textbf{Validation ↔ Requirements}: Test cases linked to requirements
+  via Git tags and documentation
+\item
+  \textbf{Tool Support}: Git blame/history, SysML tooling queries,
+  custom traceability dashboards
+\end{itemize}
+
+\textbf{Repository Structure:}
+
+\begin{verbatim}
+sysml/
+├── overall-design/          # Platform-wide models
+├── datacenter/              # Datacenter domain
+├── infrastructure/          # Infrastructure domain
+fabrications/
+├── fabrication-datacenter-a/
+configs/
+├── infrastructure-cluster-a/
+library/
+├── terraform-modules/
+├── ansible-roles/
+publication/                 # Generated traceability reports
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{5. Configuration Management}\label{configuration-management}
+
+\subsubsection{5.1 Baseline Strategy}\label{baseline-strategy}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Initial Baseline}: First stable release after architecture
+  review
+\item
+  \textbf{Controlled Baselines}: After each major architecture iteration
+\item
+  \textbf{Development Baseline}: Continuous development on main branch
+\end{itemize}
+
+\subsubsection{5.2 Change Control}\label{change-control}
+
+\textbf{Change Request Process:} 1. Open issue in Git repository
+(GitHub, GitLab, Azure DevOps) 2. Describe change and impact (model,
+infrastructure, documentation) 3. Review by Architecture Lead and
+Integration Engineer 4. Merge branch into main after approval 5. Tag
+release and update version metadata
+
+\textbf{Configuration Items:} - SysML model files (\texttt{.sysml}) -
+Infrastructure definitions (Terraform, Ansible) - Build scripts and
+configurations (\texttt{Makefile}, \texttt{py-requirements.txt}) -
+Documentation (Markdown, diagrams, PDF)
+
+\subsubsection{5.3 Versioning}\label{versioning}
+
+\begin{itemize}
+\tightlist
+\item
+  Use Git tags for releases: \texttt{v1.0.0}, \texttt{v1.1.0}, etc.
+  (semantic versioning)
+\item
+  Maintain version metadata in \texttt{Makefile} and model headers
+\item
+  Document changes in \texttt{release-notes/}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{6. Risk Management}\label{risk-management}
+
+\subsubsection{6.1 SE-Specific Risks}\label{se-specific-risks}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1622}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3243}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2162}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2973}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Risk
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Likelihood
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Impact
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mitigation
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Model complexity grows unmanageable & Medium & High & Regular
+architecture reviews, modular design, tool support \\
+SysML tooling changes or becomes obsolete & Low & High & Choose open
+standards, maintain text-based \texttt{.sysml} format, community
+support \\
+Requirements traceability breaks & Medium & High & Automated
+traceability checks, Git pre-commit hooks, CI pipeline validation \\
+Deployment validation is incomplete & Medium & High & Comprehensive test
+matrices, staging environment, monitoring integration \\
+Stakeholder expectations misaligned with model & Medium & Medium &
+Regular stakeholder reviews, documented assumptions, clear interface
+definitions \\
+\end{longtable}
+}
+
+\subsubsection{6.2 Risk Monitoring}\label{risk-monitoring}
+
+\begin{itemize}
+\tightlist
+\item
+  Monthly SE metrics review
+\item
+  Quarterly architecture assessment
+\item
+  Post-implementation feedback collection
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{7. Data and Information
+Management}\label{data-and-information-management}
+
+\subsubsection{7.1 SE Artifacts}\label{se-artifacts}
+
+\textbf{Model Artifacts:} - SysML source files (\texttt{.sysml}) -
+Generated diagrams (\texttt{.png} from Graphviz) - Data specifications
+(JSON, YAML)
+
+\textbf{Documentation:} - Markdown pages (architecture, requirements,
+design decisions) - PDF publications (formal project documentation) -
+Generated indexes and cross-references
+
+\textbf{Infrastructure:} - Terraform modules and state files - Ansible
+playbooks and inventory - Deployment logs and metrics
+
+\subsubsection{7.2 Repository Structure}\label{repository-structure}
+
+\begin{verbatim}
+architecture/
+├── sysml/                  # SysML source (version controlled)
+├── publication/            # Generated docs (derived, not committed)
+├── fabrications/           # Domain-specific designs
+├── configs/                # Infrastructure configurations
+├── library/                # Shared modules and utilities
+├── scripts/                # Build and automation scripts
+└── templates/              # Documentation and scaffolding templates
+\end{verbatim}
+
+\subsubsection{7.3 Access and Security}\label{access-and-security}
+
+\begin{itemize}
+\tightlist
+\item
+  Git repository with role-based access control (RBAC)
+\item
+  Branch protection rules (main requires approval)
+\item
+  Audit logging via Git history
+\item
+  Sensitive data: use environment variables or secrets management (not
+  in repo)
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{8. Metrics and Reporting}\label{metrics-and-reporting}
+
+\subsubsection{8.1 SE Metrics}\label{se-metrics}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2750}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Metric
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Target
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Measurement
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Frequency
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Requirements Traceability (↓→test) & 100\% & Automated check & Per
+build \\
+Model Consistency & 100\% & SysML validation, syntax check & Per
+commit \\
+Documentation Currency & 100\% & Auto-generated from models & Per
+release \\
+Code/Infrastructure Review Coverage & 100\% & Git pull request checks &
+Per PR \\
+Deployment Success Rate & \textgreater99\% & CI/CD pipeline metrics &
+Monthly \\
+\end{longtable}
+}
+
+\subsubsection{8.2 Reporting}\label{reporting}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Weekly}: SE status update (blockers, progress)
+\item
+  \textbf{Monthly}: Metrics dashboard (traceability, deployment,
+  quality)
+\item
+  \textbf{Quarterly}: Architecture review and risk assessment
+\item
+  \textbf{At Release}: Full traceability matrix and validation report
+\end{itemize}
+
+\subsubsection{8.3 Tools and Dashboards}\label{tools-and-dashboards}
+
+\begin{itemize}
+\tightlist
+\item
+  Git dashboard (commits, branches, PR status)
+\item
+  Build pipeline dashboard (CI/CD test results)
+\item
+  Deployment dashboard (infrastructure metrics)
+\item
+  Documentation index (auto-generated from SysML)
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{9. Tools and Environment}\label{tools-and-environment}
+
+\subsubsection{9.1 SE Tools}\label{se-tools}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Tool
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Git} & Version control, branching, CI/CD integration \\
+\textbf{SysML Modeler} & Model creation and editing (Papyrus, Cameo,
+open-source) \\
+\textbf{Graphviz} & Diagram rendering and visualization \\
+\textbf{Pandoc + LaTeX} & Documentation generation and PDF
+publication \\
+\textbf{Python} & Build scripts, traceability analysis, custom tools \\
+\textbf{Terraform} & Infrastructure-as-Code (IaC) generation \\
+\textbf{Ansible} & Deployment automation \\
+\textbf{Monitoring Tools} & Prometheus, OpenTelemetry, ELK stack
+(future) \\
+\end{longtable}
+}
+
+\subsubsection{9.2 Build and Development
+Environment}\label{build-and-development-environment}
+
+\textbf{Local Development:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{make}\NormalTok{ init          }\CommentTok{\# Set up .venv and dependencies}
+\FunctionTok{make}\NormalTok{ docs          }\CommentTok{\# Build Markdown + diagrams}
+\FunctionTok{make}\NormalTok{ pdf           }\CommentTok{\# Generate PDF documentation}
+\FunctionTok{make}\NormalTok{ clean         }\CommentTok{\# Clean artifacts}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{CI/CD Pipeline:} - Automatic syntax checking
+(\texttt{scripts/check-encoding.py}) - Automatic documentation
+generation (\texttt{scripts/build-docs.py}) - Automated deployment
+validation - Artifact archiving
+
+\subsubsection{9.3 Repository Access}\label{repository-access}
+
+\begin{itemize}
+\tightlist
+\item
+  Primary: GitHub, GitLab, or Azure DevOps
+\item
+  Branching model: trunk-based or git-flow (team decides)
+\item
+  Protected branches: \texttt{main} requires peer review
+\item
+  Submodules: Optional for separating large domains
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{10. Training and Competency}\label{training-and-competency}
+
+\subsubsection{10.1 Required Competencies}\label{required-competencies}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{All Team Members:} Git, Markdown, systems thinking
+\item
+  \textbf{Architects:} SysML v2, systems design principles, cloud
+  architecture
+\item
+  \textbf{Infrastructure Engineers:} Terraform, Ansible, cloud
+  platforms, deployment validation
+\item
+  \textbf{Integration Engineers:} CI/CD tools, Python scripting, Git
+  workflows
+\item
+  \textbf{QA/Documentation:} Technical writing, traceability analysis,
+  diagram interpretation
+\end{itemize}
+
+\subsubsection{10.2 Training Plan}\label{training-plan}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Onboarding:} SysML basics, Git workflows, project structure
+  (1-2 weeks)
+\item
+  \textbf{Ongoing:} Monthly tech talks, quarterly certifications, ad-hoc
+  training on new tools
+\item
+  \textbf{Documentation:} This SEMP, README, CONTRIBUTING guide, inline
+  code comments
+\end{itemize}
+
+\subsubsection{10.3 Knowledge Management}\label{knowledge-management}
+
+\begin{itemize}
+\tightlist
+\item
+  Maintain \textbf{\texttt{CONTRIBUTING.md}} for development guidelines
+\item
+  Keep \textbf{\texttt{README.md}} updated with project status
+\item
+  Document design decisions in SysML comments and git commits
+\item
+  Archive lessons learned in quarterly reviews
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{11. Interface and Integration
+Strategy}\label{interface-and-integration-strategy}
+
+\subsubsection{11.1 SysML-to-Implementation
+Interfaces}\label{sysml-to-implementation-interfaces}
+
+\textbf{Current Interfaces:} - SysML → Markdown:
+\texttt{scripts/build-docs.py} parses \texttt{.sysml} and generates
+documentation - SysML → Diagrams: Graphviz renders block definitions and
+relationships - Infrastructure models → Terraform: Manual mapping
+(future: automated generator)
+
+\textbf{Future Interfaces (Roadmap):} - SysML deployment views → Helm
+chart generator - SysML service specifications → OpenAPI generator -
+SysML requirements → Test case generator - Operational metrics → Model
+feedback loop
+
+\subsubsection{11.2 Stakeholder
+Communication}\label{stakeholder-communication}
+
+\begin{itemize}
+\tightlist
+\item
+  Architecture reviews: quarterly, all stakeholders
+\item
+  Change control reviews: per major change
+\item
+  Status reports: monthly to project leadership
+\item
+  Incident debriefs: within 24 hours of operational issues
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{11.3 Documentation \& Publication
+Structure}\label{documentation-publication-structure}
+
+The project organizes documentation into a three-tier publication
+structure that aligns with systems engineering disciplines and
+traceability expectations.
+
+\begin{itemize}
+\item
+  \textbf{System Design (system-level):} a PDF assembled from
+  \texttt{overall-design} domain pages. This document describes the
+  high-level architecture that connects all subsystems and provides the
+  principal system-level decisions and interfaces. It is published as
+  \texttt{publication/system-design.pdf}.
+\item
+  \textbf{Sub-System Design (subsystem-level):} separate PDF
+  publications for each major subsystem. In this project the primary
+  subsystems are:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Fabrication Subsystem} (datacenter domain) --- published as
+    \texttt{publication/fabrication-design.pdf} and assembled from
+    \texttt{datacenter} domain pages (e.g.,
+    \texttt{sysml/datacenter/*}).
+  \item
+    \textbf{Infrastructure Subsystem} (infrastructure domain) ---
+    published as \texttt{publication/infrastructure-design.pdf} and
+    assembled from \texttt{infrastructure} domain pages (e.g.,
+    \texttt{sysml/infrastructure/*}).
+  \end{itemize}
+
+  Sub-System Design documents contain the architectural and design rules
+  for their domain and are referenced by technical publications for
+  specific deployments.
+\item
+  \textbf{Technical Publications (deployment-level):} per-site or
+  per-cluster technical publications (for example
+  \texttt{fabrications/fabrication-datacenter-a},
+  \texttt{fabrications/fabrication-datacenter-b},
+  \texttt{configs/infrastructure-cluster-a},
+  \texttt{configs/infrastructure-cluster-b}). Each technical
+  publication:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Is generated as a distinct PDF (e.g.,
+    \texttt{publication/fabrications-fabrication-datacenter-a.pdf}).
+  \item
+    References its parent Sub-System Design document (e.g., Fabrication
+    Subsystem) and the System Design where applicable.
+  \item
+    Contains detailed rack/datacenter or cluster-level models,
+    configuration specs, and deployment instructions.
+  \end{itemize}
+\end{itemize}
+
+This organization ensures a clean separation of concerns: - System
+Design connects the dots and defines global interfaces and constraints.
+- Sub-System Designs capture domain-specific architecture, constraints,
+and design patterns. - Technical Publications provide concrete,
+deployable specifications and instructions tied back to the above
+designs with full traceability to requirements.
+
+When generating publications via the repository automation
+(\texttt{make\ docs} and \texttt{make\ pdf}), the pipeline produces one
+PDF per publication type as described above and writes a
+\texttt{manifest.json} to \texttt{publication/} containing the mapping
+from generated markdown pages to their publication group. This manifest
+supports downstream processing such as assembling PDFs and generating
+cross-reference tables.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{12. Approval and Sign-Off}\label{approval-and-sign-off}
+
+Approvals and signatures:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Systems Engineering Manager} --- Plan approval \& oversight.
+  Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date: \_\_\_\_
+\item
+  \textbf{Project Manager} --- Resource \& schedule alignment.
+  Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date: \_\_\_\_
+\item
+  \textbf{Architecture Lead} --- Technical feasibility. Signature:
+  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date: \_\_\_\_
+\item
+  \textbf{Stakeholder Representative} --- Needs alignment. Signature:
+  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date: \_\_\_\_
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{13. Appendices}\label{appendices}
+
+\subsubsection{A. SysML Domain
+Breakdown}\label{a.-sysml-domain-breakdown}
+
+\textbf{Overall Design Domain:} - Platform-level requirements,
+interfaces, virtualization model - High-level component architecture
+
+\textbf{Datacenter Domain:} - Datacenter requirements and architecture -
+Physical layout (rooms, racks, cooling) - Power and cooling interfaces
+
+\textbf{Infrastructure Domain:} - Cluster architecture and networking -
+Service catalog and deployment models - Virtualization platform
+specifications
+
+\subsubsection{B. Key Documents and
+Artifacts}\label{b.-key-documents-and-artifacts}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{README.md} --- Project overview and quick-start
+\item
+  \texttt{CONTRIBUTING.md} --- Development guidelines and submodule
+  workflows
+\item
+  \texttt{publication/} --- Generated architecture, requirements, and
+  design documentation
+\item
+  \texttt{.submodules.config} --- Submodule configuration for optional
+  domain separation
+\item
+  \texttt{scripts/build-docs.py} --- SysML parsing and documentation
+  generation
+\end{itemize}
+
+\subsubsection{C. Referenced Standards}\label{c.-referenced-standards}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{INCOSE Systems Engineering Handbook} (v4.0+)
+\item
+  \textbf{SysML v2 Specification}
+\item
+  \textbf{Git workflow best practices}
+\item
+  \textbf{Terraform and Ansible best practices}
+\end{itemize}
+
+\subsubsection{D. Revision History}\label{d.-revision-history}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{1.0} --- 2025-12-03 --- Initial SEMP for SysML Cloud Platform
+  --- SE Team
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Document Classification:} Public\\
+\textbf{Distribution:} Project team, stakeholders on request\\
+\textbf{Next Review:} 2026-06-03 (6 months)
+\end{document}
