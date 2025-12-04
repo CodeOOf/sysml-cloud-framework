@@ -54,4 +54,4 @@ Ownership and Governance
 - Teams owning a `configs/*` folder are responsible for its CI/CD, security, and lifecycle.
 - Cross-references in SysML should reference requirement IDs, not literal folder names.
 
-For more details see `PROJECT_INTEGRATION_GUIDE.md` and `publication/NAVIGATION_GUIDE.md`.
+For more details see `docs/PROJECT_INTEGRATION_GUIDE.md` and `publication/NAVIGATION_GUIDE.md`.

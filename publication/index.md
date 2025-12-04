@@ -17,7 +17,6 @@ Generated: 2025-12-04
 - [rackB1](rack-b1.md)
 - [rackB1-view](rack-b1-view.md)
 - [SharedInfrastructureLibrary](shared-infrastructure-library.md)
-- [System Engineering Management Plan](SEMP.md)
 
 ## Datacenter
 - [DatacenterArchitectureModel](datacenter-architecture-model.md)

@@ -72,7 +72,7 @@ def main(pub_dir):
     manifest = read_manifest(pub_dir)
 
     # SEMP
-    semp = Path(pub.parent) / 'SEMP.md'
+    semp = Path(pub.parent) / 'docs' / 'SEMP.md'
     if semp.exists():
         dest = prefix_name('SEMP.md', 'ProjectManagement')
         write_grouped_md(pub_dir, dest, ['SEMP.md'] if (pub / 'SEMP.md').exists() else [str(semp.relative_to(pub))])

@@ -20,9 +20,9 @@ This project demonstrates the complete system using examples. Example names `Clu
 - **Template Structure**: Required folder and configuration patterns for all deployments
 
 For detailed architecture documentation, see:
-- **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** — Complete architecture reference
-- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** — Quick lookup card for common tasks
-- **[INDEX.md](publication/index.md)** — Entry point to all generated documentation
+- **[SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)** — Complete architecture reference
+- **[QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)** — Quick lookup card for common tasks
+- **[INDEX.md](docs/INDEX.md)** — Entry point to documentation and guides
 - **[NAVIGATION_GUIDE.md](publication/NAVIGATION_GUIDE.md)** — Guide to publication structure and PDF organization
 
 This project provides:
@@ -173,11 +173,11 @@ The generator applies phase mapping based on keywords in document filenames and 
 
 ### Where to Start
 
-**First Time?** → Start here: [INDEX.md](publication/index.md)
+**First Time?** → Start here: [INDEX.md](docs/INDEX.md)
 
-**Need Quick Answers?** → [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
+**Need Quick Answers?** → [QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)
 
-**Want Full Details?** → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)
+**Want Full Details?** → [SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)
 
 ### Documentation by Purpose
 
@@ -198,15 +198,15 @@ The generator applies phase mapping based on keywords in document filenames and 
 - **PDFs**: `04_SAD_*.pdf` — System architecture & design documents
 
 #### For Understanding Testing & Deployment
-- **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Complete testing and deployment procedures
+- **[TESTING_AND_DEPLOYMENT_STRATEGY.md](docs/TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Complete testing and deployment procedures
 - **[sysml/overall-design/TestingAndDeploymentPlanning.sysml](sysml/overall-design/TestingAndDeploymentPlanning.sysml)** — Test plans and deployment definitions
-- **[PROJECT_INTEGRATION_GUIDE.md](PROJECT_INTEGRATION_GUIDE.md)** — Jira/GitLab integration and workflow
+- **[PROJECT_INTEGRATION_GUIDE.md](docs/PROJECT_INTEGRATION_GUIDE.md)** — Jira/GitLab integration and workflow
 - **PDFs**: `08_ITP_*.pdf`, `09_STP_*.pdf`, `11_DPL_*.pdf` — Testing and deployment documents
 
 #### For Project Managers & Stakeholders
 - **[publication/index.md](publication/index.md)** — Entry point with overview
 - **[01_PMP_SEMP.pdf](publication/01_PMP_SEMP.pdf)** — System Engineering Management Plan
-- **[PROJECT_INTEGRATION_GUIDE.md](PROJECT_INTEGRATION_GUIDE.md)** — Jira/issue tracking setup
+- **[PROJECT_INTEGRATION_GUIDE.md](docs/PROJECT_INTEGRATION_GUIDE.md)** — Jira/issue tracking setup
 
 #### For Infrastructure/DevOps Teams
 - **[templates/TERRAFORM_STRUCTURE.md](templates/TERRAFORM_STRUCTURE.md)** — Terraform module organization

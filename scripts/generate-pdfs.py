@@ -112,7 +112,7 @@ def main(pub_dir):
         manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
 
     # 1) SEMP
-    semp_src = Path(pub.parent) / "SEMP.md"
+    semp_src = Path(pub.parent) / "docs" / "SEMP.md"
     if semp_src.exists():
         semp_dst = pub / "SEMP.md"
         semp_dst.write_bytes(semp_src.read_bytes())

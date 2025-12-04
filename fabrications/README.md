@@ -43,4 +43,4 @@ Tooling and Integration
 - Build tooling reads `manifest.json` to map SysML references to the actual folder IDs.
 - When referencing fabrication instances in SysML or docs, reference requirement IDs and manifest `id` values rather than literal example names.
 
-See also `configs/README.md` and `PROJECT_INTEGRATION_GUIDE.md` for CI/CD and ownership best practices.
+See also `configs/README.md` and `docs/PROJECT_INTEGRATION_GUIDE.md` for CI/CD and ownership best practices.
