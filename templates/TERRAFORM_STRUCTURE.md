@@ -81,8 +81,8 @@ terraform-modules/
 ## Template Structure (Used by all subfolders in configs/ and fabrications/)
 
 ```
-configs/infrastructure-cluster-b/
-├── variables.tf                    # Cluster-specific variables
+configs/{instance-id}/
+├── variables.tf                    # Instance-specific variables
 ├── terraform.tfvars               # Variable values
 ├── main.tf                        # Root module instantiation
 ├── outputs.tf                     # Exported values
@@ -94,15 +94,15 @@ configs/infrastructure-cluster-b/
 │   └── networking.json            # Network configuration
 └── README.md                      # Deployment instructions
 
-fabrications/fabrication-datacenter-a/
+fabrications/{instance-id}/
 ├── variables.tf
 ├── terraform.tfvars
 ├── main.tf
 ├── outputs.tf
 ├── backend.tf
 ├── models/                        # SysML models for this datacenter
-│   ├── datacenter-a.sysml
-│   ├── cluster-a-deployment.sysml
+│   ├── floorplan.sysml
+│   ├── cluster-deployment.sysml
 │   └── fabrication-layout.sysml
 ├── specs/
 │   ├── datacenter.json

@@ -181,7 +181,7 @@ Phase Number    Abbreviation    Document Purpose                 Markdown Files
 │   ├── Network Design
 │   ├── Storage Backend (Local)
 │   ├── Security Policies
-│   ├── Related Terraform Files (configs/infrastructure-cluster-a/)
+│   ├── Related Terraform Files (`configs/{instance-id}/`) — per-instance (replace `{instance-id}`)
 │   └── Related Ansible Roles (library/ansible-roles/)
 ├── Cluster B Design
 │   ├── Architecture Diagram
@@ -192,7 +192,7 @@ Phase Number    Abbreviation    Document Purpose                 Markdown Files
 │   ├── Security Policies
 │   ├── Load Balancing
 │   ├── Monitoring and Logging
-│   ├── Related Terraform Files (configs/infrastructure-cluster-b/)
+│   ├── Related Terraform Files (`configs/{instance-id}/`) — per-instance (replace `{instance-id}`)
 │   └── Related Ansible Roles (library/ansible-roles/)
 ├── Comparison Table (Cluster A vs B)
 ├── Design Decisions and Rationale
@@ -228,8 +228,8 @@ Phase Number    Abbreviation    Document Purpose                 Markdown Files
 └── SysML Models
     ├── sysml/datacenter/DeploymentArchitecture.sysml
     ├── sysml/datacenter/FabricationSubSystemRequirements.sysml
-    ├── fabrications/fabrication-datacenter-a/models/
-    └── fabrications/fabrication-datacenter-b/models/
+   ├── fabrications/{instance-id}/models/
+   └── fabrications/{instance-id}/models/
 ```
 
 **When to Read**: After reading requirements; before reading detailed design or implementation
@@ -279,10 +279,10 @@ Phase Number    Abbreviation    Document Purpose                 Markdown Files
 ├── Cluster B Component Placement (Master 1 only)
 │   └── Master 1 Node Placement and Networking
 └── Implementation Files
-    ├── fabrications/fabrication-datacenter-a/models/
-    ├── fabrications/fabrication-datacenter-a/specs/
-    ├── fabrications/fabrication-datacenter-a/views/
-    ├── configs/infrastructure-cluster-a/
+   ├── fabrications/{instance-id}/models/
+   ├── fabrications/{instance-id}/specs/
+   ├── fabrications/{instance-id}/views/
+   ├── configs/{instance-id}/
     └── library/ansible-roles/
 ```
 
@@ -373,8 +373,8 @@ Contains the high-level system design showing how Cluster A, Cluster B, and Data
 **Related Code**:
 - `library/terraform-modules/` - Reusable Terraform modules
 - `library/ansible-roles/` - Reusable Ansible roles
-- `configs/infrastructure-cluster-a/` - Cluster A-specific Terraform/Ansible
-- `configs/infrastructure-cluster-b/` - Cluster B-specific Terraform/Ansible
+- `configs/{instance-id}/` - Per-instance Terraform/Ansible (replace `{instance-id}`)
+- `configs/{instance-id}/` - Per-instance Terraform/Ansible (replace `{instance-id}`)
 
 ---
 
@@ -394,8 +394,8 @@ Contains the high-level system design showing how Cluster A, Cluster B, and Data
 - `sysml/datacenter/FabricationSubSystemRequirements.sysml`
 
 **Related Files**:
-- `fabrications/fabrication-datacenter-a/models/`
-- `fabrications/fabrication-datacenter-b/models/`
+- `fabrications/{instance-id}/models/` (per-instance; replace `{instance-id}`)
+- `fabrications/{instance-id}/models/` (per-instance; replace `{instance-id}`)
 
 ---
 
@@ -495,7 +495,7 @@ grep -r "jiraIssue\|externalSourceId" sysml/
    - `INDEX.md` - Understand project structure
    - `03_SRD_Infrastructure.pdf` - Understand requirements for your cluster
    - `04_SAD_Infrastructure.pdf` - Understand design
-   - `configs/infrastructure-cluster-a/README.md` or `cluster-b/README.md` - Implementation guide
+   - `configs/{instance-id}/README.md` - Implementation guide (replace `{instance-id}` with your cluster id)
 
 2. **Reference materials**:
    - `QUICK_REFERENCE.md` - Common tasks
@@ -511,7 +511,7 @@ grep -r "jiraIssue\|externalSourceId" sysml/
 
 2. **Reference materials**:
    - `floorplan.md` - Physical layout
-   - `fabrications/fabrication-datacenter-a/` or `datacenter-b/` - Detailed specs
+   - `fabrications/{instance-id}/` - Detailed specs (replace `{instance-id}` with your datacenter id)
    - `vendor-docs/` - Equipment vendor documentation
 
 ### For Project Managers
