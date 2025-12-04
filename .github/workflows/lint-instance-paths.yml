@@ -1,0 +1,28 @@
+name: Lint example-instance-paths
+
+on:
+  push:
+    paths:
+      - 'publication/**'
+      - 'templates/**'
+  pull_request:
+    paths:
+      - 'publication/**'
+      - 'templates/**'
+
+jobs:
+  check-instance-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run linter (publication + templates)
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 scripts/check-instance-references.py --scope publication,templates --fail
