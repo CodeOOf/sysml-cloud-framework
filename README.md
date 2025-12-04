@@ -282,7 +282,7 @@ For a detailed walkthrough of how this project uses OMG SysML v2, including:
 - Traceability from SysML to Terraform to Ansible
 - Template structures for consistency
 
-See: **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)**
+See: **[SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)**
 
 ---
 
