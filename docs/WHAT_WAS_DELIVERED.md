@@ -99,7 +99,7 @@ architecture/
 | Document | Purpose | Size |
 |---|---|---|
 | README.md | Entry point with role-based navigation | 250+ lines |
-| INDEX.md | Formal entry point to all docs | 307 lines |
+| DOCS_GUIDE.md | Formal entry point to all docs | 307 lines |
 | QUICK_REFERENCE.md | Quick lookup card for tasks | 261 lines |
 | SYSML_ARCHITECTURE_GUIDE.md | Complete architecture reference | 500+ lines |
 | NAVIGATION_GUIDE.md | Publication structure mapped to V-Model | 1,100+ lines |

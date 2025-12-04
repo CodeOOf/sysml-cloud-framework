@@ -56,7 +56,7 @@ Generated PDFs will be placed in the `publication/` folder with the V-Model nume
 ## Guidelines & Best Practices
 
 - Use descriptive filenames for standalone Markdown documents; include keywords that map to V-Model phases (e.g., "SEMP", "SRD", "SAD", "SDD", "Deployment").
-- Prefer adding large, long-form documents to `docs/` or `publication/` and reference them from `README.md` or `docs/INDEX.md`.
+- Prefer adding large, long-form documents to `docs/` or `publication/` and reference them from `README.md` or `docs/DOCS_GUIDE.md`.
 - If you need deterministic phase assignment, add mapping metadata to the `publication/manifest.json` or update the keyword list in `scripts/generate-pdfs.py`.
 
 ---

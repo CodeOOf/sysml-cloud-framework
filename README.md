@@ -1,7 +1,7 @@
 # SysML Cloud Platform
 A Model-Driven Framework for Designing and Building Cloud Solutions
 
-**Documentation**: Start with [INDEX.md](docs/INDEX.md) | [Quick Reference](docs/QUICK_REFERENCE.md) | [Architecture Guide](docs/SYSML_ARCHITECTURE_GUIDE.md)
+**Documentation**: Start with [DOCS_GUIDE.md](docs/DOCS_GUIDE.md) | [Quick Reference](docs/QUICK_REFERENCE.md) | [Architecture Guide](docs/SYSML_ARCHITECTURE_GUIDE.md)
 
 ---
 
@@ -64,7 +64,7 @@ For workflow details, see [QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md).
 ## 📚 Documentation Navigation
 
 Full documentation is in the `docs/` folder:
-- **[INDEX.md](docs/INDEX.md)** — Start here (guided entry point)
+- **[DOCS_GUIDE.md](docs/DOCS_GUIDE.md)** — Start here (guided entry point)
 - **[SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)** — Complete technical reference
 - **[PROJECT_INTEGRATION_GUIDE.md](docs/PROJECT_INTEGRATION_GUIDE.md)** — Jira/Git integration
 - **[TESTING_AND_DEPLOYMENT_STRATEGY.md](docs/TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Testing and deployment
