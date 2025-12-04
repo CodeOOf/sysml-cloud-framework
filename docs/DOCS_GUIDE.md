@@ -1,10 +1,7 @@
 # Docs Guide — Portal & Navigation
 
+> **Published as**: N/A (Navigation portal only — provides links to all published documents)  
 > **Purpose**: This guide is your entry point into the documentation. Based on your role or goal, pick a path below. Each document will guide you to the next one.
->
-> **📝 Important**: Documentation in the `docs/` folder is **editable and version-controlled**. Generated publications in `publication/` are **auto-generated** (do not edit directly; regenerate with `make docs` and `make pdf`).
-
----
 
 ## Pick Your Path
 

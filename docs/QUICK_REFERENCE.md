@@ -2,9 +2,8 @@
 
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md)  
 > **V-Model Phase**: N/A (Quick Start)  
-> **Time to read**: 5–10 minutes
->
-> **📝 Note**: Editable docs are in `docs/` folder. Generated publications (PDFs, grouped markdown, diagrams) are in `publication/` — regenerate with `make docs` and `make pdf`.
+> **Time to read**: 5–10 minutes  
+> **Published as**: N/A (Reference material only)
 
 ## Files to Start With
 

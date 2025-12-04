@@ -2,9 +2,8 @@
 
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
 > **V-Model Phase**: Reference (governance & standards)  
-> **Time to read**: 10–15 minutes
->
-> **📝 Note**: This document (in editable `docs/` folder) describes how generated publications in `publication/` are named and organized. The V-Model PDF grouping is handled by `scripts/generate-pdfs.py` when you run `make pdf`.
+> **Time to read**: 10–15 minutes  
+> **Published as**: N/A (Governance reference — describes how ALL publications are organized)
 
 This document describes the repository's publication naming convention and how documents are grouped into V-Model phases for PDF publication.
 

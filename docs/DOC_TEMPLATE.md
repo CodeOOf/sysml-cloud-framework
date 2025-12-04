@@ -1,14 +1,13 @@
 # Document Template — Use This Structure for All Docs
 
-> **Location**: `docs/` (This file is editable, version-controlled documentation)
->
+> **Previous**: [Link to previous doc in reading thread]  
 > **V-Model Phase**: [Your phase here, e.g., 03_SRD, 04_SAD, 06_SDD, PMP, etc.]  
+> **Time to read**: [X minutes]  
+> **Published as**: `publication/XX_ABBR_DocumentName.pdf` (Chapter/section name) — or N/A if not published  
 > **Version**: 1.0  
 > **Status**: Draft | In Review | Approved  
 > **Last Updated**: [Date]  
 > **Author**: [Name or team]
->
-> **📝 Note**: This is editable documentation in `docs/`. If this content is also published as a PDF or grouped markdown in `publication/`, that version is **auto-generated** (read-only) — always edit the source in `docs/` and regenerate.
 
 ---
 
