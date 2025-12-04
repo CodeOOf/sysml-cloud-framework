@@ -104,6 +104,7 @@ This removes old publication artifacts.
 - Write **clear, descriptive commit messages**.
 - Reference related issues or features if applicable.
 - Ensure `make check-encoding` passes before committing.
+- Ensure `python scripts/check-instance-references.py --scope publication,templates` passes to prevent hard-coded example paths in generated docs and templates.
 - Include changes to both models and any updated tooling.
 
 Example:
@@ -114,6 +115,33 @@ Add Kubernetes deployment model to infrastructure domain
 - Updated: scripts/build-docs.py to handle deployment views
 - Updated: publication/index.md (auto-generated)
 ```
+
+### Instance Path Linter
+
+To keep the repository clean and enforce consistent use of placeholder paths:
+
+- **Check for hard-coded example paths locally**:
+  ```bash
+  python scripts/check-instance-references.py
+  ```
+
+- **Check only documentation and templates** (what CI enforces):
+  ```bash
+  python scripts/check-instance-references.py --scope publication,templates
+  ```
+
+- **Auto-fix hard-coded paths** (replaces with `{instance-id}` placeholders):
+  ```bash
+  python scripts/check-instance-references.py --fix
+  ```
+
+- **Auto-fix only scoped paths**:
+  ```bash
+  python scripts/check-instance-references.py --scope publication,templates --fix
+  ```
+
+CI runs the linter on all PRs that touch `publication/` or `templates/` and will fail if hard-coded example paths are detected. Use `--fix` to resolve violations before pushing.
+
 ## Submodule Workflows
 
 The SysML Cloud Platform supports **dynamic management of subfolders** inside the top-level content directories. The top-level directories (`fabrications/`, `configs/`, `library/`) are part of this repository; individual subfolders inside them can be:
@@ -123,20 +151,21 @@ The SysML Cloud Platform supports **dynamic management of subfolders** inside th
 
 ### Configuration
 
-Edit `.submodules.config` to specify which exact relative paths (usually subfolders under the top-level directories) should be treated as submodules and provide their repository URLs. Example:
+Edit `.submodules.config` to specify which exact relative paths (usually subfolders under the top-level directories) should be treated as submodules and provide their repository URLs. Example (replace `{instance-id}` with your instance folder name or repo slug):
 
 ```ini
-[submodule "fabrications/fabrication-datacenter-a"]
-      path = fabrications/fabrication-datacenter-a
-      url = https://github.com/org/fabrications-datacenter-a.git
+# Example (illustrative only — replace placeholders with your instance ids)
+[submodule "fabrications/{instance-id}"]
+   path = fabrications/{instance-id}
+   url = https://github.com/org/fabrications-{instance-id}.git
 
-[submodule "configs/infrastructure-cluster-a"]
-      path = configs/infrastructure-cluster-a
-      url = https://github.com/org/infrastructure-cluster-a.git
+[submodule "configs/{instance-id}"]
+   path = configs/{instance-id}
+   url = https://github.com/org/configs-{instance-id}.git
 
 [submodule "library/ansible-roles"]
-      path = library/ansible-roles
-      url = https://github.com/org/ansible-roles.git
+   path = library/ansible-roles
+   url = https://github.com/org/ansible-roles.git
 ```
 
 ### Commands
