@@ -91,33 +91,9 @@ Requirements → Architecture → Design → Implementation → Validation → O
 
 ### Publication naming & V-Model mapping
 
-This project publishes formal documents as ordered PDFs aligned with the SE V-Model lifecycle. Filenames follow a standard pattern: `<NN>_<ABBR>_<Description>.pdf` where:
+The V-Model publication chapter has been moved to a dedicated guide for clarity.
 
-- `<NN>` = numeric V-Model phase ordering (01–11)
-- `<ABBR>` = abbreviated phase name (PMP, SNS, SRD, SAD, SSR, SDD, SCI, ITP, STP, SV, DPL)
-- `<Description>` = domain or document title
-
-**Example outputs:**
-
-```
-01_PMP_SEMP.pdf                     # Project Management Plan
-03_SRD_SysMLCloudPlatform.pdf       # System Requirements Document
-04_SAD_SysMLCloudPlatform.pdf       # System Architecture & Design
-06_SDD_FabricationDatacenterA.pdf   # Detailed Design Document
-```
-
-**Guidelines:**
-
-- Place SysML requirement models under `sysml/*/` — `build-docs.py` converts these to markdown and the PDF generator groups them by keywords into V-Model phases.
-- For non-model documents (PMP, ConOps, Integration Plan), add Markdown files at the repo root (or under `publication/`) and use descriptive filenames. The generator looks for keywords to map files into phases.
-- To regenerate publications locally:
-
-```bash
-make docs
-make pdf
-```
-
-This will create prefixed PDFs in `publication/` using V-Model abbreviations as shown above.
+See: [Publication Naming & V-Model Guide](../docs/V-MODEL_GUIDE.md)
 
 ### 3.3 Architecture and Design
 

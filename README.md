@@ -69,6 +69,7 @@ Full documentation is in the `docs/` folder:
 - **[PROJECT_INTEGRATION_GUIDE.md](docs/PROJECT_INTEGRATION_GUIDE.md)** — Jira/Git integration
 - **[TESTING_AND_DEPLOYMENT_STRATEGY.md](docs/TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Testing and deployment
 - **[CONTRIBUTING.md](docs/CONTRIBUTING.md)** — Development guidelines
+- **[V-MODEL_GUIDE.md](docs/V-MODEL_GUIDE.md)** — Publication naming & V-Model mapping
 
 ### Generated Publications (in `publication/` folder)
 
