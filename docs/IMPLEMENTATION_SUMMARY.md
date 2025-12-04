@@ -3,6 +3,8 @@
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [QUICK_REFERENCE.md](QUICK_REFERENCE.md)  
 > **V-Model Phase**: Spans all phases (SRD → SDD overview)  
 > **Time to read**: 30–40 minutes
+>
+> **📝 Note**: This summary is editable documentation in `docs/`. The implementation artifacts (SysML models, generated markdown, PDFs) are distributed across `sysml/`, `publication/`, `configs/`, and `fabrications/`.
 
 ## What Was Done
 

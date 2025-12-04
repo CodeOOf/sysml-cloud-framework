@@ -4,6 +4,8 @@
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
 > **V-Model Phase**: 01 (PMP - Project Management)  
 > **Time to read**: 20–30 minutes
+>
+> **📝 Note**: This SEMP is editable documentation in `docs/` (version-controlled). It may also be published as `publication/01_PMP_SEMP.pdf` (auto-generated, read-only).
 
 **Document Version:** 1.0  
 **Last Updated:** 2025-12-03  

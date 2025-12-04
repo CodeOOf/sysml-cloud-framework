@@ -1,6 +1,8 @@
 # Docs Guide — Portal & Navigation
 
 > **Purpose**: This guide is your entry point into the documentation. Based on your role or goal, pick a path below. Each document will guide you to the next one.
+>
+> **📝 Important**: Documentation in the `docs/` folder is **editable and version-controlled**. Generated publications in `publication/` are **auto-generated** (do not edit directly; regenerate with `make docs` and `make pdf`).
 
 ---
 
@@ -57,13 +59,23 @@ Follow this reading thread from project initiation through deployment:
 
 ## 📂 Folder Map
 
-- **`docs/`** — You are here. User-facing documentation.
-- **`publication/`** — Generated PDFs and grouped Markdown (V-Model ordered).
-- **`sysml/`** — SysML v2 source models.
-- **`configs/`** — Per-instance infrastructure as code (Terraform, Ansible).
-- **`fabrications/`** — Per-instance datacenter specifications.
+**Editable Documentation:**
+- **`docs/`** — Authoritative, version-controlled user-facing documentation. Edit these files directly. Includes architecture guides, contributing guidelines, project management plans, and deployment strategies.
+
+**Source Models & Implementation:**
+- **`sysml/`** — SysML v2 source models. Changes here trigger `publication/` regeneration via `make docs` and `make pdf`.
+- **`configs/`** — Per-instance infrastructure-as-code (Terraform, Ansible). Your actual deployments.
+- **`fabrications/`** — Per-instance datacenter & rack specifications.
 - **`library/`** — Shared SysML, Terraform, and Ansible components.
-- **`scripts/`** — Build and automation scripts.
+- **`scripts/`** — Build and automation (do not edit generated scripts).
+
+**Generated Publications (Read-Only):**
+- **`publication/`** — Auto-generated artifacts from `sysml/` models and scripts. Includes:
+  - PDFs organized by V-Model phases (01_PMP, 03_SRD, 04_SAD, 06_SDD, 11_DPL, etc.)
+  - Grouped markdown files matching PDF structure
+  - Diagrams (PNG, SVG) rendered from SysML and Graphviz
+  - JSON manifests mapping markdown to publications
+  - **⚠️ Do not edit files in `publication/` — regenerate with `make docs && make pdf`**
 
 ---
 

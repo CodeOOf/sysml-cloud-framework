@@ -3,6 +3,8 @@
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
 > **V-Model Phases**: 08 (ITP) → 09 (STP) → 10 (SV) → 11 (DPL)  
 > **Time to read**: 45–60 minutes
+>
+> **📝 Note**: This is editable documentation in `docs/`. Related deployment and operations documentation may be published in `publication/11_DPL_*.pdf` (auto-generated from `publication/` markdown).
 
 Comprehensive guide for testing and deploying the cloud platform infrastructure.
 

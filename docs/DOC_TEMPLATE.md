@@ -1,11 +1,14 @@
 # Document Template — Use This Structure for All Docs
 
-> **V-Model Phase**: [Your phase here, e.g., 03_SRD, 04_SAD, 06_SDD, PMP, etc.]
+> **Location**: `docs/` (This file is editable, version-controlled documentation)
 >
+> **V-Model Phase**: [Your phase here, e.g., 03_SRD, 04_SAD, 06_SDD, PMP, etc.]  
 > **Version**: 1.0  
 > **Status**: Draft | In Review | Approved  
 > **Last Updated**: [Date]  
 > **Author**: [Name or team]
+>
+> **📝 Note**: This is editable documentation in `docs/`. If this content is also published as a PDF or grouped markdown in `publication/`, that version is **auto-generated** (read-only) — always edit the source in `docs/` and regenerate.
 
 ---
 

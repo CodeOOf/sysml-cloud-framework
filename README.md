@@ -66,15 +66,19 @@ For workflow details, see [QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md).
 
 ## 📚 Documentation Navigation
 
-Full documentation is in the `docs/` folder:
+**Editable documentation** lives in the `docs/` folder:
 - **[DOCS_GUIDE.md](docs/DOCS_GUIDE.md)** — Start here (guided entry point)
 - **[SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)** — Complete technical reference
 - **[PROJECT_INTEGRATION_GUIDE.md](docs/PROJECT_INTEGRATION_GUIDE.md)** — Jira/Git integration
 - **[TESTING_AND_DEPLOYMENT_STRATEGY.md](docs/TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Testing and deployment
 - **[CONTRIBUTING.md](docs/CONTRIBUTING.md)** — Development guidelines
 - **[V-MODEL_GUIDE.md](docs/V-MODEL_GUIDE.md)** — Publication naming & V-Model mapping
+- **[SEMP.md](docs/SEMP.md)** — System Engineering Management Plan
 
-### Generated Publications (in `publication/` folder)
+**Generated publications** are in the `publication/` folder (auto-generated, do not edit):
+- PDFs organized by V-Model phases (01_PMP, 03_SRD, 04_SAD, 06_SDD, 11_DPL, etc.)
+- Markdown grouped by publication (derived from SysML models)
+- Diagrams (PNG, auto-rendered from SysML and Graphviz)
 
 | Order | Phase | Abbr | Example PDF |
 |-------|-------|------|-------------|
