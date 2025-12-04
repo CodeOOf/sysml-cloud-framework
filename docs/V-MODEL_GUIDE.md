@@ -1,5 +1,9 @@
 # Publication Naming & V-Model Guide
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
+> **V-Model Phase**: Reference (governance & standards)  
+> **Time to read**: 10–15 minutes
+
 This document describes the repository's publication naming convention and how documents are grouped into V-Model phases for PDF publication.
 
 ## Filenames and pattern
@@ -62,3 +66,21 @@ Generated PDFs will be placed in the `publication/` folder with the V-Model nume
 ---
 
 See also: `docs/SEMP.md` (SEMP) and `scripts/generate-pdfs.py` (keyword mapping implementation).
+
+## Next Steps
+
+### To follow the full V-Model phases in order...
+→ Start with **[SEMP.md](SEMP.md)** (Phase 01: Project Management)  
+→ Then read each phase's PDF in order: 03_SRD → 04_SAD → 06_SDD → 11_DPL
+
+### To understand the system requirements...
+→ Open **`publication/03_SRD_*.pdf`** (Phase 03: System Requirements)
+
+### To understand the system architecture...
+→ Open **`publication/04_SAD_*.pdf`** (Phase 04: System Architecture & Design)
+
+### To see deployment and operations documents...
+→ Open **`publication/11_DPL_DeploymentAndOM.pdf`** (Phase 11: Deployment & O&M)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**

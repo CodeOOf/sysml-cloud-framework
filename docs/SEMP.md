@@ -1,6 +1,10 @@
 # System Engineering Management Plan (SEMP)
 ## SysML Cloud Platform
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
+> **V-Model Phase**: 01 (PMP - Project Management)  
+> **Time to read**: 20–30 minutes
+
 **Document Version:** 1.0  
 **Last Updated:** 2025-12-03  
 **Prepared by:** Systems Engineering Team  
@@ -508,4 +512,24 @@ Approvals and signatures:
 **Document Classification:** Public  
 **Distribution:** Project team, stakeholders on request  
 **Next Review:** 2026-06-03 (6 months)
+
+---
+
+## Next Steps in the V-Model
+
+### To continue the formal V-Model workflow (Phase 02 and beyond)...
+→ Read **`publication/03_SRD_*.pdf`** (Phase 03: System Requirements Definition)
+
+### To understand the system architecture...
+→ Read **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** (Architecture overview)
+
+### To see the full architecture and design documents...
+→ Review **`publication/04_SAD_*.pdf`** (Phase 04: System Architecture & Design)  
+→ Then **`publication/06_SDD_*.pdf`** (Phase 06: Subsystem Detailed Design)
+
+### To jump to deployment and operations...
+→ Read **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** (Phases 08–11)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**
 

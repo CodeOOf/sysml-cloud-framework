@@ -1,5 +1,9 @@
 # SysML v2-Based Cloud Infrastructure Architecture
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [QUICK_REFERENCE.md](QUICK_REFERENCE.md)  
+> **V-Model Phase**: Spans SRD (03) → SAD (04) (Architecture context)  
+> **Time to read**: 30–45 minutes
+
 **Source of Truth**: [OMG SysML v2 Specification](https://www.omg.org/sysml/sysmlv2/) and [SysML v2 Release Repository](https://github.com/Systems-Modeling/SysML-v2-Release)
 
 This document describes how this project uses OMG SysML v2 as the authoritative source for cloud infrastructure architecture, with executable code (Terraform/Ansible) derived from and traceable to SysML models.
@@ -381,3 +385,24 @@ make pdf
 
 **Last Updated**: 2025-12-04  
 **SysML v2 Compliance**: Aligns with OMG SysML 2.0 Beta 4 (formally adopted June 30, 2025)
+
+## Next Steps
+
+### If you want to follow the full V-Model workflow...
+→ Read **[SEMP.md](SEMP.md)** (Phase 01: Project Management Plan)
+
+### If you want detailed requirements and specifications...
+→ Review **`publication/03_SRD_*.pdf`** (Phase 03: System Requirements)
+
+### If you want detailed design documents...
+→ Review **`publication/04_SAD_*.pdf`** (Phase 04: System Architecture & Design)  
+→ Then **`publication/06_SDD_*.pdf`** (Phase 06: Subsystem Detailed Design)
+
+### If you want to deploy now...
+→ Read **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** (Phases 08–11: Test & Deploy)
+
+### If you want to contribute or extend the models...
+→ Read **[CONTRIBUTING.md](CONTRIBUTING.md)** (Development guidelines)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**

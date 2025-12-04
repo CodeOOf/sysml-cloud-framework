@@ -1,5 +1,9 @@
 # OMG SysML v2 Architecture Implementation Summary
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [QUICK_REFERENCE.md](QUICK_REFERENCE.md)  
+> **V-Model Phase**: Spans all phases (SRD → SDD overview)  
+> **Time to read**: 30–40 minutes
+
 ## What Was Done
 
 This project has been comprehensively restructured to use **OMG SysML v2** (formally adopted June 30, 2025) as the authoritative source of truth for cloud infrastructure architecture. All infrastructure, from Kubernetes clusters to datacenters, is now defined in SysML with direct traceability to executable Infrastructure-as-Code (Terraform and Ansible).
@@ -353,3 +357,27 @@ Recommended enhancements:
 **Last Updated**: 2025-12-04  
 **SysML Version**: OMG SysML 2.0 (formally adopted June 30, 2025)  
 **Source of Truth**: https://www.omg.org/sysml/sysmlv2/
+
+## Next Steps
+
+### To understand the full SysML architecture...
+→ Read **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** (Complete 30-min deep dive)
+
+### To follow the formal V-Model project plan...
+→ Read **[SEMP.md](SEMP.md)** (Phase 01: Project Management)
+
+### To see the detailed system requirements...
+→ Review **`publication/03_SRD_*.pdf`** (Phase 03: System Requirements)
+
+### To see the system architecture and design...
+→ Review **`publication/04_SAD_*.pdf`** (Phase 04: System Architecture & Design)  
+→ Then **`publication/06_SDD_*.pdf`** (Phase 06: Subsystem Detailed Design)
+
+### To start building and testing...
+→ Read **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** (Phases 08–11)
+
+### To contribute or modify the system...
+→ Read **[CONTRIBUTING.md](CONTRIBUTING.md)** (Development guidelines)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**

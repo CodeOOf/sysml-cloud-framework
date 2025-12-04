@@ -1,5 +1,9 @@
 # Testing and Deployment Strategy
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
+> **V-Model Phases**: 08 (ITP) → 09 (STP) → 10 (SV) → 11 (DPL)  
+> **Time to read**: 45–60 minutes
+
 Comprehensive guide for testing and deploying the cloud platform infrastructure.
 
 ## Overview
@@ -790,5 +794,23 @@ See `input/testing-deployment/failover-dr.md` for comprehensive DR procedures.
 
 ---
 
-**Last Updated**: December 4, 2025
+**Last Updated**: December 4, 2025  
 **Maintained By**: DevOps and Quality Assurance Team
+
+## Next Steps
+
+### After successful deployment...
+→ Review **`publication/11_DPL_DeploymentAndOM.pdf`** (Phase 11: Operations & Maintenance)
+
+### For operational runbooks and post-deployment monitoring...
+→ Consult the deployment documentation and O&M procedures in `input/` or `publication/` folders
+
+### To revisit architecture and design before deployment...
+→ Read **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** (Architecture review)  
+→ Review **`publication/06_SDD_*.pdf`** (Phase 06: Detailed Design)
+
+### To understand how to modify or extend deployments...
+→ Read **[CONTRIBUTING.md](CONTRIBUTING.md)** (Development & modification guidelines)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**

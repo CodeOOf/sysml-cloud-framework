@@ -1,5 +1,9 @@
 # Quick Reference: OMG SysML v2 Cloud Architecture
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md)  
+> **V-Model Phase**: N/A (Quick Start)  
+> **Time to read**: 5–10 minutes
+
 ## Files to Start With
 
 1. **`SYSML_ARCHITECTURE_GUIDE.md`** ← Complete guide (start here)
@@ -247,3 +251,17 @@ ansible-playbook -i inventory.ini site.yml
 ---
 
 **SysML v2 Compliance**: Aligns with OMG SysML 2.0 (formally adopted June 30, 2025)
+
+## Next Steps
+
+### If you want to understand the full architecture...
+→ Read **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** (30 min)
+
+### If you're ready to build and deploy...
+→ Read **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** (deployment & testing)
+
+### If you want to understand the project plan...
+→ Read **[SEMP.md](SEMP.md)** (Project Management Plan)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**

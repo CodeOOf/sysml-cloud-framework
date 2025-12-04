@@ -1,6 +1,9 @@
 # SysML Cloud Platform
 A Model-Driven Framework for Designing and Building Cloud Solutions
 
+> **You are here**: README.md (Project Overview)  
+> **Next Steps**: → [DOCS_GUIDE.md](docs/DOCS_GUIDE.md) (pick your reading path)
+
 **Documentation**: Start with [DOCS_GUIDE.md](docs/DOCS_GUIDE.md) | [Quick Reference](docs/QUICK_REFERENCE.md) | [Architecture Guide](docs/SYSML_ARCHITECTURE_GUIDE.md)
 
 ---

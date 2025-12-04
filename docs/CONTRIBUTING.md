@@ -1,5 +1,9 @@
 # Contributing to SysML Cloud Platform
 
+> **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md)  
+> **V-Model Phase**: N/A (Development Guidelines)  
+> **Time to read**: 20–30 minutes
+
 Thank you for your interest in contributing! This document outlines the process for contributing to the SysML Cloud Platform project.
 
 ## Getting Started
@@ -239,3 +243,20 @@ If you have questions:
 ---
 
 **Happy modeling!** We look forward to your contributions.
+
+## Next Steps
+
+### To understand the system architecture...
+→ Read **[SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)** (Architecture overview)
+
+### To understand project governance and processes...
+→ Read **[SEMP.md](SEMP.md)** (Project Management Plan)
+
+### To see what was delivered...
+→ Read **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** (What was built & why)
+
+### To test and deploy your changes...
+→ Read **[TESTING_AND_DEPLOYMENT_STRATEGY.md](TESTING_AND_DEPLOYMENT_STRATEGY.md)** (Test & deploy guides)
+
+### Return to the main thread:
+→ Back to **[DOCS_GUIDE.md](DOCS_GUIDE.md)**
