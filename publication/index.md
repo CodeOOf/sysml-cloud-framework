@@ -8,6 +8,15 @@ Generated: 2025-12-04
 - [Introduction](sys-mlcloud-platform-requirements.md)
 - [Introduction](system-requirements-definition.md)
 - [Introduction](testing-and-deployment-planning.md)
+- [floorplan](floorplan.md)
+- [floorplan](floorplan.md)
+- [rack-models](rack-models.md)
+- [rackA1](rack-a1.md)
+- [rackA1-view](rack-a1-view.md)
+- [rackA2](rack-a2.md)
+- [rackB1](rack-b1.md)
+- [rackB1-view](rack-b1-view.md)
+- [SharedInfrastructureLibrary](shared-infrastructure-library.md)
 - [System Engineering Management Plan](SEMP.md)
 
 ## Datacenter
