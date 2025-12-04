@@ -6,41 +6,23 @@ This document describes how this project uses OMG SysML v2 as the authoritative 
 
 ## 1. Architecture Overview
 
-### Two Deployment Profiles
+### Two Deployment Profiles (examples)
 
-#### Cluster A: Lab-Scale Development Cluster
-- **Purpose**: Development, testing, and prototyping
-- **Deployment**: Single datacenter (Fabrication Datacenter A)
-- **Scale**: 
-  - 1 master node
-  - 2-3 worker nodes
-  - Local storage backend
-- **SysML Definition**: `sysml/infrastructure/KubernetesClusterArchitecture.sysml` → `ClusterA` class
+The guide contains two example deployment profiles used throughout the documentation to illustrate lab and production configurations. These examples are named `Cluster A` and `Cluster B` in the text but are illustrative only — real deployments should use specific instance IDs and per-instance folders under `configs/{instance-id}/`.
 
-#### Cluster B: Production-Scale EKS-Like Cluster
-- **Purpose**: Production workloads with HA and scaling
-- **Deployment**: Multi-datacenter (Fabrication A + B)
-- **Scale**:
-  - 3 master nodes (HA with etcd quorum)
-  - 5-100+ auto-scaling worker nodes
-  - Distributed storage with geographic redundancy
-  - Load balancing and ingress
-- **SysML Definition**: `sysml/infrastructure/KubernetesClusterArchitecture.sysml` → `ClusterB` class
+- Example: `Cluster A` — lab-scale profile (single-master, 2-3 workers). Use as a template for small/dev instances.
+- Example: `Cluster B` — production profile (multi-master HA, scalable workers). Use as a template for production instances.
 
-### Datacenter Distribution
+SysML definitions in `sysml/infrastructure/` provide parameterized class templates (e.g., `KubernetesCluster`) that you specialize per-instance rather than hard-coding folder names.
 
-**Fabrication Datacenter A** (`fabrications/fabrication-datacenter-a/`)
-- Hosts complete Cluster A
-- Hosts Cluster B Master 1 + etcd member
-- Hosts Cluster B Worker Group 1
-- Primary storage node
+### Datacenter Distribution (examples)
 
-**Fabrication Datacenter B** (`fabrications/fabrication-datacenter-b/`)
-- Hosts Cluster B Masters 2 & 3 + etcd members
-- Hosts Cluster B Worker Group 2
-- Secondary/replica storage nodes
+Datacenter examples are included to show primary and secondary topologies. Use `fabrications/{instance-id}/` for your real fabrication/datacenter directories and include a `manifest.json` to identify each instance.
 
-**SysML Definition**: `sysml/datacenter/DeploymentArchitecture.sysml`
+- Example: Fabrication Datacenter A — primary site (hosts some or all node roles depending on instance mapping)
+- Example: Fabrication Datacenter B — secondary/DR site (hosts HA/DR roles)
+
+**SysML Definition**: `sysml/datacenter/DeploymentArchitecture.sysml` (parameterize per-instance mapping)
 
 ## 2. SysML Model Organization
 
@@ -144,65 +126,33 @@ All shared modules/roles are **imported and extended** by cluster-specific confi
 
 ## 4. Infrastructure-as-Code (IaC) Organization
 
-### Cluster A (Lab)
-```
-configs/infrastructure-cluster-a/
-├── README.md
-├── variables.tf                    # Cluster A overrides (1 master, 2-3 workers)
-├── terraform.tfvars
-├── main.tf                         # Imports shared modules
-├── cluster-a-nodes.tf             # Node sizing specific to lab
-└── specs/
-    └── cluster.json               # Generated from build-docs.py
-```
+### Per-instance IaC organization
 
-### Cluster B (Production)
-```
-configs/infrastructure-cluster-b/
-├── README.md
-├── variables.tf                    # Cluster B overrides (3 masters, 5-100 workers, HA)
-├── terraform.tfvars
-├── main.tf
-├── cluster-b-masters.tf           # HA master configuration
-├── cluster-b-workers.tf           # Auto-scaling configuration
-├── cluster-b-networking.tf        # Load balancing and ingress
-└── specs/
-    └── cluster.json
-```
+Each deployment instance SHOULD live in a separate directory and declare its identity in a `manifest.json`. Examples in the repository use `configs/infrastructure-cluster-a/` and `fabrications/fabrication-datacenter-a/` for illustration; do not treat these example names as prescriptive.
 
-### Datacenter A (Primary)
+Recommended per-instance layout (example names):
+
 ```
-fabrications/fabrication-datacenter-a/
+configs/{instance-id}/
 ├── README.md
 ├── variables.tf
 ├── terraform.tfvars
 ├── main.tf
-├── network.tf                     # Datacenter-specific networking
-├── storage.tf                     # Primary storage nodes
-├── models/
-│   ├── fabrication-datacenter-a.sysml
-│   ├── cluster-a-deployment.sysml
-│   └── fabrication-layout.sysml
+├── modules/
 └── specs/
-    └── datacenter.json
-```
+  └── cluster.json
 
-### Datacenter B (Secondary)
-```
-fabrications/fabrication-datacenter-b/
+fabrications/{instance-id}/
 ├── README.md
 ├── variables.tf
 ├── terraform.tfvars
 ├── main.tf
-├── network.tf                     # Cross-datacenter networking
-├── storage.tf                     # Replica storage nodes
 ├── models/
-│   ├── fabrication-datacenter-b.sysml
-│   ├── cluster-b-deployment.sysml
-│   └── disaster-recovery.sysml
 └── specs/
-    └── datacenter.json
+  └── datacenter.json
 ```
+
+Tooling should read `manifest.json` in each instance directory and map SysML requirement references to actual instance folders.
 
 ## 5. Traceability: SysML → Terraform → Ansible
 

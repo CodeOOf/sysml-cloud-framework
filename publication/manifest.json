@@ -35,6 +35,69 @@
     "section": "introduction"
   },
   {
+    "title": "floorplan",
+    "rel": "floorplan.md",
+    "source": "fabrications\\fabrication-datacenter-b\\models\\floorplan.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "floorplan",
+    "rel": "floorplan.md",
+    "source": "fabrications\\fabrication-datacenter-a\\models\\floorplan.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "rack-models",
+    "rel": "rack-models.md",
+    "source": "library\\sysml-library\\models\\rack-models.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "rackA1",
+    "rel": "rack-a1.md",
+    "source": "fabrications\\fabrication-datacenter-a\\models\\rackA1.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "rackA1-view",
+    "rel": "rack-a1-view.md",
+    "source": "fabrications\\fabrication-datacenter-a\\views\\rackA1-view.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "rackA2",
+    "rel": "rack-a2.md",
+    "source": "fabrications\\fabrication-datacenter-a\\models\\rackA2.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "rackB1",
+    "rel": "rack-b1.md",
+    "source": "fabrications\\fabrication-datacenter-b\\models\\rackB1.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "rackB1-view",
+    "rel": "rack-b1-view.md",
+    "source": "fabrications\\fabrication-datacenter-b\\views\\rackB1-view.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
+    "title": "SharedInfrastructureLibrary",
+    "rel": "shared-infrastructure-library.md",
+    "source": "library\\sysml-library\\SharedInfrastructureLibrary.sysml",
+    "domain": "introduction",
+    "section": "introduction"
+  },
+  {
     "title": "DatacenterArchitectureModel",
     "rel": "datacenter-architecture-model.md",
     "source": "sysml\\datacenter\\DatacenterArchitectureModel.sysml",

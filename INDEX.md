@@ -8,16 +8,18 @@ Instead of starting with infrastructure code, **we start with formal architectur
 
 ## 🏗️ Architecture at a Glance
 
-### Two Deployment Profiles
+### Two Deployment Profiles (examples)
 
-| | **Cluster A** | **Cluster B** |
+The documentation uses two example profiles (`Cluster A` and `Cluster B`) to illustrate lab and production topologies. Replace these example names with actual instance IDs and use per-instance directories under `configs/{instance-id}` and `fabrications/{instance-id}`.
+
+| | **Example: Lab** | **Example: Production** |
 |---|---|---|
 | **Scale** | Lab (3 nodes) | Production (100+ nodes) |
 | **Masters** | 1 | 3 (HA) |
 | **Workers** | 2-3 | 5-100+ (auto-scaling) |
 | **Storage** | Local | Distributed (Ceph) |
-| **Datacenters** | 1 (Fabrication A) | 2 (Fabrication A + B) |
-| **SysML** | `ClusterA` class | `ClusterB` class |
+| **Datacenters** | 1 (example) | 2 (example) |
+| **SysML** | `ClusterA` class (parameterized) | `ClusterB` class (parameterized) |
 
 ### Multi-Datacenter Topology
 
@@ -84,13 +86,11 @@ library/                            ← Shared Components (No Duplication)
 ├── terraform-modules/shared/                   Reusable Terraform modules
 └── ansible-roles/shared/                       Reusable Ansible roles
 
-configs/                            ← Cluster-Specific IaC
-├── infrastructure-cluster-a/                   Lab cluster deployment
-└── infrastructure-cluster-b/                   Production cluster deployment
+configs/                            ← Per-instance Cluster IaC (one folder per instance)
+├── {instance-id}/                   ← Example: `cluster-a`, `prod-west`
 
-fabrications/                       ← Datacenter-Specific IaC
-├── fabrication-datacenter-a/                   Primary site
-└── fabrication-datacenter-b/                   Secondary site (HA/DR)
+fabrications/                       ← Per-instance Datacenter/Fabrication IaC
+├── {instance-id}/                   ← Example: `datacenter-east-1`, `lab-site`
 
 templates/                          ← Required Structure & Standards
 ├── TERRAFORM_STRUCTURE.md                      Folder layout guidelines

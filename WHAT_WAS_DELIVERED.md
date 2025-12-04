@@ -20,8 +20,8 @@ This implementation delivers a complete requirements management system with SysM
 #### 1. Understand Requirements at Any Level
 
 - **System Level**: Read `03_SRD_SysMLCloudPlatform.pdf` for all 10 SYSTEM_REQ_* requirements
-- **Infrastructure Level**: Read `03_SRD_Infrastructure.pdf` for 10 INFRA_REQ_* requirements (Clusters A & B)
-- **Fabrication Level**: Read `03_SRD_Datacenter.pdf` for 10 FAB_REQ_* requirements (Datacenters A & B)
+-- **Infrastructure Level**: Read `03_SRD_Infrastructure.pdf` for 10 INFRA_REQ_* requirements (document uses example instances named A & B — replace with your instance ids)
+-- **Fabrication Level**: Read `03_SRD_Datacenter.pdf` for 10 FAB_REQ_* requirements (document uses example datacenters named A & B — replace with your instance ids)
 - **Testing Level**: See `sysml/overall-design/TestingAndDeploymentPlanning.sysml` for TEST_001-008 and DEPLOY_001-003
 
 #### 2. Link to External Documents
@@ -48,7 +48,7 @@ This implementation delivers a complete requirements management system with SysM
 #### 5. Execute Testing Procedures
 
 - **Unit Tests** (TEST_001-005): SysML, Terraform, Ansible, Python, Documentation validation
-- **Integration Tests** (TEST_006-007): Cluster A (45 min) and Cluster B (120 min) with detailed procedures
+-- **Integration Tests** (TEST_006-007): Example integration test procedures are provided for two instance types (lab and production); replace `Cluster A`/`Cluster B` with your instance ids and follow per-instance manifests for exact steps
 - **System Tests** (TEST_008): Failover scenarios, disaster recovery, network partition handling
 - **Deployment Procedures** (DEPLOY_001-003): Approval gates, canary rollouts, rollback procedures
 
@@ -223,20 +223,21 @@ make init
 
 4. **Implement IaC Examples**
    ```
-   configs/infrastructure-cluster-a/
+   # Per-instance directories (examples)
+   configs/{instance-id}/
    ├── main.tf
    ├── master.tf
    └── workers.tf
-   
-   configs/infrastructure-cluster-b/
+
+   configs/{instance-id}/ (production)
    ├── main.tf
    ├── master-ha.tf
    ├── workers.tf
    └── etcd-cluster.tf
-   
-   Reference SysML models:
-   - INFRA_REQ_001 for Cluster A
-   - INFRA_REQ_002 for Cluster B
+
+   # Guidance
+   - Create `manifest.json` in each `configs/{instance-id}` to identify the instance for tooling.
+   - Reference SysML requirement IDs (e.g., `INFRA_REQ_001`) in the manifest or runbook; do not hard-code folder names in models.
    ```
 
 5. **Run First Tests**

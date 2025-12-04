@@ -77,15 +77,23 @@ grep -r "package\|class\|attribute" sysml/ | head -20
 
 **Procedure**:
 ```bash
-# Validate all Terraform configurations
+# Validate shared Terraform modules
 cd library/terraform-modules
 terraform validate
 
-cd ../../configs/infrastructure-cluster-a
-terraform validate
+# Validate Terraform per-instance under configs/
+# Recommended: each instance folder should contain a manifest.json and be validated individually.
+# Example (Bash): validate every directory under configs/
+for d in configs/*/; do
+  echo "Validating $d"
+  terraform -chdir="$d" validate
+done
 
-cd ../infrastructure-cluster-b
-terraform validate
+# Example (PowerShell): validate every directory under configs\
+Get-ChildItem -Directory configs | ForEach-Object {
+  Write-Host "Validating $($_.FullName)"
+  terraform -chdir "$($_.FullName)" validate
+}
 ```
 
 **Acceptance Criteria**:

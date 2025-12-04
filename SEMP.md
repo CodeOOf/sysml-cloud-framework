@@ -465,7 +465,7 @@ The project organizes documentation into a three-tier publication structure that
 
     Sub-System Design documents contain the architectural and design rules for their domain and are referenced by technical publications for specific deployments.
 
-- **Technical Publications (deployment-level):** per-site or per-cluster technical publications (for example `fabrications/fabrication-datacenter-a`, `fabrications/fabrication-datacenter-b`, `configs/infrastructure-cluster-a`, `configs/infrastructure-cluster-b`). Each technical publication:
+-- **Technical Publications (deployment-level):** per-site or per-cluster technical publications (for example `fabrications/{instance-id}`, `configs/{instance-id}`). Example names like `fabrication-datacenter-a` or `infrastructure-cluster-a` are illustrative only — replace with your instance ids. Each technical publication:
     - Is generated as a distinct PDF (e.g., `publication/fabrications-fabrication-datacenter-a.pdf`).
     - References its parent Sub-System Design document (e.g., Fabrication Subsystem) and the System Design where applicable.
     - Contains detailed rack/datacenter or cluster-level models, configuration specs, and deployment instructions.

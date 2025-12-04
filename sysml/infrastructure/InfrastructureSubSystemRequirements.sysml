@@ -5,8 +5,8 @@
  * Based on https://www.omg.org/sysml/sysmlv2/
  * 
  * These requirements cascade from SYSTEM_REQ_* and define specific needs for:
- * - Cluster A (lab-scale) in configs/infrastructure-cluster-a/
- * - Cluster B (production EKS-like) in configs/infrastructure-cluster-b/
+ * - Examples used in this document: "A" (lab-scale) and "B" (production-like).
+ * - Do NOT treat example names as canonical folder names. Each real instance lives under `configs/{instance-id}/` and MUST include a `manifest.json` describing the instance.
  * 
  * External Reference: input/infrastructure-requirements/
  * Project Integration: Jira project key INFRA-*
@@ -29,7 +29,7 @@ package InfrastructureSubSystemRequirements {
         
         attribute requirementId : String; /* INFRA_REQ_NNN format */
         attribute relatedSystemReq : String; /* Links to SYSTEM_REQ_* */
-        attribute appliesToCluster : String; /* "A", "B", or "A,B" */
+        attribute appliesToInstances : String; /* comma-separated list of instance ids from per-instance manifest.json (example: "cluster-a,production-west") or '*' for all */
         attribute externalSourceId : String;
         attribute priority : String;
         attribute version : String;
@@ -55,9 +55,9 @@ package InfrastructureSubSystemRequirements {
              - Deployed in FabricationDatacenterA only
              
              Terraform Implementation:
-             - configs/infrastructure-cluster-a/main.tf
-             - configs/infrastructure-cluster-a/master.tf
-             - configs/infrastructure-cluster-a/workers.tf
+             - `configs/{instance-id}/main.tf` (example: `configs/cluster-a/main.tf`)
+             - `configs/{instance-id}/master.tf`
+             - `configs/{instance-id}/workers.tf`
              
              Ansible Implementation:
              - library/ansible-roles/cluster-a-init/
@@ -96,10 +96,10 @@ package InfrastructureSubSystemRequirements {
              - Worker nodes: Distributed across both datacenters
              
              Terraform Implementation:
-             - configs/infrastructure-cluster-b/main.tf
-             - configs/infrastructure-cluster-b/master-ha.tf
-             - configs/infrastructure-cluster-b/workers.tf
-             - configs/infrastructure-cluster-b/etcd-cluster.tf
+             - `configs/{instance-id}/main.tf` (example: `configs/cluster-b/main.tf`)
+             - `configs/{instance-id}/master-ha.tf`
+             - `configs/{instance-id}/workers.tf`
+             - `configs/{instance-id}/etcd-cluster.tf`
              
              Ansible Implementation:
              - library/ansible-roles/cluster-b-init/
@@ -136,8 +136,7 @@ package InfrastructureSubSystemRequirements {
              - Supported in both Cluster A and B
              
              Terraform Implementation:
-             - configs/infrastructure-cluster-a/container-runtime.tf
-             - configs/infrastructure-cluster-b/container-runtime.tf
+             - `configs/{instance-id}/container-runtime.tf` (per-instance)
              
              Ansible Implementation:
              - library/ansible-roles/container-runtime/
@@ -169,8 +168,7 @@ package InfrastructureSubSystemRequirements {
              - Cross-cluster networking for Cluster B workers
              
              Terraform Implementation:
-             - configs/infrastructure-cluster-a/network-plugin.tf
-             - configs/infrastructure-cluster-b/network-plugin.tf
+             - `configs/{instance-id}/network-plugin.tf` (per-instance)
              
              Ansible Implementation:
              - library/ansible-roles/flannel-cni/
@@ -207,8 +205,8 @@ package InfrastructureSubSystemRequirements {
              - Snapshot capability for backups
              
              Terraform Implementation:
-             - configs/infrastructure-cluster-a/storage-local.tf
-             - configs/infrastructure-cluster-b/storage-distributed.tf
+             - `configs/{instance-id}/storage-local.tf` (example for lab instances)
+             - `configs/{instance-id}/storage-distributed.tf` (example for production instances)
              
              Ansible Implementation:
              - library/ansible-roles/local-storage-provisioner/

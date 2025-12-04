@@ -8,21 +8,13 @@ This project has been comprehensively restructured to use **OMG SysML v2** (form
 
 #### Core Architecture Models
 
-**`sysml/infrastructure/KubernetesClusterArchitecture.sysml`** (207 lines)
-- Defines abstract `KubernetesCluster` base class
-- **Cluster A**: Lab-scale profile
-  - Single master node (development only)
-  - 2-3 worker nodes
-  - Local storage backend
-  - Purpose: Development, testing, prototyping
+-- **`sysml/infrastructure/KubernetesClusterArchitecture.sysml`** (207 lines)
+-- Defines abstract `KubernetesCluster` base class
+-- Example profiles used in documentation:
+  - `Cluster A` (lab): single master, 2-3 workers, local storage — example profile for development/testing
+  - `Cluster B` (production): multi-master HA, scalable workers, distributed storage — example profile for production
   
-- **Cluster B**: Production EKS-like profile
-  - 3 master nodes for HA (etcd quorum)
-  - 5-100+ auto-scaling worker nodes
-  - Distributed storage (Ceph/Longhorn)
-  - Load balancing and ingress
-  - Full observability stack
-  - Purpose: Production workloads with HA and scaling
+  Real deployments should use per-instance directories under `configs/{instance-id}` and supply a `manifest.json` that identifies the instance for tooling.
 
 - **Component Classes**: MasterNode, WorkerNode, StorageNode, DistributedStorageCluster, LoadBalancerService, IngressController, ServiceRegistry, and all control plane components (APIServer, Scheduler, ControllerManager, etcd)
 
@@ -163,7 +155,8 @@ class ClusterB :> KubernetesCluster {
 
 ### Terraform Implementation
 ```hcl
-# configs/infrastructure-cluster-b/cluster-b-masters.tf
+# Example per-instance path: configs/{instance-id}/cluster-masters.tf
+# Tooling should resolve `{instance-id}` from the per-instance manifest.json
 resource "aws_instance" "master_nodes" {
   count             = 3
   instance_type     = var.master_instance_type  # Maps to cpuCores, memoryGiB

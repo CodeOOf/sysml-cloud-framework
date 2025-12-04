@@ -7,15 +7,17 @@
 3. **`README.md`** ← Project overview
 4. **`sysml/infrastructure/KubernetesClusterArchitecture.sysml`** ← Main models
 
-## Two Deployment Profiles
+## Two Deployment Profiles (examples)
 
-| Feature | Cluster A (Lab) | Cluster B (Production) |
+The table below shows two example profiles used in documentation: `Cluster A` (lab) and `Cluster B` (production). These are illustrative — real instance IDs and folders live under `configs/{instance-id}/`.
+
+| Feature | Example: Lab Profile | Example: Production Profile |
 |---------|--------|---------|
 | **Purpose** | Dev/test/prototype | Production workloads |
 | **Masters** | 1 (dev-only) | 3 (HA with etcd quorum) |
 | **Workers** | 2-3 | 5-100+ (auto-scaling) |
 | **Storage** | Local (NFS) | Distributed (Ceph/Longhorn) |
-| **Datacenter** | Fabrication A only | Fabrication A + B |
+| **Datacenter** | Single site (example) | Multi-site (example) |
 | **Load Balancer** | No | Yes |
 | **Ingress** | No | Yes |
 | **HA Enabled** | No | Yes |
@@ -36,30 +38,21 @@ Fabrication Datacenter B (Secondary)
 
 ## Folder Structure Essentials
 
+Use per-instance directories. Examples below show illustrative instance names; replace `{instance-id}` with your chosen id.
+
 ```
 configs/
-├── infrastructure-cluster-a/          # Lab cluster IaC
+├── {instance-id}/          # Per-instance IaC (example: cluster-a, prod-west)
 │   ├── main.tf (imports shared modules)
-│   ├── variables.tf (lab overrides)
-│   └── specs/                         # JSON outputs
-└── infrastructure-cluster-b/          # Production cluster IaC
-    ├── cluster-b-masters.tf (HA setup)
-    ├── cluster-b-workers.tf (auto-scaling)
-    ├── cluster-b-networking.tf
-    ├── main.tf
-    └── specs/
+│   ├── variables.tf (instance overrides)
+   └── specs/                         # JSON outputs
 
 fabrications/
-├── fabrication-datacenter-a/          # Primary datacenter IaC
+├── {instance-id}/          # Per-instance fabrication/datacenter (example: datacenter-east-1)
 │   ├── models/                        # SysML models for this site
 │   ├── network.tf
 │   ├── storage.tf
 │   └── specs/
-└── fabrication-datacenter-b/          # Secondary datacenter IaC
-    ├── models/
-    ├── network.tf
-    ├── storage.tf
-    └── specs/
 
 library/
 ├── sysml-library/                     # Shared SysML definitions
@@ -229,20 +222,15 @@ For any new cluster or datacenter:
 
 ## Common Tasks
 
-**Deploy Cluster A (Lab)**:
-```bash
-cd configs/infrastructure-cluster-a
+**Deploy an instance (example)**:
+```powershell
+# Replace {instance-id} with the instance folder name, e.g. 'cluster-a' or 'prod-west'
+cd configs\{instance-id}
 terraform init && terraform apply
-cd ../../ansible-roles/cluster-a
-ansible-playbook -i inventory.ini site.yml
-```
 
-**Deploy Cluster B (Production)**:
-```bash
-cd configs/infrastructure-cluster-b
-terraform init && terraform apply
-cd ../../ansible-roles/cluster-b
-ansible-playbook -i inventory.ini site.yml  # Includes HA setup
+# Then run Ansible from the appropriate role
+cd ..\..\library\ansible-roles\{role-name}
+ansible-playbook -i inventory.ini site.yml
 ```
 
 **Add Master Node to Cluster B**:

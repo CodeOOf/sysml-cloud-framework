@@ -10,12 +10,12 @@ The SysML Cloud Platform is an open-source, model-driven engineering framework t
 
 Its goal is to transform system models into actionable implementation artifacts, enabling organizations to design, build, and evolve their own cloud platforms directly from SysML v2 (formally adopted by OMG on June 30, 2025).
 
-### Key Deployment Architecture
+-### Key Deployment Architecture
 
-This project demonstrates the complete system using:
+This project demonstrates the complete system using examples. Example names `Cluster A` and `Cluster B` are illustrative — real instance folders use dynamic instance IDs under `configs/{instance-id}` and `fabrications/{instance-id}`.
 
-- **Cluster A**: Lab-scale development cluster (1 master, 2-3 workers) → Fabrication Datacenter A
-- **Cluster B**: Production EKS-like cluster (3 HA masters, 5-100+ workers) → Fabrication Datacenters A + B
+- **Cluster A** (example): Lab-scale development cluster (1 master, 2-3 workers). Replace `A` with your instance id.
+- **Cluster B** (example): Production EKS-like cluster (3 HA masters, 5-100+ workers). Replace `B` with your instance id.
 - **Shared Library**: Reusable SysML models, Terraform modules, and Ansible roles
 - **Template Structure**: Required folder and configuration patterns for all deployments
 
@@ -211,14 +211,16 @@ The generator applies phase mapping based on keywords in document filenames and 
 #### For Infrastructure/DevOps Teams
 - **[templates/TERRAFORM_STRUCTURE.md](templates/TERRAFORM_STRUCTURE.md)** — Terraform module organization
 - **[templates/ANSIBLE_STRUCTURE.md](templates/ANSIBLE_STRUCTURE.md)** — Ansible playbook organization
-- **[configs/infrastructure-cluster-a/](configs/infrastructure-cluster-a/)** — Cluster A IaC
-- **[configs/infrastructure-cluster-b/](configs/infrastructure-cluster-b/)** — Cluster B IaC
+- **Per-instance configs**: Use `configs/{instance-id}/` for each infrastructure instance (example: `configs/cluster-a/` or `configs/prod-west/`).
+  - Each instance folder SHOULD include a `manifest.json` conforming to `configs/manifest.schema.json`.
+  - SysML models and docs reference requirement IDs — tooling resolves instance folders by reading each instance's `manifest.json`.
 - **[library/terraform-modules/](library/terraform-modules/)** — Shared Terraform modules
 - **[library/ansible-roles/](library/ansible-roles/)** — Shared Ansible roles
 
-#### For Facilities/Operations Teams
-- **[fabrications/fabrication-datacenter-a/](fabrications/fabrication-datacenter-a/)** — Datacenter A specifications
-- **[fabrications/fabrication-datacenter-b/](fabrications/fabrication-datacenter-b/)** — Datacenter B specifications
+-#### For Facilities/Operations Teams
+- **Per-instance fabrications**: Use `fabrications/{instance-id}/` for each physical site (example: `fabrications/datacenter-east-1/`).
+  - Each instance folder SHOULD include a `manifest.json` conforming to `fabrications/manifest.schema.json`.
+  - SysML and documentation reference the manifest `id` and requirement IDs rather than prescriptive example folder names.
 - **[publication/floorplan.md](publication/floorplan.md)** — Physical layout
 - **[publication/rack-model.md](publication/rack-model.md)** — Rack specifications
 - **PDFs**: `06_SDD_FabricationDatacenter*.pdf` — Detailed datacenter design

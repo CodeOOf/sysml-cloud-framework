@@ -113,8 +113,7 @@ Create a README in the vendor folder with links:
 - [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
 ## How This Project Uses Kubernetes
-- Cluster A: Single-master development cluster
-- Cluster B: 3-master HA production cluster
+- Example instances: `Cluster A` (single-master development) and `Cluster B` (3-master HA production). These are examples — real instance folders live under `configs/{instance-id}/`.
 - Version: 1.28+ (check `sysml/infrastructure/KubernetesClusterArchitecture.sysml`)
 
 ## Relevant SysML Models
@@ -122,7 +121,7 @@ Create a README in the vendor folder with links:
 - `sysml/infrastructure/InfrastructureSubSystemRequirements.sysml`
 
 ## Project-Specific Guides
-- [Cluster Configuration](../../configs/infrastructure-cluster-a/README.md)
+-- [Cluster Configuration](../../configs/{instance-id}/README.md) — replace `{instance-id}` with your instance folder name
 - [Ansible Deployment](../../library/ansible-roles/README.md)
 ```
 

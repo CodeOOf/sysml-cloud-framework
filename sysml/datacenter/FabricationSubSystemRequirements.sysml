@@ -5,8 +5,8 @@
  * Based on https://www.omg.org/sysml/sysmlv2/
  * 
  * These requirements cascade from SYSTEM_REQ_* and define specific needs for:
- * - Fabrication Datacenter A (primary site)
- * - Fabrication Datacenter B (secondary site for Cluster B HA)
+ * - Examples used in this document: "A" (primary/example) and "B" (secondary/example).
+ * - Do NOT treat example names as canonical folder names. Each real fabrication instance lives under `fabrications/{instance-id}/` and SHOULD include a `manifest.json` describing the instance.
  * 
  * External Reference: input/fabrication-requirements/
  * Project Integration: Jira project key FAB-*
@@ -29,7 +29,7 @@ package FabricationSubSystemRequirements {
         
         attribute requirementId : String; /* FAB_REQ_NNN format */
         attribute relatedSystemReq : String; /* Links to SYSTEM_REQ_* */
-        attribute appliesToDatacenter : String; /* "A", "B", or "A,B" */
+        attribute appliesToInstances : String; /* comma-separated list of fabrication instance ids from per-instance manifest.json (example: "datacenter-east-1,lab-site") or '*' for all */
         attribute externalSourceId : String;
         attribute priority : String;
         attribute version : String;
@@ -58,9 +58,9 @@ package FabricationSubSystemRequirements {
              - sysml/datacenter/DeploymentArchitecture.sysml (FabricationDatacenterA)
              
              Deployment Implementation:
-             - fabrications/fabrication-datacenter-a/models/ (SysML design)
-             - fabrications/fabrication-datacenter-a/specs/ (datacenter.json)
-             - fabrications/fabrication-datacenter-a/views/ (rack views)
+             - `fabrications/{instance-id}/models/` (SysML design, example: `fabrications/datacenter-east-1/models/`)
+             - `fabrications/{instance-id}/specs/` (datacenter.json)
+             - `fabrications/{instance-id}/views/` (rack views)
              
              Project Structure:
              - fabrications/fabrication-datacenter-a/
@@ -99,9 +99,9 @@ package FabricationSubSystemRequirements {
              - sysml/datacenter/DeploymentArchitecture.sysml (FabricationDatacenterB)
              
              Deployment Implementation:
-             - fabrications/fabrication-datacenter-b/models/ (SysML design)
-             - fabrications/fabrication-datacenter-b/specs/ (datacenter.json)
-             - fabrications/fabrication-datacenter-b/views/ (rack views)
+             - `fabrications/{instance-id}/models/` (SysML design, example: `fabrications/datacenter-dr/models/`)
+             - `fabrications/{instance-id}/specs/` (datacenter.json)
+             - `fabrications/{instance-id}/views/` (rack views)
              
              Project Structure:
              - fabrications/fabrication-datacenter-b/
@@ -139,13 +139,10 @@ package FabricationSubSystemRequirements {
              - Documented rack layouts (floorplan.sysml)
              
              SysML Models (Racks):
-             - fabrications/fabrication-datacenter-a/models/rackA1.sysml
-             - fabrications/fabrication-datacenter-a/models/rackA2.sysml
-             - fabrications/fabrication-datacenter-b/models/rackB1.sysml
+             - `fabrications/{instance-id}/models/rack-*.sysml` (per-instance rack models)
              
              SysML Views:
-             - fabrications/fabrication-datacenter-a/views/rackA1-view.sysml
-             - fabrications/fabrication-datacenter-b/views/rackB1-view.sysml
+             - `fabrications/{instance-id}/views/*-view.sysml` (per-instance views)
          */
         
         attribute standardRackSize : String = "42U";
