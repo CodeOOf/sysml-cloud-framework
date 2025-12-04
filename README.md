@@ -70,8 +70,22 @@ Full documentation is in the `docs/` folder:
 - **[TESTING_AND_DEPLOYMENT_STRATEGY.md](docs/TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Testing and deployment
 - **[CONTRIBUTING.md](docs/CONTRIBUTING.md)** — Development guidelines
 
-Generated publications (in `publication/` folder):
-- **PDFs** — V-Model-ordered documentation (01_PMP_SEMP.pdf, 03_SRD_*, 04_SAD_*, 06_SDD_*, 11_DPL_*)
+### Generated Publications (in `publication/` folder)
+
+| Order | Phase | Abbr | Example PDF |
+|-------|-------|------|-------------|
+| 01 | Project Management | PMP | `01_PMP_SEMP.pdf` |
+| 02 | Stakeholder Needs | SNS | Stakeholder Needs Statement |
+| 03 | System Requirements | SRD | `03_SRD_SysMLCloudPlatform.pdf` |
+| 04 | System Architecture & Design | SAD | `04_SAD_SysMLCloudPlatform.pdf` |
+| 05 | Subsystem Requirements | SSR | Subsystem Requirements |
+| 06 | Subsystem Detailed Design | SDD | `06_SDD_FabricationDatacenterA.pdf` |
+| 07 | Implementation | SCI | Software/Code Implementation |
+| 08 | Integration | ITP | Integration Test Plan |
+| 09 | Verification | STP | System Test Plan |
+| 10 | Validation | SV | System Validation |
+| 11 | Deployment & O&M | DPL | `11_DPL_DeploymentAndOM.pdf` |
+
 - **Markdown** — Auto-generated from SysML models
 - **Diagrams** — PNG images from SysML (in `publication/images/`)
 
