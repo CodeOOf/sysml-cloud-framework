@@ -6,8 +6,6 @@ A Model-Driven Framework for Designing and Building Cloud Solutions
 
 **Documentation**: Start with [DOCS_GUIDE.md](docs/DOCS_GUIDE.md) | [Quick Reference](docs/QUICK_REFERENCE.md) | [Architecture Guide](docs/SYSML_ARCHITECTURE_GUIDE.md)
 
-> **Inspiration**: Diagram generation inspired by [SysML_Python_Visualizer](https://github.com/redasasin4/SysML_Python_Visualizer) - a professional SysML v2 visualization project by the OMG Institute.
-
 ---
 
 ## 🚀 Quick Start
@@ -129,3 +127,27 @@ See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for development guidelines and workf
 - 🔜 VS Code extension for model-repository integration
 - 🔜 Model-based monitoring configuration (Prometheus, OpenTelemetry)
 - 🔜 Cloud reference architecture templates
+
+---
+
+## Credits
+
+This project builds on the foundation and inspiration from several key open-source projects and standards:
+
+### Diagram Generation Inspiration
+**[SysML_Python_Visualizer](https://github.com/redasasin4/SysML_Python_Visualizer)** by [@redasasin4](https://github.com/redasasin4)
+- Demonstrated professional SysML v2 block definition diagram (BDD) rendering using Python and Graphviz
+- Inspired the visual style and rendering approach for this project's diagram generator
+- Professional, minimal aesthetic with clean white boxes and black borders following SysML v2 standards
+
+### SysML v2 Reference Implementation
+**[SysML-v2-Release](https://github.com/Systems-Modeling/SysML-v2-Release)** by [Systems-Modeling](https://github.com/Systems-Modeling)
+- Official OMG SysML v2 specification and example models
+- Reference for SysML v2 syntax, semantics, and best practices
+- Foundation for all SysML v2 models in this project
+
+---
+
+## License
+
+See LICENSE file for details.
