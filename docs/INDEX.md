@@ -1,4 +1,4 @@
-# Welcome to OMG SysML v2 Cloud Platform Architecture
+# Welcome to OMG SysML v2 Cloud Framework Architecture
 
 ## 🎯 What This Is
 

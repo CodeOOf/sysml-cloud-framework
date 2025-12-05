@@ -1,5 +1,5 @@
 # System Engineering Management Plan (SEMP)
-## SysML Cloud Platform
+## SysML Cloud Framework
 
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
 > **V-Model Phase**: 01 (PMP - Project Management)  
@@ -15,7 +15,7 @@
 
 ## 1. Purpose and Scope
 
-The **System Engineering Management Plan (SEMP)** defines how systems engineering will be planned, organized, conducted, and controlled for the **SysML Cloud Platform** project. This plan ensures that all systems engineering activities align with project objectives and organizational standards.
+The **System Engineering Management Plan (SEMP)** defines how systems engineering will be planned, organized, conducted, and controlled for the **SysML Cloud Framework** project. This plan ensures that all systems engineering activities align with project objectives and organizational standards.
 
 ### 1.1 Project Vision
 Transform system models into actionable implementation artifacts through a Git-native, model-driven engineering framework that connects SysML v2 system architecture with cloud infrastructure, technicians, and developers.
@@ -506,7 +506,7 @@ Approvals and signatures:
 
 ### D. Revision History
 
-- **1.0** — 2025-12-03 — Initial SEMP for SysML Cloud Platform — SE Team
+- **1.0** — 2025-12-03 — Initial SEMP for SysML Cloud Framework — SE Team
 
 ---
 

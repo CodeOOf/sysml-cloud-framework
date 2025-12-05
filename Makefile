@@ -91,8 +91,8 @@ check-encoding:
 pdf:
 	$(call INFO, "Generating PDF publication (requires pandoc + xelatex)")
 	cd $(PUB_DIR) && pandoc $(PUB_MD) \
-		   -o sysml-cloud-platform.pdf \
+		   -o sysml-cloud-framework.pdf \
 		   --from markdown --toc --pdf-engine=xelatex \
-		   --metadata title="SysML Cloud Platform" \
+		   --metadata title="SysML Cloud Framework" \
 		   --metadata date="$(DATE)" \
 		   --metadata version="$(VERSION)"

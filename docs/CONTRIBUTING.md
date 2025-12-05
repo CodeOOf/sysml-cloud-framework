@@ -1,4 +1,4 @@
-# Contributing to SysML Cloud Platform
+# Contributing to SysML Cloud Framework
 
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md)  
 > **V-Model Phase**: N/A (Development Guidelines)  
@@ -7,7 +7,7 @@
 >  
 > **Workflow reminder**: Edit `docs/` (version-controlled source) and `sysml/` (triggers regeneration). Don't edit `publication/` (auto-generated). Run `make docs && make pdf` to regenerate published artifacts.
 
-Thank you for your interest in contributing! This document outlines the process for contributing to the SysML Cloud Platform project.
+Thank you for your interest in contributing! This document outlines the process for contributing to the SysML Cloud Framework project.
 
 ## Getting Started
 
@@ -151,7 +151,7 @@ CI runs the linter on all PRs that touch `publication/` or `templates/` and will
 
 ## Submodule Workflows
 
-The SysML Cloud Platform supports **dynamic management of subfolders** inside the top-level content directories. The top-level directories (`fabrications/`, `configs/`, `library/`) are part of this repository; individual subfolders inside them can be:
+The SysML Cloud Framework supports **dynamic management of subfolders** inside the top-level content directories. The top-level directories (`fabrications/`, `configs/`, `library/`) are part of this repository; individual subfolders inside them can be:
 
 - **Committed locally** (default for individual development)
 - **Linked as git submodules** (recommended for team collaboration and separating concerns)

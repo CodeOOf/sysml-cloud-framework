@@ -232,7 +232,7 @@ def process_sysml_files(sysml_files, publication_dir, repo_root=None):
     for path in sysml_files:
         domain, stem, view = classify(path)
         image_dir, kebab = output_paths(domain, stem, publication_dir)
-        title = stem if domain != "overall-design" else "SysML Cloud Platform"
+        title = stem if domain != "overall-design" else "SysML Cloud Framework"
         diagrams = []
 
         # Parse file

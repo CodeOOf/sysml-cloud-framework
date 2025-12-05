@@ -1,4 +1,4 @@
-# SysML Cloud Platform
+# SysML Cloud Framework
 A Model-Driven Framework for Designing and Building Cloud Solutions
 
 > **You are here**: README.md (Project Overview)  
