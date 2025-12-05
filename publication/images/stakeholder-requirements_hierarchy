@@ -1,0 +1,115 @@
+digraph {
+	bgcolor=white dpi=150 nodesep=0.5 rankdir=LR ranksep=1.2 splines=ortho
+	node [fontname=Helvetica fontsize=10 shape=box style=filled]
+	edge [arrowhead=vee color=black fontname=Helvetica fontsize=9]
+	"Business Unit Manager" [label="    ◯
+    |
+   /|\
+   / \
+
+Business Unit Manager" color=black fillcolor=none fontname=Monospace fontsize=10 penwidth=1.0 shape=none]
+	"Enterprise Architect" [label="    ◯
+    |
+   /|\
+   / \
+
+Enterprise Architect" color=black fillcolor=none fontname=Monospace fontsize=10 penwidth=1.0 shape=none]
+	"Operations Team" [label="    ◯
+    |
+   /|\
+   / \
+
+Operations Team" color=black fillcolor=none fontname=Monospace fontsize=10 penwidth=1.0 shape=none]
+	"Development Team" [label="    ◯
+    |
+   /|\
+   / \
+
+Development Team" color=black fillcolor=none fontname=Monospace fontsize=10 penwidth=1.0 shape=none]
+	"Security Team" [label="    ◯
+    |
+   /|\
+   / \
+
+Security Team" color=black fillcolor=none fontname=Monospace fontsize=10 penwidth=1.0 shape=none]
+	CostReduction [label="«requirement»
+CostReduction" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	DataSovereignty [label="«requirement»
+DataSovereignty" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	HighAvailability [label="«requirement»
+HighAvailability" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	RapidDeployment [label="«requirement»
+RapidDeployment" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	SecurityCompliance [label="«requirement»
+SecurityCompliance" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	ScalableInfrastructure [label="«requirement»
+ScalableInfrastructure" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	InfrastructureAsCode [label="«requirement»
+InfrastructureAsCode" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	ObservabilityMonitoring [label="«requirement»
+ObservabilityMonitoring" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	DisasterRecovery [label="«requirement»
+DisasterRecovery" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	OpenStandards [label="«requirement»
+OpenStandards" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	AutomatedOrchestration [label="«requirement»
+AutomatedOrchestration" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	SelfServiceProvisioning [label="«requirement»
+SelfServiceProvisioning" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	ContinuousDeployment [label="«requirement»
+ContinuousDeployment" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	ResourceOptimization [label="«requirement»
+ResourceOptimization" color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	VerifyCostReduction [label="«testCase»
+VerifyCostReduction" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyDataSovereignty [label="«testCase»
+VerifyDataSovereignty" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyHighAvailability [label="«testCase»
+VerifyHighAvailability" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyRapidDeployment [label="«testCase»
+VerifyRapidDeployment" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifySecurityCompliance [label="«testCase»
+VerifySecurityCompliance" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyScalability [label="«testCase»
+VerifyScalability" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyInfrastructureAsCode [label="«testCase»
+VerifyInfrastructureAsCode" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyMonitoring [label="«testCase»
+VerifyMonitoring" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyDisasterRecovery [label="«testCase»
+VerifyDisasterRecovery" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyOpenStandards [label="«testCase»
+VerifyOpenStandards" color="#228B22" fillcolor="#90EE90" penwidth=1.5 shape=box]
+	VerifyCostReduction -> CostReduction [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyDataSovereignty -> DataSovereignty [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyHighAvailability -> HighAvailability [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyRapidDeployment -> RapidDeployment [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifySecurityCompliance -> SecurityCompliance [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyScalability -> ScalableInfrastructure [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyInfrastructureAsCode -> InfrastructureAsCode [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyMonitoring -> ObservabilityMonitoring [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyDisasterRecovery -> DisasterRecovery [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	VerifyOpenStandards -> OpenStandards [label="«verify»" color="#228B22" fontcolor="#228B22" penwidth=2.0 style=dashed]
+	"Business Unit Manager" -> CostReduction [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Business Unit Manager" -> HighAvailability [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Business Unit Manager" -> RapidDeployment [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Enterprise Architect" -> ScalableInfrastructure [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Enterprise Architect" -> InfrastructureAsCode [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Enterprise Architect" -> OpenStandards [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Operations Team" -> AutomatedOrchestration [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Operations Team" -> ObservabilityMonitoring [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Operations Team" -> DisasterRecovery [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Operations Team" -> ResourceOptimization [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Development Team" -> RapidDeployment [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Development Team" -> SelfServiceProvisioning [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Development Team" -> ContinuousDeployment [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Security Team" -> DataSovereignty [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	"Security Team" -> SecurityCompliance [label="«trace»" color="#666666" fontcolor="#666666" penwidth=2.0 style=dashed]
+	ScalableInfrastructure -> CostReduction [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+	ResourceOptimization -> CostReduction [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+	ContinuousDeployment -> RapidDeployment [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+	AutomatedOrchestration -> RapidDeployment [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+	DisasterRecovery -> HighAvailability [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+	ObservabilityMonitoring -> HighAvailability [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+	DataSovereignty -> SecurityCompliance [label="«satisfy»" color="#8B7355" fontcolor="#8B7355" penwidth=2.0]
+}

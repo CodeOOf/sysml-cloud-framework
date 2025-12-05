@@ -6,6 +6,8 @@ A Model-Driven Framework for Designing and Building Cloud Solutions
 
 **Documentation**: Start with [DOCS_GUIDE.md](docs/DOCS_GUIDE.md) | [Quick Reference](docs/QUICK_REFERENCE.md) | [Architecture Guide](docs/SYSML_ARCHITECTURE_GUIDE.md)
 
+> **Inspiration**: Diagram generation inspired by [SysML_Python_Visualizer](https://github.com/redasasin4/SysML_Python_Visualizer) - a professional SysML v2 visualization project by the OMG Institute.
+
 ---
 
 ## 🚀 Quick Start

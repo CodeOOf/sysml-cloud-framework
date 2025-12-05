@@ -1,0 +1,24 @@
+digraph {
+	bgcolor=white dpi=150 nodesep=0.5 rankdir=LR ranksep=1.2 splines=ortho
+	node [fontname=Helvetica fontsize=10 shape=box style=filled]
+	edge [arrowhead=vee color=black fontname=Helvetica fontsize=9]
+	subgraph cluster_StakeholderNeedsAnalysis {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=StakeholderNeedsAnalysis penwidth=1.0 style=filled
+		StakeholderNeedsAnalysis_businessConcern [label=businessConcern color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_techConcern [label=techConcern color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_productStrategy [label=productStrategy color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_swotAnalysis [label=swotAnalysis color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_riskAssessment [label=riskAssessment color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_businessRequirements [label=businessRequirements color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_techForecast [label=techForecast color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+		StakeholderNeedsAnalysis_projectPlan [label=projectPlan color=black fillcolor=white penwidth=1.0 shape=box]
+		StakeholderNeedsAnalysis_sePlan [label=sePlan color=black fillcolor=white penwidth=1.0 shape=box]
+		StakeholderNeedsAnalysis_archDescription [label=archDescription color=black fillcolor=white penwidth=1.0 shape=box]
+		StakeholderNeedsAnalysis_lccAnalysis [label=lccAnalysis color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	}
+	businessManager [label=businessManager color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	enterpriseArchitect [label=enterpriseArchitect color=black fillcolor=white penwidth=1.0 shape=box]
+	opsTeam [label=opsTeam color=black fillcolor=white penwidth=1.0 shape=box]
+	devTeam [label=devTeam color=black fillcolor=white penwidth=1.0 shape=box]
+	secTeam [label=secTeam color=black fillcolor=white penwidth=1.0 shape=box]
+}

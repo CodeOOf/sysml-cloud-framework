@@ -1,0 +1,59 @@
+digraph {
+	bgcolor=white dpi=150 nodesep=0.5 rankdir=LR ranksep=1.2 splines=ortho
+	node [fontname=Helvetica fontsize=10 shape=box style=filled]
+	edge [arrowhead=vee color=black fontname=Helvetica fontsize=9]
+	subgraph cluster_Phase01_ProjectManagement {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=Phase01_ProjectManagement penwidth=1.0 style=filled
+		Phase01_ProjectManagement_sempMD [label=sempMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase01_ProjectManagement_sempPDF [label=sempPDF color=black fillcolor=white penwidth=1.0 shape=box]
+	}
+	subgraph cluster_Phase02_StakeholderNeeds {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=Phase02_StakeholderNeeds penwidth=1.0 style=filled
+		Phase02_StakeholderNeeds_stakeholderNeedsAnalysisMD [label=stakeholderNeedsAnalysisMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase02_StakeholderNeeds_businessConcernsMD [label=businessConcernsMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase02_StakeholderNeeds_productStrategyMD [label=productStrategyMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase02_StakeholderNeeds_snrPDF [label=snrPDF color=black fillcolor=white penwidth=1.0 shape=box]
+	}
+	subgraph cluster_Phase03_SystemRequirementsDefinition {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=Phase03_SystemRequirementsDefinition penwidth=1.0 style=filled
+		Phase03_SystemRequirementsDefinition_systemRequirementsMD [label=systemRequirementsMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase03_SystemRequirementsDefinition_platformRequirementsMD [label=platformRequirementsMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase03_SystemRequirementsDefinition_srdPDF [label=srdPDF color=black fillcolor=white penwidth=1.0 shape=box]
+	}
+	subgraph cluster_Phase04_SystemArchitectureDesign {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=Phase04_SystemArchitectureDesign penwidth=1.0 style=filled
+		Phase04_SystemArchitectureDesign_platformModelMD [label=platformModelMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase04_SystemArchitectureDesign_platformInterfacesMD [label=platformInterfacesMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase04_SystemArchitectureDesign_sadPDF [label=sadPDF color=black fillcolor=white penwidth=1.0 shape=box]
+	}
+	subgraph cluster_Phase06_SubsystemDetailedDesign {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=Phase06_SubsystemDetailedDesign penwidth=1.0 style=filled
+		Phase06_SubsystemDetailedDesign_rackModelMD [label=rackModelMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase06_SubsystemDetailedDesign_networkModelMD [label=networkModelMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase06_SubsystemDetailedDesign_virtualizationMD [label=virtualizationMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase06_SubsystemDetailedDesign_deploymentArchMD [label=deploymentArchMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase06_SubsystemDetailedDesign_sddPDF [label=sddPDF color=black fillcolor=white penwidth=1.0 shape=box]
+	}
+	subgraph cluster_Phase11_DeploymentOperations {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label=Phase11_DeploymentOperations penwidth=1.0 style=filled
+		Phase11_DeploymentOperations_testingDeploymentPlanMD [label=testingDeploymentPlanMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase11_DeploymentOperations_deploymentArchitectureGuideMD [label=deploymentArchitectureGuideMD color=black fillcolor=white penwidth=1.0 shape=box]
+		Phase11_DeploymentOperations_dplPDF [label=dplPDF color=black fillcolor=white penwidth=1.0 shape=box]
+	}
+	sempContextDoc [label=sempContextDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	stakeholderContextDoc [label=stakeholderContextDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	sysmlArchGuideContext [label=sysmlArchGuideContext color=black fillcolor=white penwidth=1.0 shape=box]
+	testingStrategyContextDoc [label=testingStrategyContextDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	readmeDoc [label=readmeDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	docsGuideDoc [label=docsGuideDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	quickReferenceDoc [label=quickReferenceDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	vModelGuideDoc [label=vModelGuideDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	contributingDoc [label=contributingDoc color=black fillcolor=white penwidth=1.0 shape=box]
+	navigation [label=navigation color=black fillcolor=white penwidth=1.0 shape=box]
+	phase01 [label=phase01 color=black fillcolor=white penwidth=1.0 shape=box]
+	phase02 [label=phase02 color="#8B7355" fillcolor="#F5DEB3" penwidth=1.5 shape=box]
+	phase03 [label=phase03 color=black fillcolor=white penwidth=1.0 shape=box]
+	phase04 [label=phase04 color=black fillcolor=white penwidth=1.0 shape=box]
+	phase06 [label=phase06 color=black fillcolor=white penwidth=1.0 shape=box]
+	phase11 [label=phase11 color=black fillcolor=white penwidth=1.0 shape=box]
+}

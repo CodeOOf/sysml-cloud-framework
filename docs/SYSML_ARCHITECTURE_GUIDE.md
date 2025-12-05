@@ -3,7 +3,8 @@
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [QUICK_REFERENCE.md](QUICK_REFERENCE.md)  
 > **V-Model Phase**: Spans SRD (03) → SAD (04) (Architecture context)  
 > **Time to read**: 30–45 minutes  
-> **Published as**: `publication/03_SRD_SysMLCloudPlatform.pdf`, `publication/04_SAD_SysMLCloudPlatform.pdf` (Architecture overview & requirements context)
+> **Published as**: `publication/03_SRD_SysMLCloudPlatform.pdf`, `publication/04_SAD_SysMLCloudPlatform.pdf` (Architecture overview & requirements context)  
+> **Read as Markdown**: [System Requirements](../publication/system-requirements-definition.md) | [Platform Model](../publication/sys-mlcloud-platform-model.md) | [Platform Interfaces](../publication/sys-mlcloud-platform-interfaces.md) (generated documents)
 
 **Source of Truth**: [OMG SysML v2 Specification](https://www.omg.org/sysml/sysmlv2/) and [SysML v2 Release Repository](https://github.com/Systems-Modeling/SysML-v2-Release)
 
@@ -393,10 +394,10 @@ make pdf
 → Read **[SEMP.md](SEMP.md)** (Phase 01: Project Management Plan)
 
 ### If you want detailed requirements and specifications...
-→ Review **`publication/03_SRD_*.pdf`** (Phase 03: System Requirements)
+→ Review [System Requirements Definition](../publication/system-requirements-definition.md) (Phase 03: System Requirements; also in `publication/03_SRD_*.pdf`)
 
 ### If you want detailed design documents...
-→ Review **`publication/04_SAD_*.pdf`** (Phase 04: System Architecture & Design)  
+→ Review [Platform Model](../publication/sys-mlcloud-platform-model.md) | [Platform Interfaces](../publication/sys-mlcloud-platform-interfaces.md) (Phase 04: System Architecture & Design; also in `publication/04_SAD_*.pdf`)  
 → Then **`publication/06_SDD_*.pdf`** (Phase 06: Subsystem Detailed Design)
 
 ### If you want to deploy now...

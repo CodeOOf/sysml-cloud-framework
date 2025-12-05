@@ -1,0 +1,82 @@
+digraph {
+	bgcolor=white dpi=150 nodesep=0.8 rankdir=TB ranksep=1.2 splines=ortho
+	node [fontname=Helvetica fontsize=10 shape=box]
+	edge [arrowhead=vee color=black fontname=Helvetica fontsize=9]
+	subgraph cluster_Phase01_ProjectManagement {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label="01: Project Management" penwidth=1.0 style=filled
+		Phase01_ProjectManagement_sempMD [label="semp MD
+(SEMP.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase01_ProjectManagement_sempPDF [label="semp PDF
+(01_PMP_SEMP.pdf)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase01_ProjectManagement_sempMD -> Phase01_ProjectManagement_sempPDF [label="SEMP.md→01_PMP_SEMP.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+	}
+	subgraph cluster_Phase02_StakeholderNeeds {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label="02: Stakeholder Needs" penwidth=1.0 style=filled
+		Phase02_StakeholderNeeds_stakeholderNeedsAnalysisMD [label="stakeholder Needs Analysis MD
+(stakeholder-needs-analysis.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase02_StakeholderNeeds_businessConcernsMD [label="business Concerns MD
+(business-concerns.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase02_StakeholderNeeds_productStrategyMD [label="product Strategy MD
+(product-strategy.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase02_StakeholderNeeds_snrPDF [label="snr PDF
+(02_SNR_StakeholderNeeds.pdf)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase02_StakeholderNeeds_stakeholderNeedsAnalysisMD -> Phase02_StakeholderNeeds_snrPDF [label="stakeholder-needs-analysis.md→02_SNR_StakeholderNeeds.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase02_StakeholderNeeds_businessConcernsMD -> Phase02_StakeholderNeeds_snrPDF [label="business-concerns.md→02_SNR_StakeholderNeeds.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase02_StakeholderNeeds_productStrategyMD -> Phase02_StakeholderNeeds_snrPDF [label="product-strategy.md→02_SNR_StakeholderNeeds.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+	}
+	Phase01_ProjectManagement_sempMD -> Phase02_StakeholderNeeds_stakeholderNeedsAnalysisMD [color=black penwidth=1.0 style=dotted]
+	subgraph cluster_Phase03_SystemRequirementsDefinition {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label="03: System Requirements Definition" penwidth=1.0 style=filled
+		Phase03_SystemRequirementsDefinition_systemRequirementsMD [label="system Requirements MD
+(system-requirements-definition.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase03_SystemRequirementsDefinition_platformRequirementsMD [label="platform Requirements MD
+(sys-mlcloud-platform-requirements.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase03_SystemRequirementsDefinition_srdPDF [label="srd PDF
+(03_SRD_SysMLCloudPlatform.pdf)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase03_SystemRequirementsDefinition_systemRequirementsMD -> Phase03_SystemRequirementsDefinition_srdPDF [label="system-requirements-definition.md→03_SRD_SysMLCloudPlatform.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase03_SystemRequirementsDefinition_platformRequirementsMD -> Phase03_SystemRequirementsDefinition_srdPDF [label="sys-mlcloud-platform-requirements.md→03_SRD_SysMLCloudPlatform.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+	}
+	Phase02_StakeholderNeeds_stakeholderNeedsAnalysisMD -> Phase03_SystemRequirementsDefinition_systemRequirementsMD [color=black penwidth=1.0 style=dotted]
+	subgraph cluster_Phase04_SystemArchitectureDesign {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label="04: System Architecture Design" penwidth=1.0 style=filled
+		Phase04_SystemArchitectureDesign_platformModelMD [label="platform Model MD
+(sys-mlcloud-platform-model.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase04_SystemArchitectureDesign_platformInterfacesMD [label="platform Interfaces MD
+(sys-mlcloud-platform-interfaces.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase04_SystemArchitectureDesign_sadPDF [label="sad PDF
+(04_SAD_SysMLCloudPlatform.pdf)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase04_SystemArchitectureDesign_platformModelMD -> Phase04_SystemArchitectureDesign_sadPDF [label="sys-mlcloud-platform-model.md→04_SAD_SysMLCloudPlatform.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase04_SystemArchitectureDesign_platformInterfacesMD -> Phase04_SystemArchitectureDesign_sadPDF [label="sys-mlcloud-platform-interfaces.md→04_SAD_SysMLCloudPlatform.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+	}
+	Phase03_SystemRequirementsDefinition_systemRequirementsMD -> Phase04_SystemArchitectureDesign_platformModelMD [color=black penwidth=1.0 style=dotted]
+	subgraph cluster_Phase06_SubsystemDetailedDesign {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label="06: Subsystem Detailed Design" penwidth=1.0 style=filled
+		Phase06_SubsystemDetailedDesign_rackModelMD [label="rack Model MD
+(rack-model.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase06_SubsystemDetailedDesign_networkModelMD [label="network Model MD
+(network-model.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase06_SubsystemDetailedDesign_virtualizationMD [label="virtualization MD
+(virtualization-model.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase06_SubsystemDetailedDesign_deploymentArchMD [label="deployment Arch MD
+(deployment-architecture.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase06_SubsystemDetailedDesign_sddPDF [label="sdd PDF
+(06_SDD_FabricationDatacenterA.pdf)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase06_SubsystemDetailedDesign_rackModelMD -> Phase06_SubsystemDetailedDesign_sddPDF [label="rack-model.md→06_SDD_FabricationDatacenterA.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase06_SubsystemDetailedDesign_networkModelMD -> Phase06_SubsystemDetailedDesign_sddPDF [label="network-model.md→06_SDD_FabricationDatacenterA.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase06_SubsystemDetailedDesign_virtualizationMD -> Phase06_SubsystemDetailedDesign_sddPDF [label="virtualization-model.md→06_SDD_FabricationDatacenterA.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase06_SubsystemDetailedDesign_deploymentArchMD -> Phase06_SubsystemDetailedDesign_sddPDF [label="deployment-architecture.md→06_SDD_FabricationDatacenterA.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+	}
+	Phase04_SystemArchitectureDesign_platformModelMD -> Phase06_SubsystemDetailedDesign_rackModelMD [color=black penwidth=1.0 style=dotted]
+	subgraph cluster_Phase11_DeploymentOperations {
+		color=black fillcolor=white fontcolor=black fontname=Helvetica fontsize=11 label="11: Deployment Operations" penwidth=1.0 style=filled
+		Phase11_DeploymentOperations_testingDeploymentPlanMD [label="testing Deployment Plan MD
+(testing-and-deployment-planning.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase11_DeploymentOperations_deploymentArchitectureGuideMD [label="deployment Architecture Guide MD
+(deployment-architecture.md)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase11_DeploymentOperations_dplPDF [label="dpl PDF
+(11_DPL_DeploymentAndOM.pdf)" color=black fillcolor=white fontsize=9 penwidth=1.0 shape=box style=filled]
+		Phase11_DeploymentOperations_testingDeploymentPlanMD -> Phase11_DeploymentOperations_dplPDF [label="testing-and-deployment-planning.md→11_DPL_DeploymentAndOM.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+		Phase11_DeploymentOperations_deploymentArchitectureGuideMD -> Phase11_DeploymentOperations_dplPDF [label="deployment-architecture.md→11_DPL_DeploymentAndOM.pdf" color=black fontcolor=black fontsize=8 penwidth=1.0 style=solid]
+	}
+	Phase06_SubsystemDetailedDesign_rackModelMD -> Phase11_DeploymentOperations_testingDeploymentPlanMD [color=black penwidth=1.0 style=dotted]
+}

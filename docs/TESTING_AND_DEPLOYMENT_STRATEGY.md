@@ -3,7 +3,8 @@
 > **Previous**: [README.md](../README.md) → [DOCS_GUIDE.md](DOCS_GUIDE.md) → [SYSML_ARCHITECTURE_GUIDE.md](SYSML_ARCHITECTURE_GUIDE.md)  
 > **V-Model Phases**: 08 (ITP) → 09 (STP) → 10 (SV) → 11 (DPL)  
 > **Time to read**: 45–60 minutes  
-> **Published as**: `publication/11_DPL_DeploymentAndOM.pdf` (Testing, validation & deployment — Phases 08–11)
+> **Published as**: `publication/11_DPL_DeploymentAndOM.pdf` (Testing, validation & deployment — Phases 08–11)  
+> **Read as Markdown**: [publication/testing-and-deployment-planning.md](../publication/testing-and-deployment-planning.md) (generated document)
 
 Comprehensive guide for testing and deploying the cloud platform infrastructure.
 
@@ -801,7 +802,7 @@ See `input/testing-deployment/failover-dr.md` for comprehensive DR procedures.
 ## Next Steps
 
 ### After successful deployment...
-→ Review **`publication/11_DPL_DeploymentAndOM.pdf`** (Phase 11: Operations & Maintenance)
+→ Review [Testing & Deployment Planning](../publication/testing-and-deployment-planning.md) | [Deployment Architecture](../publication/deployment-architecture.md) (Phase 11: Operations & Maintenance; also in `publication/11_DPL_DeploymentAndOM.pdf`)
 
 ### For operational runbooks and post-deployment monitoring...
 → Consult the deployment documentation and O&M procedures in `input/` or `publication/` folders
