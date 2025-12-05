@@ -31,92 +31,45 @@ make pdf    # Generate V-Model-ordered PDFs
 
 ---
 
-## 📋 What This Project Does
+## 📖 Documentation & Learning Path
 
-**Model-driven cloud architecture** — Define your cloud infrastructure and operations in OMG SysML v2, generate implementation artifacts (Terraform, Ansible), and maintain traceability across the entire system.
+**Start your journey here:**
 
-**Key capabilities:**
-- SysML v2 models for infrastructure architecture
-- Automated generation of docs, diagrams, and PDFs from models
-- Git-native workflow with CI/CD integration
-- Template-based consistency for multiple environments
-- Traceability from requirements through design to implementation
+→ **[DOCS_GUIDE.md](docs/DOCS_GUIDE.md)** — Choose your reading path based on your role  
+→ **[QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)** — Common commands and setup  
+→ **[SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)** — Technical deep dive
 
----
-
-## ⚙️ Installation
-
-See [QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md) for detailed setup instructions.
+All documentation follows a consistent thread with navigation headers. Pick your entry point based on your needs — architect, developer, or operator.
 
 ---
 
-## 🔨 Build Commands
+## 📂 Project Structure at a Glance
+
+- `sysml/` — OMG SysML v2 source models
+- `publication/` — Generated PDFs, diagrams, and markdown
+- `configs/`, `fabrications/` — Infrastructure specifications  
+- `library/` — Shared components (Terraform, Ansible, SysML)
+- `docs/` — User documentation (editable source)
+- `scripts/` — Build automation tools
+
+---
+
+## 🔨 Essential Commands
 
 ```bash
 make init    # Initialize environment (one-time)
-make docs    # Build documentation from SysML models
+make docs    # Regenerate documentation from SysML models
 make pdf     # Generate V-Model-ordered PDFs
-make clean   # Remove generated artifacts
 make all     # Full rebuild (clean + docs + pdf)
 ```
 
-For workflow details, see [QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md).
+See [QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md) for complete command reference.
 
 ---
 
-## 📚 Documentation Navigation
+## 🤝 Contributing
 
-**Editable documentation** lives in the `docs/` folder:
-- **[DOCS_GUIDE.md](docs/DOCS_GUIDE.md)** — Start here (guided entry point)
-- **[SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md)** — Complete technical reference
-- **[PROJECT_INTEGRATION_GUIDE.md](docs/PROJECT_INTEGRATION_GUIDE.md)** — Jira/Git integration
-- **[TESTING_AND_DEPLOYMENT_STRATEGY.md](docs/TESTING_AND_DEPLOYMENT_STRATEGY.md)** — Testing and deployment
-- **[CONTRIBUTING.md](docs/CONTRIBUTING.md)** — Development guidelines
-- **[V-MODEL_GUIDE.md](docs/V-MODEL_GUIDE.md)** — Publication naming & V-Model mapping
-- **[SEMP.md](docs/SEMP.md)** — System Engineering Management Plan
-
-**Generated publications** are in the `publication/` folder (auto-generated, do not edit):
-- PDFs organized by V-Model phases (01_PMP, 03_SRD, 04_SAD, 06_SDD, 11_DPL, etc.)
-- Markdown grouped by publication (derived from SysML models)
-- Diagrams (PNG, auto-rendered from SysML and Graphviz)
-
-| Order | Phase | Abbr | Example PDF |
-|-------|-------|------|-------------|
-| 01 | Project Management | PMP | `01_PMP_SEMP.pdf` |
-| 02 | Stakeholder Needs | SNS | Stakeholder Needs Statement |
-| 03 | System Requirements | SRD | `03_SRD_SysMLCloudPlatform.pdf` |
-| 04 | System Architecture & Design | SAD | `04_SAD_SysMLCloudPlatform.pdf` |
-| 05 | Subsystem Requirements | SSR | Subsystem Requirements |
-| 06 | Subsystem Detailed Design | SDD | `06_SDD_FabricationDatacenterA.pdf` |
-| 07 | Implementation | SCI | Software/Code Implementation |
-| 08 | Integration | ITP | Integration Test Plan |
-| 09 | Verification | STP | System Test Plan |
-| 10 | Validation | SV | System Validation |
-| 11 | Deployment & O&M | DPL | `11_DPL_DeploymentAndOM.pdf` |
-
-- **Markdown** — Auto-generated from SysML models
-- **Diagrams** — PNG images from SysML (in `publication/images/`)
-
----
-
-## 📂 Folder Structure
-
-- `sysml/` — OMG SysML v2 source models by domain (overall-design, infrastructure, datacenter)
-- `publication/` — Generated documentation, PDFs, and diagrams
-- `configs/{instance-id}/` — Infrastructure configurations (example: cluster-a, prod-west)
-- `fabrications/{instance-id}/` — Datacenter specifications (example: datacenter-east-1)
-- `library/` — Shared SysML, Terraform, and Ansible components
-- `docs/` — User documentation
-- `scripts/` — Build automation scripts
-- `templates/` — Configuration templates
-
-See [SYSML_ARCHITECTURE_GUIDE.md](docs/SYSML_ARCHITECTURE_GUIDE.md) for detailed descriptions.
-
----
-
-## 📖 Contributing
-
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for development guidelines and workflow.
+Interested in contributing? See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines and workflow.
 
 ---
 
